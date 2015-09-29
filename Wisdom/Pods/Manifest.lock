@@ -1,0 +1,55 @@
+PODS:
+  - Adjust (4.2.7):
+    - Adjust/Core (= 4.2.7)
+  - Adjust/Core (4.2.7)
+  - Bolts/Tasks (1.2.2)
+  - Crashlytics (3.3.1)
+  - Fabric (1.5.1):
+    - Fabric/Base (= 1.5.1)
+  - Fabric/Base (1.5.1)
+  - Google/Analytics (1.0.7):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
+  - Google/Core (1.0.7):
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.0)
+  - GoogleAnalytics (3.13.0)
+  - GoogleNetworkingUtilities (1.0.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.0.0)
+  - GoogleUtilities (1.0.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - Parse (1.8.5):
+    - Bolts/Tasks (>= 1.2.2)
+
+DEPENDENCIES:
+  - Adjust (from `git://github.com/adjust/ios_sdk.git`, tag `v4.2.7`)
+  - Crashlytics
+  - Fabric
+  - Google/Analytics (~> 1.0.0)
+  - Parse
+
+EXTERNAL SOURCES:
+  Adjust:
+    :git: git://github.com/adjust/ios_sdk.git
+    :tag: v4.2.7
+
+CHECKOUT OPTIONS:
+  Adjust:
+    :git: git://github.com/adjust/ios_sdk.git
+    :tag: v4.2.7
+
+SPEC CHECKSUMS:
+  Adjust: 2c3d4db6047c6bba68d7c5ede63fbdc989eb57b7
+  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
+  Crashlytics: 0e61bdda9def51f1e99720f804eebe94865442b2
+  Fabric: 03c3b3fe77e11a2bc31421b989a9c7adaa4779a5
+  Google: 875f5a8ade86dd02e36586e4a54814843938c7f6
+  GoogleAnalytics: fcf1f1cad57ae1a9a53520018f0f680ceeeb8b49
+  GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
+  GoogleSymbolUtilities: a7b0feed1fe667c8d5e647177938d0ecd62d6948
+  GoogleUtilities: e3475cd4d45134221d2f3f3626095a1c49b62041
+  Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
+
+COCOAPODS: 0.38.2
