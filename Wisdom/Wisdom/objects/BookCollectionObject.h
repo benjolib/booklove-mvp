@@ -15,11 +15,13 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *objectID;
 @property (nonatomic, copy) NSString *collectionID;
-@property (nonatomic, copy) NSString *userID;
+@property (nonatomic, copy) NSString *author;
 @property (nonatomic, strong) PFRelation *booksRelation;
 
 - (instancetype)initWithParseObject:(PFObject*)parseObject;
 
 + (BookCollectionObject*)collectionObjectWithParse:(PFObject*)parseObject;
+
+- (NSString*)author;
 
 @end

@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Parse.h"
+#import "BookGenre.h"
 
 @interface ParseDownloadManager : NSObject
+
+#pragma mark - download methods
+- (void)downloadBooksForDate:(NSDate*)date genre:(BookGenre*)bookGenre withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock;
+
+- (void)downloadBooksForCollectionID:(NSString*)collectionID withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock;
 
 - (void)downloadQuotes;
 - (void)downloadCollectionsWithCompletionBlock:(void (^)(NSArray *collections, NSString *errorMessage))completionBlock;

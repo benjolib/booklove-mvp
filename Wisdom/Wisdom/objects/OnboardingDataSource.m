@@ -7,9 +7,11 @@
 //
 
 #import "OnboardingDataSource.h"
+#import "BookGenre.h"
 
 @interface OnboardingDataSource ()
-@property (nonatomic, strong) NSMutableDictionary *ratingsDictionary;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *ratingsDictionary;
+@property (nonatomic, strong, readwrite) NSMutableArray *savedCategoriesArray;
 @end
 
 @implementation OnboardingDataSource
@@ -20,17 +22,6 @@
 
     switch (category) {
         case OnboardingCategoryCrime: {
-            UIImage *im1 = [UIImage imageNamed:@"c1"];
-            UIImage *im2 = [UIImage imageNamed:@"c2"];
-            UIImage *im3 = [UIImage imageNamed:@"c3"];
-            UIImage *im4 = [UIImage imageNamed:@"c4"];
-            UIImage *im5 = [UIImage imageNamed:@"c5"];
-            UIImage *im6 = [UIImage imageNamed:@"c6"];
-            UIImage *im7 = [UIImage imageNamed:@"c7"];
-            UIImage *im8 = [UIImage imageNamed:@"c8"];
-
-            UIImage *star = [UIImage imageNamed:@"star"];
-
             imagesArray = @[[UIImage imageNamed:@"c1"], [UIImage imageNamed:@"c2"], [UIImage imageNamed:@"c3"],
                             [UIImage imageNamed:@"c4"], [UIImage imageNamed:@"c5"], [UIImage imageNamed:@"c6"],
                             [UIImage imageNamed:@"c7"], [UIImage imageNamed:@"c8"]];
@@ -66,25 +57,9 @@
 
 - (void)setRating:(NSInteger)ratingNumber forCategory:(OnboardingCategory)category
 {
-    switch (category) {
-        case OnboardingCategoryCrime:
-//            [self.ratingsDictionary setObject:@(ratingNumber) forKey:category];
-            break;
-        case OnboardingCategoryClassic:
+    [self.ratingsDictionary setObject:@(ratingNumber) forKey:[self convertOnboardingCategorytoString:category]];
 
-            break;
-        case OnboardingCategoryBiography:
-
-            break;
-        case OnboardingCategoryScience:
-
-            break;
-        case OnboardingCategoryTravel:
-            
-            break;
-        default:
-            break;
-    }
+    [self.savedCategoriesArray addObject:[BookGenre bookGenreWithName:[self convertOnboardingCategorytoString:category] andRating:ratingNumber]];
 }
 
 - (NSMutableDictionary*)ratingsDictionary
@@ -93,6 +68,39 @@
         _ratingsDictionary = [NSMutableDictionary dictionary];
     }
     return _ratingsDictionary;
+}
+
+- (NSMutableArray*)savedCategoriesArray
+{
+    if (!_savedCategoriesArray) {
+        _savedCategoriesArray = [NSMutableArray array];
+    }
+
+    return _savedCategoriesArray;
+}
+
+- (NSString*)convertOnboardingCategorytoString:(OnboardingCategory)category
+{
+    switch (category) {
+        case OnboardingCategoryCrime:
+            return @"Crime";
+            break;
+        case OnboardingCategoryClassic:
+            return @"Classic";
+            break;
+        case OnboardingCategoryBiography:
+            return @"Biography";
+            break;
+        case OnboardingCategoryScience:
+            return @"Science";
+            break;
+        case OnboardingCategoryTravel:
+            return @"Travel";
+            break;
+        default:
+            break;
+    }
+    return nil;
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "ParseLocalStoreManager.h"
 #import "AppDelegate.h"
 #import "BookObject.h"
+#import "BooksViewController.h"
 
 @interface LibraryViewController ()
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
@@ -41,6 +42,11 @@
     return _storageManager;
 }
 
+- (NSMutableArray *)objectsToDisplay
+{
+    return self.savedBooksArray;
+}
+
 - (IBAction)bookmarkButtonPressed:(UIButton*)button
 {
     UIView *aSuperview = [button superview];
@@ -50,7 +56,7 @@
 
     LibraryTableViewCell *cell = (LibraryTableViewCell*)aSuperview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    BookObject *object = self.savedBooksArray[indexPath.row];
+    BookObject *object = self.objectsToDisplay[indexPath.row];
 
     // remove object
     [self removeObject:object atIndexPath:indexPath];
@@ -65,7 +71,7 @@
 
     LibraryTableViewCell *cell = (LibraryTableViewCell*)aSuperview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    BookObject *object = self.savedBooksArray[indexPath.row];
+    BookObject *object = self.objectsToDisplay[indexPath.row];
 
     // add URL
     [self openWebsiteWithURL:[NSURL URLWithString:object.linkURL]];
@@ -99,14 +105,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.savedBooksArray.count;
+    return self.objectsToDisplay.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LibraryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
-    BookObject *book = self.savedBooksArray[indexPath.row];
+    BookObject *book = self.objectsToDisplay[indexPath.row];
 
     cell.bookAuthorLabel.text = book.author;
     cell.bookTitleLabel.text = book.bookTitle;
@@ -127,7 +133,7 @@
 {
     LibraryTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if (cell) {
-        BookObject *book = self.savedBooksArray[indexPath.row];
+        BookObject *book = self.objectsToDisplay[indexPath.row];
         book.image = image;
         cell.bookCoverImageView.image = image;
     }
@@ -150,7 +156,16 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"showBookDetail"]) {
+        if ([sender isKindOfClass:[LibraryTableViewCell class]]) {
+            LibraryTableViewCell *cell = (LibraryTableViewCell*)sender;
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 
+            BookObject *book = self.objectsToDisplay[indexPath.row];
+            BooksViewController *booksViewController = segue.destinationViewController;
+            booksViewController.bookToDiplay = book;
+        }
+    }
 }
 
 @end

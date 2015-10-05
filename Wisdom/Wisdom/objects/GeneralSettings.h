@@ -21,4 +21,13 @@
 + (void)setAppLaunchDate;
 + (NSDate*)appLaunchDate;
 
++ (BOOL)inviteFriendScreenNeedsToShow;
++ (void)increaseInviteFriendShowCount;
++ (void)resetInviteFriendShowCount;
+
++ (NSString*)appStoreURL;
+
++ (NSString*)favoriteCategory;
++ (void)setFavoriteCategory:(NSString*)categoryString;
+
 @end

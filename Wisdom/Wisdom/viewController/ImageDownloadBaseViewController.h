@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadingTableView.h"
 
 @class BaseImageModel;
 
 @interface ImageDownloadBaseViewController : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet LoadingTableView *tableView;
 
-- (NSArray*)objectsToDisplay;
+- (NSMutableArray*)objectsToDisplay;
 
 - (void)startImageDownloadForObject:(BaseImageModel*)object atIndexPath:(NSIndexPath*)indexPath;
 - (void)updateTableViewCellAtIndexPath:(NSIndexPath*)indexPath image:(UIImage*)image;

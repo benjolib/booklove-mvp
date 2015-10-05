@@ -8,8 +8,50 @@
 
 #import "ParseDownloadManager.h"
 #import "BookCollectionObject.h"
+#import "BookObject.h"
+#import "BookGenre.h"
 
 @implementation ParseDownloadManager
+
+#pragma mark - downloading methods
+- (void)downloadBooksForDate:(NSDate*)date genre:(BookGenre*)bookGenre withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"books"];
+
+//    [query whereKey:@"createdAt" equalTo:date];
+    [query whereKey:@"category" equalTo:bookGenre.genreName];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSMutableArray *tempArray = [NSMutableArray array];
+        for (PFObject *parseObject in objects) {
+            [tempArray addObject:[BookObject bookObjectWithParse:parseObject]];
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completionBlock) {
+                completionBlock(tempArray, error.localizedDescription);
+            }
+        });
+    }];
+}
+
+- (void)downloadBooksForCollectionID:(NSString*)collectionID withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"books"];
+    [query whereKey:@"parentCollectionIDs" containedIn:@[collectionID]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSMutableArray *tempArray = [NSMutableArray array];
+        for (PFObject *parseObject in objects) {
+            [tempArray addObject:[BookObject bookObjectWithParse:parseObject]];
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completionBlock) {
+                completionBlock(tempArray, error.localizedDescription);
+            }
+        });
+    }];
+}
 
 - (void)downloadQuotes
 {

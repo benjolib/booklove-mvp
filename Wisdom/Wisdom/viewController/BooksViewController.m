@@ -12,9 +12,21 @@
 #import "Parse.h"
 #import "BookObject.h"
 #import "LoadingImageView.h"
+#import "ParseDownloadManager.h"
+#import "BooksFlowLayout.h"
+#import "BookGenre.h"
+#import <Haneke/UIImageView+Haneke.h>
+#import "AppDelegate.h"
+#import "MainContainerViewController.h"
+
+#define TRANSFORM_CELL_VALUE CGAffineTransformMakeScale(0.9, 0.9)
+#define ANIMATION_SPEED 0.2
 
 @interface BooksViewController ()
 @property (nonatomic, strong) NSArray *booksArray;
+@property (nonatomic, strong) ParseDownloadManager *downloadManager;
+@property (nonatomic, strong) BooksFlowLayout *flowLayout;
+@property (nonatomic) BOOL isfirstTimeTransform;
 @end
 
 @implementation BooksViewController
@@ -27,18 +39,61 @@
 - (void)loadBooksForDate:(NSDate*)date
 {
     self.selectedDate = date;
-
+    [self loadBooks];
 }
 
-- (void)loadBooksForGenre:(NSString*)genreString
+- (void)loadBooksForGenre:(BookGenre*)genre
 {
-    self.selectedGenre = genreString;
-    
+    self.selectedGenre = genre;
+    [self loadBooks];
 }
 
-- (NSArray*)objectsToDisplay
+- (void)loadBooks
 {
-    return self.booksArray;
+    self.downloadManager = [[ParseDownloadManager alloc] init];
+    [self.downloadManager downloadBooksForDate:self.selectedDate genre:self.selectedGenre withCompletionBlock:^(NSArray *books, NSString *errorMessage) {
+        [self.collectionView hideLoadingIndicator];
+        if (books) {
+            self.booksArray = [books copy];
+        } else {
+            if (errorMessage) {
+
+            }
+        }
+        [self.collectionView reloadData];
+    }];
+}
+
+- (BookGenre*)selectedGenre
+{
+    if (!_selectedGenre) {
+        _selectedGenre = [[BookGenre alloc] init];
+        _selectedGenre.genreName = [GeneralSettings favoriteCategory];
+    }
+
+    return _selectedGenre;
+}
+
+- (NSMutableArray*)objectsToDisplay
+{
+    return [self.booksArray mutableCopy];
+}
+
+- (IBAction)bookFlipButtonPressed:(UIButton*)button
+{
+    UIView *aSuperview = [button superview];
+    while (![aSuperview isKindOfClass:[BooksCollectionViewCell class]]) {
+        aSuperview = [aSuperview superview];
+    }
+
+    BooksCollectionViewCell *cell = (BooksCollectionViewCell*)aSuperview;
+
+    [cell flipToShowNormalView];
+}
+
+- (IBAction)bookmarkButtonPressed:(UIButton*)button
+{
+
 }
 
 #pragma mark - collectionView methods
@@ -50,11 +105,27 @@
 
     cell.titleLabel.text = book.bookTitle;
 
-    if (book.recommendedBy) {
-
+    if ([book isRecommended]) {
+        cell.recommendWrapperView.alpha = 1.0;
+        cell.recommendSeparatorLineView.alpha = 1.0;
+        cell.recommendedByView.titleLabel.text = book.recommendedByUser.name;
+        [cell.recommendedByView.recommendedView hnk_setImageFromURL:[NSURL URLWithString:book.recommendedByUser.imageURL]];
     } else {
-        cell.recommendedByView.hidden = YES;
+        cell.recommendWrapperView.alpha = 0.0;
+        cell.recommendSeparatorLineView.alpha = 0.0;
     }
+
+    cell.subtitleLabel.text = book.sentence;
+    [cell.bookCoverImageView hnk_setImageFromURL:[NSURL URLWithString:book.imageURL]];
+
+    // TODO: check if books is saved to local datastore, if YES, show it with the bookmark icon
+    
+
+//    if (indexPath.row == 0 && self.isfirstTimeTransform) { // make a bool and set YES initially, this check will prevent fist load transform
+//        self.isfirstTimeTransform = NO;
+//    }else{
+//        cell.transform = TRANSFORM_CELL_VALUE; // the new cell will always be transform and without animation
+//    }
 
     return cell;
 }
@@ -64,19 +135,14 @@
     return self.objectsToDisplay.count;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(CGRectGetWidth(collectionView.frame) - 40.0, CGRectGetHeight(collectionView.frame) - 60.0);
-}
+    BooksCollectionViewCell *cell = (BooksCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0.0, 20.0, 0.0, 20.0);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 10.0;
+    if (!cell.cellFlipped) {
+        BookObject *book = self.objectsToDisplay[indexPath.row];
+        [cell flipToShowDetailViewWithBookObject:book];
+    }
 }
 
 - (void)loadImagesForVisibleRows
@@ -103,41 +169,132 @@
     }
 }
 
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    *targetContentOffset = scrollView.contentOffset; // set acceleration to 0.0
+    float pageWidth = (float)self.collectionView.bounds.size.width - 40;
+    int minSpace = 20;
+
+    int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5; // cell width + min spacing for lines
+    if (cellToSwipe < 0) {
+        cellToSwipe = 0;
+    } else if (cellToSwipe >= self.booksArray.count) {
+        cellToSwipe = self.booksArray.count - 1;
+    }
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+}
+
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+//{
+//    float pageWidth = CGRectGetWidth(self.collectionView.frame) - 40.0; // width + space
+//
+//    float currentOffset = scrollView.contentOffset.x;
+//    float targetOffset = targetContentOffset->x;
+//    float newTargetOffset = 0;
+//
+//    if (targetOffset > currentOffset)
+//        newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth;
+//    else
+//        newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth;
+//
+//    if (newTargetOffset < 0)
+//        newTargetOffset = 0;
+//    else if (newTargetOffset > scrollView.contentSize.width)
+//        newTargetOffset = scrollView.contentSize.width;
+//
+//    targetContentOffset->x = currentOffset;
+//    [scrollView setContentOffset:CGPointMake(newTargetOffset, 0) animated:YES];
+//
+//    int index = newTargetOffset / pageWidth;
+//
+//    if (index == 0) { // If first index
+//        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+//
+//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+//            cell.transform = CGAffineTransformIdentity;
+//        }];
+//        cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index + 1 inSection:0]];
+//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+//            cell.transform = TRANSFORM_CELL_VALUE;
+//        }];
+//    }else{
+//        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+//            cell.transform = CGAffineTransformIdentity;
+//        }];
+//
+//        index --; // left
+//        cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+//            cell.transform = TRANSFORM_CELL_VALUE;
+//        }];
+//
+//        index ++;
+//        index ++; // right
+//        cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+//            cell.transform = TRANSFORM_CELL_VALUE;
+//        }];
+//    }
+//}
+
 #pragma mark - view methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor backgroundColor];
+    self.isfirstTimeTransform = YES;
 
+    self.flowLayout = [[BooksFlowLayout alloc] init];
+    self.collectionView.collectionViewLayout = self.flowLayout;
+
+    self.recommendedByLabel.text = @"";
+    self.collectionTitleLabel.text = @"";
+
+    [self.collectionView showLoadingIndicator];
+
+    // opening from a collection
     if (self.selectedCollectionObject) {
         // load the relation object's books
-        PFRelation *booksRelation = self.selectedCollectionObject.booksRelation;
-        [booksRelation.query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            if (objects.count > 0) {
-                NSMutableArray *tempArray = [NSMutableArray array];
-                for (PFObject *parseObject in objects) {
-                    [tempArray addObject:[BookObject bookObjectWithParse:parseObject]];
-                }
-                self.booksArray = [tempArray copy];
+        if (!self.downloadManager) {
+            self.downloadManager = [[ParseDownloadManager alloc] init];
+        }
+
+        [self.downloadManager downloadBooksForCollectionID:self.selectedCollectionObject.objectID withCompletionBlock:^(NSArray *books, NSString *errorMessage) {
+            [self.collectionView hideLoadingIndicator];
+            if (books) {
+                self.booksArray = [books copy];
             } else {
-                if (error) {
+                if (errorMessage) {
                     // handle error here
                 }
             }
 
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.backButton.hidden = NO;
-                self.recommendedByLabel.hidden = NO;
-                self.collectionTitleLabel.hidden = NO;
+            self.backButton.hidden = NO;
+            self.recommendedByLabel.hidden = NO;
+            self.collectionTitleLabel.hidden = NO;
 
-                self.collectionTitleLabel.text = self.selectedCollectionObject.title;
-                [self.collectionView reloadData];
-            });
+            self.collectionTitleLabel.text = self.selectedCollectionObject.title;
+            self.recommendedByLabel.text = [self.selectedCollectionObject author];
+            
+            [self.collectionView reloadData];
         }];
-    } else {
-        self.backButton.hidden = YES;
-        self.recommendedByLabel.hidden = YES;
-        self.collectionTitleLabel.hidden = YES;
+    }
+    else
+    {
+        if (self.bookToDiplay) { // displayed from library
+            [self.collectionView hideLoadingIndicator];
+            self.booksArray = @[self.bookToDiplay];
+            self.backButton.hidden = NO;
+            self.recommendedByLabel.hidden = YES;
+            self.collectionTitleLabel.hidden = YES;
+            [self.collectionView reloadData];
+        } else {
+            [self loadBooks];
+            self.backButton.hidden = YES;
+            self.recommendedByLabel.hidden = YES;
+            self.collectionTitleLabel.hidden = YES;
+        }
     }
 }
 

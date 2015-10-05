@@ -16,6 +16,8 @@
     self.layer.cornerRadius = 4;
     self.layer.borderWidth = 1.0;
     self.layer.borderColor = [UIColor globalGreenColor].CGColor;
+    [self setTitleColor:[UIColor globalGreenColor] forState:UIControlStateNormal];
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setSelected:(BOOL)selected

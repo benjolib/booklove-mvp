@@ -30,7 +30,7 @@
     [self cancelAllImageDownloads];
 }
 
-- (NSArray*)objectsToDisplay
+- (NSMutableArray*)objectsToDisplay
 {
     return nil;
 }

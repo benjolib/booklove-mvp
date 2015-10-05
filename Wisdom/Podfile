@@ -7,5 +7,6 @@ pod 'Adjust', :git => 'git://github.com/adjust/ios_sdk.git', :tag => 'v4.2.7'
 pod 'Google/Analytics', '~> 1.0.0'
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'Haneke', '~> 1.0'
 
 end

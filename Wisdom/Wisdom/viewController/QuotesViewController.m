@@ -36,8 +36,14 @@
     self.quoteLabel.text = quote.quote;
     self.authorLabel.text = quote.author;
 
+    NSTimeInterval dismissTime = 3.0;
+
+#ifdef DEBUG
+    dismissTime = 0.5;
+#endif
+
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(dismissTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.3 animations:^{
             self.view.alpha = 0.0;
         } completion:^(BOOL finished) {

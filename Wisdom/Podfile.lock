@@ -20,6 +20,7 @@ PODS:
   - GoogleSymbolUtilities (1.0.0)
   - GoogleUtilities (1.0.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - Haneke (1.0.1)
   - Parse (1.8.5):
     - Bolts/Tasks (>= 1.2.2)
 
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - Google/Analytics (~> 1.0.0)
+  - Haneke (~> 1.0)
   - Parse
 
 EXTERNAL SOURCES:
@@ -50,6 +52,7 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: a7b0feed1fe667c8d5e647177938d0ecd62d6948
   GoogleUtilities: e3475cd4d45134221d2f3f3626095a1c49b62041
+  Haneke: d60be8b96b228633b24708dd153169d6849d6f78
   Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
 
 COCOAPODS: 0.38.2

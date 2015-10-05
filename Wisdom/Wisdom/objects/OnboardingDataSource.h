@@ -12,6 +12,9 @@
 
 @interface OnboardingDataSource : NSObject
 
+@property (nonatomic, strong, readonly) NSMutableDictionary *ratingsDictionary;
+@property (nonatomic, strong, readonly) NSMutableArray *savedCategoriesArray;
+
 - (void)setRating:(NSInteger)ratingNumber forCategory:(OnboardingCategory)category;
 
 - (NSArray*)imagesArrayForOnboardingCategory:(OnboardingCategory)category;

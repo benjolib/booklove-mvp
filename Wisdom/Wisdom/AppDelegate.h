@@ -17,7 +17,8 @@
 - (void)showPushNotificationView;
 
 - (void)hideQuotesScreen;
-- (void)hidePushNotificationView;
+
+- (void)hideInviteFriendScreen;
 
 @end
 

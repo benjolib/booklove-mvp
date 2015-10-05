@@ -15,10 +15,12 @@
 #import "StoryboardManager.h"
 #import "MainContainerViewController.h"
 #import "ParseDownloadManager.h"
+#import "OnboardingFlowLayout.h"
 
 @interface OnboardingViewController ()
 @property (nonatomic) OnboardingCategory currentlySelectedCategory;
 @property (nonatomic, strong) OnboardingDataSource *imagesDataSource;
+@property (nonatomic, strong) OnboardingFlowLayout *onboardingFlowLayout;
 @end
 
 @implementation OnboardingViewController
@@ -29,7 +31,7 @@
 
     [self.imagesDataSource setRating:button.tag forCategory:self.currentlySelectedCategory];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self showNextCategory];
     });
 }
@@ -57,11 +59,30 @@
             break;
         case OnboardingCategoryTravel:
             [GeneralSettings setOnboardingCompleted:YES];
+
+            // send user ratings
+            [self uploadUserCategorySelections:self.imagesDataSource.savedCategoriesArray];
             [self showMainView];
             break;
         default:
             break;
     }
+}
+
+- (void)uploadUserCategorySelections:(NSArray*)ratingsArray
+{
+    NSInteger maxValue = 0;
+
+    for (BookGenre *genre in ratingsArray) {
+        if (genre.selectedRating >= maxValue) {
+            maxValue = genre.selectedRating;
+            [GeneralSettings setFavoriteCategory:genre.genreName];
+        }
+    }
+
+    PFUser *currentUser = [PFUser currentUser];
+    currentUser[@"categorySelections"] = self.imagesDataSource.ratingsDictionary;
+    [currentUser saveInBackground];
 }
 
 - (void)loadCategory:(OnboardingCategory)category
@@ -116,6 +137,8 @@
 - (void)reloadImagesForCategory:(OnboardingCategory)category
 {
     [self.collectionView reloadData];
+
+    [self.view layoutIfNeeded];
 }
 
 - (void)changeTitleAccordingToCategory:(OnboardingCategory)category
@@ -153,28 +176,17 @@
 {
     ImageCollectionViewCell *cell = (ImageCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
 
-//    UIImage *image = [UIImage imageNamed:@"c1"]; // [self.imagesDataSource imagesArrayForOnboardingCategory:self.currentlySelectedCategory][indexPath.row];
-//    cell.imageView.image = image;
+    UIImage *image = [self.imagesDataSource imagesArrayForOnboardingCategory:self.currentlySelectedCategory][indexPath.row];
+    cell.imageView.image = image;
+
+    cell.imageView.layer.cornerRadius = 4.0;
 
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat viewWidth = CGRectGetWidth(collectionView.frame);
-    CGFloat viewHeight = CGRectGetHeight(collectionView.frame);
-
-    return CGSizeMake(viewWidth / 4, viewHeight / 2);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0.0, 5.0, 10.0, 5.0);
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 8; // [self.imagesDataSource imagesArrayForOnboardingCategory:self.currentlySelectedCategory].count;
+    return [self.imagesDataSource imagesArrayForOnboardingCategory:self.currentlySelectedCategory].count;
 }
 
 #pragma mark - view methods
@@ -185,12 +197,15 @@
     self.imagesDataSource = [[OnboardingDataSource alloc] init];
     [self customisation];
 
+    self.onboardingFlowLayout = [[OnboardingFlowLayout alloc] init];
+    self.collectionView.collectionViewLayout = self.onboardingFlowLayout;
+
     [self downloadQuotesInTheBackground];
 }
 
 - (void)downloadQuotesInTheBackground
 {
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void){
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void){
         ParseDownloadManager *downloadManager = [[ParseDownloadManager alloc] init];
         [downloadManager downloadQuotes];
     });

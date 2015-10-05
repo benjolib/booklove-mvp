@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, OnboardingCategory) {
 
 @class OnboardLabel, RatingButton, PopupView;
 
-@interface OnboardingViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface OnboardingViewController : UIViewController <UICollectionViewDataSource>
 
 @property (nonatomic, weak) IBOutlet OnboardLabel *crimeLabel;
 @property (nonatomic, weak) IBOutlet OnboardLabel *classicLabel;

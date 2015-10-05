@@ -19,9 +19,9 @@
 
 @implementation BookCollectionViewController
 
-- (NSArray*)objectsToDisplay
+- (NSMutableArray*)objectsToDisplay
 {
-    return self.collectionsArray;
+    return [self.collectionsArray mutableCopy];
 }
 
 #pragma mark - tableView methods
@@ -43,9 +43,9 @@
 
     cell.collectionNameLabel.text = collection.title;
 
-    if (collection.userID) {
+    if (collection.author) {
         // the user's name somehow
-        cell.titleLabel.text = @"";
+        cell.titleLabel.text = [collection author];
     } else {
         cell.titleLabel.text = @"";
     }
@@ -83,7 +83,6 @@
             // open this thingy
             BooksViewController *booksViewController = segue.destinationViewController;
             booksViewController.selectedCollectionObject = collection;
-
         }
     }
 }
@@ -91,8 +90,12 @@
 #pragma mark - view methods
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    [self.tableView showLoadingIndicator];
+
     self.parseDownloadManager = [[ParseDownloadManager alloc] init];
     [self.parseDownloadManager downloadCollectionsWithCompletionBlock:^(NSArray *collections, NSString *errorMessage) {
+        [self.tableView hideLoadingIndicator];
         if (collections) {
             self.collectionsArray = [collections copy];
         } else {

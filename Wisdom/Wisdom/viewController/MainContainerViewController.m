@@ -151,7 +151,7 @@
 
             id viewController = [self viewControllerAtMenuItem:MenuItemLibrary];
             if (!viewController) {
-                viewController = [StoryboardManager libraryViewController];
+                viewController = [StoryboardManager libraryNavigationController];
             }
             [self startTransitionToViewController:viewController];
             break;
@@ -204,7 +204,7 @@
             break;
         }
         case MenuItemCollection: {
-            targetClassString = @"BookCollectionViewController";
+            targetClassString = @"CollectionsNavigationController";
             break;
         }
         case MenuItemBooks: {
@@ -212,7 +212,7 @@
             break;
         }
         case MenuItemLibrary: {
-            targetClassString = @"LibraryViewController";
+            targetClassString = @"LibraryNavigationController";
             break;
         }
         default:
@@ -264,7 +264,7 @@
     }
     else
     {
-        [cell setSelected:[booksViewController.selectedGenre isEqualToString:itemToDisplay]];
+        [cell setSelected:[booksViewController.selectedGenre.genreName isEqualToString:itemToDisplay]];
 
         cell.titleLabel.text = (NSString*)itemToDisplay;
     }
@@ -304,7 +304,7 @@
         {
             BooksViewController *booksViewController = (BooksViewController*)self.currentViewController;
 
-            if (![booksViewController.selectedGenre isEqualToString:newGenreString]) {
+            if (![booksViewController.selectedGenre.genreName isEqualToString:newGenreString]) {
                 [booksViewController loadBooksForGenre:[self.selectionDatasource objectAtIndexPath:indexPath]];
             }
         }
@@ -392,6 +392,8 @@
     self.bottomContainerView.layer.shadowOffset = CGSizeMake(0.0, -1.0);
     self.bottomContainerView.layer.shadowOpacity = 0.2;
     self.bottomContainerView.layer.shadowRadius = 1.5;
+
+    self.genreLabel.text = [GeneralSettings favoriteCategory];
 }
 
 - (void)checkToShowQuotesView

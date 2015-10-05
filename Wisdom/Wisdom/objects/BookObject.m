@@ -24,9 +24,9 @@
         self.author = parseObject[@"author"];
         self.bookDescription = parseObject[@"description"];
         self.bookTitle = parseObject[@"title"];
+        self.sentence = parseObject[@"sentence"];
 
-        PFFile *imageFile = parseObject[@"image"];
-        self.imageURL = imageFile.url;
+        self.imageURL = parseObject[@"coverImage"];
 
         self.linkURL = parseObject[@"purchaseLink"];
         self.price = parseObject[@"price"];
@@ -34,8 +34,20 @@
         self.bookYear = parseObject[@"year"];
         self.sentence = parseObject[@"sentence"];
         self.parseID = parseObject.objectId;
+
+        NSDictionary *recommendedBy = parseObject[@"recommendedBy"];
+        self.recommendedByUser = [[RecommendedByUser alloc] initWithName:recommendedBy[@"name"] andURL:recommendedBy[@"image"]];
     }
     return self;
+}
+
+- (BOOL)isRecommended
+{
+    if (![self.recommendedByUser isEmpty]) {
+        return YES;
+    }
+
+    return NO;
 }
 
 @end

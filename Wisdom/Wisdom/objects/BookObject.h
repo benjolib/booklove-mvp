@@ -7,6 +7,7 @@
 //
 
 #import "BaseImageModel.h"
+#import "RecommendedByUser.h"
 
 @class PFObject;
 
@@ -22,11 +23,13 @@
 @property (nonatomic, copy) NSString *bookTitle;
 @property (nonatomic, copy) NSString *sentence;
 @property (nonatomic, strong) NSNumber *bookYear;
-@property (nonatomic, copy) NSString *recommendedBy;
+@property (nonatomic, strong) RecommendedByUser *recommendedByUser;
 // needs category
 
 - (instancetype)initWithParseObject:(PFObject*)parseObject;
 
 + (BookObject*)bookObjectWithParse:(PFObject*)parseObject;
+
+- (BOOL)isRecommended;
 
 @end

@@ -13,6 +13,11 @@
 #import <Parse/Parse.h>
 #import "QuotesViewController.h"
 #import "PushNotificationViewController.h"
+#import "InviteFriendViewController.h"
+#import "EmailViewController.h"
+
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 #define IS_iOS8 [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0
 
@@ -20,7 +25,11 @@
 @interface AppDelegate ()
 @property (nonatomic, strong) QuotesViewController *quotesViewController;
 @property (nonatomic, strong) PushNotificationViewController *pushNotificaitonViewController;
+@property (nonatomic, strong) InviteFriendViewController *inviteFriendViewController;
+@property (nonatomic, strong) EmailViewController *emailViewController;
+
 @property (nonatomic, strong) NSTimer *pushNotificationTimer;
+@property (nonatomic, strong) NSTimer *inviteFriendTimer;
 @end
 
 @implementation AppDelegate
@@ -47,14 +56,28 @@
     [self.window.rootViewController.view addSubview:self.pushNotificaitonViewController.view];
 }
 
-- (void)hidePushNotificationView
+- (void)showInviteFriendScreen
+{
+    self.inviteFriendViewController = [StoryboardManager inviteFriendViewController];
+    self.inviteFriendViewController.view.frame = self.window.frame;
+    [self.window.rootViewController.view addSubview:self.inviteFriendViewController.view];
+}
+
+- (void)hideInviteFriendScreen
 {
     [UIView animateWithDuration:0.3 animations:^{
-        self.pushNotificaitonViewController.view.alpha = 0.0;
+        self.inviteFriendViewController.view.alpha = 0.0;
     } completion:^(BOOL finished) {
-        [self.pushNotificaitonViewController.view removeFromSuperview];
-        self.pushNotificaitonViewController = nil;
+        [self.inviteFriendViewController.view removeFromSuperview];
+        self.inviteFriendViewController = nil;
     }];
+}
+
+- (void)showEmailFieldScreen
+{
+    self.emailViewController = [StoryboardManager emailViewController];
+    self.emailViewController.view.frame = self.window.frame;
+    [self.window.rootViewController.view addSubview:self.emailViewController.view];
 }
 
 #pragma mark - push notification timer methods
@@ -76,11 +99,31 @@
     self.pushNotificationTimer = nil;
 }
 
+#pragma mark - invite friend view
+- (void)startInviteFriendTimer
+{
+    [self stopPushNotificationTimer];
+    self.inviteFriendTimer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(inviteFriendTimerFired) userInfo:nil repeats:NO];
+}
+
+- (void)inviteFriendTimerFired
+{
+    [self stopInviteFriendTimer];
+    [self showInviteFriendScreen];
+}
+
+- (void)stopInviteFriendTimer
+{
+    [self.inviteFriendTimer invalidate];
+    self.inviteFriendTimer = nil;
+}
+
 #pragma mark - app launch methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"FqdCInc5wYV5Hk2kDVF0mIF2l5WvqhIFyXTaUhw9" clientKey:@"78xx8sl0wFaqK97BWnqev2C4I3LPv9XpEhIv76Vv"];
+    [Fabric with:@[[Crashlytics class]]];
 
     if ([GeneralSettings onboardingCompleted]) {
         self.window.rootViewController = [StoryboardManager mainContainerViewController];
@@ -98,7 +141,73 @@
         [GeneralSettings setAppLaunchDate];
     }
 
+    if ([GeneralSettings inviteFriendScreenNeedsToShow]) {
+        [self startInviteFriendTimer];
+        [GeneralSettings resetInviteFriendShowCount];
+    } else {
+        [GeneralSettings increaseInviteFriendShowCount];
+    }
+
+    [self createAnonymousUser];
+
     return YES;
+}
+
+- (void)createAnonymousUser
+{
+    NSString *userID = [self uuid];
+
+    if (![PFUser currentUser]) {
+        // we don't have a user yet
+
+        PFUser *user = [PFUser user];
+        user.username = userID;
+        user.password = [self randomizeString:userID];
+
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                // sign up successful
+            } else {
+                NSLog(@"Error occured at signup: %@", error.localizedDescription);
+            }
+        }];
+
+//        [PFAnonymousUtils logInWithBlock:^(PFUser * _Nullable user, NSError * _Nullable error) {
+//            if (error) {
+//                // error occured
+//            } else {
+//                NSLog(@"Current user: %@", user);
+//            }
+//        }];
+    } else {
+        // user already exists
+        NSLog(@"current user: %@", [PFUser currentUser]);
+    }
+}
+
+- (NSString *)randomizeString:(NSString *)str
+{
+    NSMutableString *input = [str mutableCopy];
+    NSMutableString *output = [NSMutableString string];
+
+    NSUInteger len = input.length;
+
+    for (NSUInteger i = 0; i < len; i++) {
+        NSInteger index = arc4random_uniform((unsigned int)input.length);
+        [output appendFormat:@"%C", [input characterAtIndex:index]];
+        [input replaceCharactersInRange:NSMakeRange(index, 1) withString:@""];
+    }
+
+    return output;
+}
+
+- (NSString *)uuid
+{
+    UIDevice *device = [UIDevice currentDevice];
+    NSString  *currentDeviceId = [[device identifierForVendor] UUIDString];
+
+    currentDeviceId = [currentDeviceId stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    return currentDeviceId;
 }
 
 #pragma mark - push notification

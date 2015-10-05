@@ -10,6 +10,4 @@
 
 @interface RatingButton : UIButton
 
-
-
 @end

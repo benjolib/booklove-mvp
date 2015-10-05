@@ -19,6 +19,7 @@
         self.collectionID = parseObject[@"collectionId"];
         self.objectID = [parseObject objectId];
         self.imageURL = parseObject[@"imageUrl"];
+        self.author = parseObject[@"author"];
 
         self.booksRelation = [parseObject relationForKey:@"books"];
     }
@@ -28,6 +29,20 @@
 + (BookCollectionObject*)collectionObjectWithParse:(PFObject*)parseObject
 {
     return [[BookCollectionObject alloc] initWithParseObject:parseObject];
+}
+
+- (NSString*)author
+{
+    return [NSString stringWithFormat:@"%@'%@ %@", _author, [self stringToShowAfterAuthorName], @"favorites"];
+}
+
+- (NSString*)stringToShowAfterAuthorName
+{
+    if ([[_author substringFromIndex:_author.length - 1] isEqualToString:@"s"]) {
+        return @"";
+    } else {
+        return @"s";
+    }
 }
 
 @end

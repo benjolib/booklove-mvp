@@ -35,6 +35,16 @@
     return (PushNotificationViewController*)[[self notificationStoryboard] instantiateInitialViewController];
 }
 
++ (InviteFriendViewController*)inviteFriendViewController
+{
+    return (InviteFriendViewController*)[[self notificationStoryboard] instantiateViewControllerWithIdentifier:@"inviteFriendViewController"];
+}
+
++ (EmailViewController*)emailViewController
+{
+    return (EmailViewController*)[[self notificationStoryboard] instantiateViewControllerWithIdentifier:@"EmailViewController"];
+}
+
 + (MainContainerViewController*)mainContainerViewController
 {
     return (MainContainerViewController*)[[self mainStoryboard] instantiateInitialViewController];
@@ -50,9 +60,14 @@
     return (QuotesViewController*)[[self onboardingStoryboard] instantiateViewControllerWithIdentifier:@"QuotesViewController"];
 }
 
-+ (UINavigationController*)collectionNavigationController
++ (CollectionsNavigationController*)collectionNavigationController
 {
-    return (UINavigationController*)[[self mainStoryboard] instantiateViewControllerWithIdentifier:@"collectionNavigationController"];
+    return (CollectionsNavigationController*)[[self mainStoryboard] instantiateViewControllerWithIdentifier:@"collectionNavigationController"];
+}
+
++ (LibraryNavigationController*)libraryNavigationController
+{
+    return (LibraryNavigationController*)[[self mainStoryboard] instantiateViewControllerWithIdentifier:@"libraryNavigationController"];
 }
 
 + (BookCollectionViewController*)bookCollectionViewController
