@@ -48,6 +48,11 @@
     [self openSelectionViewWithOption:MainContainerSelectedItemDate];
 }
 
+- (IBAction)donateButtonPressed:(id)sender
+{
+    // show donate view
+}
+
 - (void)openSelectionViewWithOption:(MainContainerSelectedItem)selectedItem
 {
     [self.selectionDatasource loadItemsForSelectedItem:selectedItem];

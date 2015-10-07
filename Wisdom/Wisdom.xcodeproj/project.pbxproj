@@ -45,6 +45,7 @@
 		56B648151BBD38F800641E43 /* LibraryNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B648141BBD38F800641E43 /* LibraryNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		56B648181BBD392900641E43 /* CollectionsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B648171BBD392900641E43 /* CollectionsNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		56B6481B1BBD4DEB00641E43 /* RecommendedByUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B6481A1BBD4DEB00641E43 /* RecommendedByUser.m */; settings = {ASSET_TAGS = (); }; };
+		56BC7E6E1BC4EEA500BC90D1 /* DonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BC7E6D1BC4EEA500BC90D1 /* DonateViewController.m */; settings = {ASSET_TAGS = (); }; };
 		56C01C951BB9AF1300873885 /* BookObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C01C941BB9AF1300873885 /* BookObject.m */; settings = {ASSET_TAGS = (); }; };
 		56C01C9A1BB9B47E00873885 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C01C971BB9B47E00873885 /* ImageDownloader.m */; settings = {ASSET_TAGS = (); }; };
 		56C01C9B1BB9B47E00873885 /* ImageDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C01C991BB9B47E00873885 /* ImageDownloadManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -167,6 +168,8 @@
 		56B648171BBD392900641E43 /* CollectionsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionsNavigationController.m; sourceTree = "<group>"; };
 		56B648191BBD4DEB00641E43 /* RecommendedByUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedByUser.h; sourceTree = "<group>"; };
 		56B6481A1BBD4DEB00641E43 /* RecommendedByUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedByUser.m; sourceTree = "<group>"; };
+		56BC7E6C1BC4EEA500BC90D1 /* DonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonateViewController.h; sourceTree = "<group>"; };
+		56BC7E6D1BC4EEA500BC90D1 /* DonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonateViewController.m; sourceTree = "<group>"; };
 		56C01C931BB9AF1300873885 /* BookObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookObject.h; sourceTree = "<group>"; };
 		56C01C941BB9AF1300873885 /* BookObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookObject.m; sourceTree = "<group>"; };
 		56C01C961BB9B47E00873885 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
@@ -410,6 +413,8 @@
 				56FA8C501BAFFB4F0040D21E /* InviteFriendViewController.m */,
 				56115DF21BB53CE6004D95AF /* EmailViewController.h */,
 				56115DF31BB53CE6004D95AF /* EmailViewController.m */,
+				56BC7E6C1BC4EEA500BC90D1 /* DonateViewController.h */,
+				56BC7E6D1BC4EEA500BC90D1 /* DonateViewController.m */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -763,6 +768,7 @@
 				56C01CA11BB9B4DC00873885 /* BaseImageModel.m in Sources */,
 				56115DEC1BB527EA004D95AF /* QuotesViewController.m in Sources */,
 				564D81F81BBA7C3900BC2E49 /* SelectionCollectionViewCell.m in Sources */,
+				56BC7E6E1BC4EEA500BC90D1 /* DonateViewController.m in Sources */,
 				56DD90B31BB2B20200FBD895 /* PopupView.m in Sources */,
 				565EFF001BAFE27E00B227E1 /* main.m in Sources */,
 				56DD90AA1BB299FE00FBD895 /* OnboardingDataSource.m in Sources */,
