@@ -13,12 +13,15 @@
 
 @interface ParseLocalStoreManager : NSObject
 
++ (instancetype)sharedManager;
+- (void)fetchSavedBooksObjectIDs;
+
 - (void)loadLibraryBooksWithCompletionBlock:(void (^)(NSArray *booksArray, NSString *errorMessage))completionBlock;
 - (void)loadRandomQuoteWithCompletionBlock:(void (^)(QuoteObject *quote))completionBlock;
 
-- (void)storeParseObjectLocally:(PFObject*)parseObject;
-- (void)removeObjectFromLocalStore:(BookObject*)parseObject completionBlock:(void (^)(BOOL succeeded, NSString *errorMessage))completionBlock;
+- (void)storeBookObjectLocally:(BookObject*)book;
+- (void)removeObjectFromLocalStore:(BookObject*)bookObject;
 
-- (BOOL)isObjectSavedLocally:(PFObject*)parseObject;
+- (BOOL)isBookSavedLocally:(BookObject*)bookObject;
 
 @end

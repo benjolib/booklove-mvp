@@ -15,6 +15,7 @@
 		56115DEC1BB527EA004D95AF /* QuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115DEB1BB527EA004D95AF /* QuotesViewController.m */; settings = {ASSET_TAGS = (); }; };
 		56115DF41BB53CE6004D95AF /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115DF31BB53CE6004D95AF /* EmailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		561D16A31BBD082F00BA7475 /* BooksFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D16A21BBD082F00BA7475 /* BooksFlowLayout.m */; settings = {ASSET_TAGS = (); }; };
+		5626E1AF1BC7A7D800D567E7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5626E1AE1BC7A7D800D567E7 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		564D81E91BBA664500BC2E49 /* BookCollectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 564D81E81BBA664500BC2E49 /* BookCollectionObject.m */; settings = {ASSET_TAGS = (); }; };
 		564D81EC1BBA674300BC2E49 /* BooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564D81EB1BBA674300BC2E49 /* BooksViewController.m */; settings = {ASSET_TAGS = (); }; };
 		564D81EF1BBA684100BC2E49 /* BooksCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 564D81EE1BBA684100BC2E49 /* BooksCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -30,7 +31,6 @@
 		565EFF031BAFE27E00B227E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 565EFF021BAFE27E00B227E1 /* AppDelegate.m */; };
 		565EFF091BAFE27E00B227E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565EFF071BAFE27E00B227E1 /* Main.storyboard */; };
 		565EFF0C1BAFE27E00B227E1 /* Wisdom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 565EFF0A1BAFE27E00B227E1 /* Wisdom.xcdatamodeld */; };
-		565EFF111BAFE27E00B227E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565EFF0F1BAFE27E00B227E1 /* LaunchScreen.storyboard */; };
 		565EFF1C1BAFE27E00B227E1 /* WisdomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 565EFF1B1BAFE27E00B227E1 /* WisdomTests.m */; };
 		565EFF271BAFE27F00B227E1 /* WisdomUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 565EFF261BAFE27F00B227E1 /* WisdomUITests.m */; };
 		565EFF381BAFE2A900B227E1 /* StoryboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 565EFF371BAFE2A900B227E1 /* StoryboardManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -109,6 +109,7 @@
 		56115DF31BB53CE6004D95AF /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
 		561D16A11BBD082F00BA7475 /* BooksFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksFlowLayout.h; sourceTree = "<group>"; };
 		561D16A21BBD082F00BA7475 /* BooksFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksFlowLayout.m; sourceTree = "<group>"; };
+		5626E1AE1BC7A7D800D567E7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		564D81E71BBA664500BC2E49 /* BookCollectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionObject.h; sourceTree = "<group>"; };
 		564D81E81BBA664500BC2E49 /* BookCollectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionObject.m; sourceTree = "<group>"; };
 		564D81EA1BBA674300BC2E49 /* BooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksViewController.h; sourceTree = "<group>"; };
@@ -138,7 +139,6 @@
 		565EFF081BAFE27E00B227E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		565EFF0B1BAFE27E00B227E1 /* Wisdom.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wisdom.xcdatamodel; sourceTree = "<group>"; };
 		565EFF0D1BAFE27E00B227E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		565EFF101BAFE27E00B227E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		565EFF121BAFE27E00B227E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565EFF171BAFE27E00B227E1 /* WisdomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WisdomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565EFF1B1BAFE27E00B227E1 /* WisdomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WisdomTests.m; sourceTree = "<group>"; };
@@ -300,7 +300,6 @@
 				565EFF341BAFE28E00B227E1 /* ViewControllers */,
 				565EFF351BAFE29500B227E1 /* Storyboards */,
 				565EFF0D1BAFE27E00B227E1 /* Assets.xcassets */,
-				565EFF0F1BAFE27E00B227E1 /* LaunchScreen.storyboard */,
 				565EFF121BAFE27E00B227E1 /* Info.plist */,
 				565EFF0A1BAFE27E00B227E1 /* Wisdom.xcdatamodeld */,
 				565EFEFE1BAFE27E00B227E1 /* Supporting Files */,
@@ -368,6 +367,7 @@
 				565EFF451BAFE5CC00B227E1 /* Notification.storyboard */,
 				565EFF361BAFE2A900B227E1 /* StoryboardManager.h */,
 				565EFF371BAFE2A900B227E1 /* StoryboardManager.m */,
+				5626E1AE1BC7A7D800D567E7 /* Launch Screen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -643,9 +643,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				56DD90B01BB2AC2C00FBD895 /* Assets.xcassets in Resources */,
-				565EFF111BAFE27E00B227E1 /* LaunchScreen.storyboard in Resources */,
 				565EFF091BAFE27E00B227E1 /* Main.storyboard in Resources */,
 				565EFF441BAFE3B200B227E1 /* Onboarding.storyboard in Resources */,
+				5626E1AF1BC7A7D800D567E7 /* Launch Screen.storyboard in Resources */,
 				565EFF461BAFE5CC00B227E1 /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -816,14 +816,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		565EFF0F1BAFE27E00B227E1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				565EFF101BAFE27E00B227E1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -912,7 +904,7 @@
 			baseConfigurationReference = 0A99FA23A469358A9C5F13F8 /* Pods-Wisdom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -938,7 +930,7 @@
 			baseConfigurationReference = 5DBCC774A30C62DED046DFDB /* Pods-Wisdom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -955,7 +947,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wisdom.Wisdom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2bc69b66-48a0-44b6-a7a7-8610dfe9fc31";
 			};
 			name = Release;
 		};

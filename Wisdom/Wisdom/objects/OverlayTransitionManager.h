@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "PushNotificationViewController.h"
+#import "DonateViewController.h"
 
 @interface OverlayTransitionManager : NSObject <UIViewControllerTransitioningDelegate>
 
 //- (OverlayViewController*)presentOverlayViewWithType:(OverlayType)type onViewController:(UIViewController*)viewController;
 
 - (PushNotificationViewController*)presentPushNotificationViewOnViewController:(UIViewController*)viewController;
+- (DonateViewController*)presentDonateViewOnViewController:(UIViewController*)viewController;
 
 @end

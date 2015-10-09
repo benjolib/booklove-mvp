@@ -41,6 +41,26 @@
     return self;
 }
 
+- (PFObject*)convertToParseObject
+{
+    PFObject *parseBook = [PFObject objectWithClassName:@"books"];
+    parseBook[@"author"] = self.author ? self.author : @"";
+    parseBook[@"description"] = self.bookDescription ? self.bookDescription : @"";
+    parseBook[@"title"] = self.bookTitle ? self.bookTitle : @"";
+    parseBook[@"coverImage"] = self.imageURL ? self.imageURL : @"";
+    parseBook[@"purchaseLink"] = self.linkURL ? self.linkURL : @"";
+    parseBook[@"price"] = self.price ? self.price : 0;
+    parseBook[@"recommendedAt"] = self.recommendedAt ? self.recommendedAt : @"";
+    parseBook[@"year"] = self.bookYear ? self.bookYear : 0;
+    parseBook[@"sentence"] = self.sentence ? self.sentence : @"";
+    parseBook.objectId = self.parseID;
+
+    if (![self.recommendedByUser isEmpty]) {
+        parseBook[@"recommendedBy"] = @{@"name": self.recommendedByUser.name, @"image": self.recommendedByUser.imageURL};
+    }
+    return parseBook;
+}
+
 - (BOOL)isRecommended
 {
     if (![self.recommendedByUser isEmpty]) {

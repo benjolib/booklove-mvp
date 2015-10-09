@@ -14,6 +14,8 @@
 #import "MainContainerSelectionDatasource.h"
 #import "BooksViewController.h"
 #import "NSDate+Helper.h"
+#import "OverlayTransitionManager.h"
+#import "TabButton.h"
 
 @interface MainContainerViewController ()
 @property (nonatomic) MenuItem currentMenuItem;
@@ -21,6 +23,7 @@
 @property (nonatomic) CGFloat defaultTopbarYOrigin;
 @property (nonatomic, strong) MainContainerSelectionDatasource *selectionDatasource;
 @property (nonatomic) MainContainerSelectedItem currentlySelectedItem;
+@property (nonatomic, strong) OverlayTransitionManager *overlayTransitionManager;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @end
 
@@ -34,7 +37,17 @@
         self.genreLabel.alpha = 1.0;
     }];
 
-    [self openSelectionViewWithOption:MainContainerSelectedItemGenre];
+    if (self.currentlySelectedItem == MainContainerSelectedItemGenre) {
+        [self hideSelectionView];
+    } else {
+        if (self.selectionViewHeightConstraint.constant != 0) {
+            self.currentlySelectedItem = MainContainerSelectedItemGenre;
+            [self.selectionDatasource loadItemsForSelectedItem:MainContainerSelectedItemGenre];
+            [self.selectionCollectionView reloadData];
+        } else {
+            [self openSelectionViewWithOption:MainContainerSelectedItemGenre];
+        }
+    }
 }
 
 - (IBAction)dateButtonPressed:(id)sender
@@ -45,12 +58,24 @@
         self.dateLabel.alpha = 1.0;
     }];
 
-    [self openSelectionViewWithOption:MainContainerSelectedItemDate];
+    if (self.currentlySelectedItem == MainContainerSelectedItemDate) {
+        [self hideSelectionView];
+    } else {
+        if (self.selectionViewHeightConstraint.constant != 0) {
+            self.currentlySelectedItem = MainContainerSelectedItemDate;
+            [self.selectionDatasource loadItemsForSelectedItem:MainContainerSelectedItemDate];
+            [self.selectionCollectionView reloadData];
+        } else {
+            [self openSelectionViewWithOption:MainContainerSelectedItemDate];
+        }
+    }
 }
 
 - (IBAction)donateButtonPressed:(id)sender
 {
     // show donate view
+    self.overlayTransitionManager = [[OverlayTransitionManager alloc] init];
+    [self.overlayTransitionManager presentDonateViewOnViewController:self];
 }
 
 - (void)openSelectionViewWithOption:(MainContainerSelectedItem)selectedItem
@@ -64,6 +89,7 @@
 - (void)openSelectionView
 {
     self.selectionViewHeightConstraint.constant = CGRectGetHeight(self.containerView.frame) - 50.0;
+    self.bottomYOriginConstraint.constant = -self.selectionViewHeightConstraint.constant;
 
     [self.selectionCollectionView reloadData];
 
@@ -83,7 +109,8 @@
 - (void)hideSelectionView
 {
     self.selectionViewHeightConstraint.constant = 0.0;
-    
+    self.bottomYOriginConstraint.constant = 0.0;
+
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
     }];
@@ -92,7 +119,7 @@
 #pragma mark - changing views
 - (IBAction)collectionButtonPressed:(id)sender
 {
-    self.buttonSelectionViewCenterConstraint.constant = -CGRectGetWidth(self.view.frame)/3;
+    self.buttonSelectionViewCenterConstraint.constant = -CGRectGetMaxX(self.libraryButton.frame)/3;
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
     }];
@@ -112,7 +139,7 @@
 
 - (IBAction)libraryButtonPressed:(id)sender
 {
-    self.buttonSelectionViewCenterConstraint.constant = CGRectGetWidth(self.view.frame)/3;
+    self.buttonSelectionViewCenterConstraint.constant = CGRectGetMaxX(self.libraryButton.frame)/3;
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
     }];

@@ -19,7 +19,12 @@
     PFQuery *query = [PFQuery queryWithClassName:@"books"];
 
 //    [query whereKey:@"createdAt" equalTo:date];
-    [query whereKey:@"category" equalTo:bookGenre.genreName];
+    if (bookGenre.genreName) {
+        [query whereKey:@"category" equalTo:bookGenre.genreName];
+    } else {
+        [query whereKey:@"category" equalTo:@"crime"];
+    }
+
 
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *tempArray = [NSMutableArray array];

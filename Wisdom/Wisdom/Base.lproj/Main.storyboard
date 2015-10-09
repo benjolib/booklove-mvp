@@ -39,7 +39,7 @@
                                         </constraints>
                                         <state key="normal" image="reloadIcon"/>
                                         <connections>
-                                            <segue destination="v9f-Fq-1zg" kind="modal" identifier="showDonateView" id="tOL-UY-ugC"/>
+                                            <action selector="donateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="50Z-zO-yfg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -76,7 +76,7 @@
                                             <constraint firstAttribute="height" constant="46" id="DWj-0i-Acq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
-                                        <state key="normal" title="COLLECTION"/>
+                                        <state key="normal" title="COLLECTIONS"/>
                                         <connections>
                                             <action selector="collectionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dNH-PE-kYG"/>
                                         </connections>
@@ -145,8 +145,8 @@
                                             <constraint firstAttribute="height" constant="30" id="mpZ-Ef-9cK"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="December, 12th 2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-hf-Xga">
-                                        <rect key="frame" x="23" y="26" width="115" height="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-hf-Xga">
+                                        <rect key="frame" x="64" y="26" width="33" height="14"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="0.70980392156862748" green="0.41568627450980389" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
@@ -193,7 +193,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56S-yL-Hbu">
-                                <rect key="frame" x="107" y="522" width="107" height="2"/>
+                                <rect key="frame" x="92" y="522" width="92" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.70980392160000005" green="0.41568627450000001" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -255,19 +255,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Q6W-vg-4NS" secondAttribute="trailing" id="4NU-uN-bSh"/>
-                            <constraint firstItem="56S-yL-Hbu" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/3" id="5eh-qF-pCO"/>
                             <constraint firstItem="wl3-Lu-rHA" firstAttribute="top" secondItem="VNp-Yd-8VX" secondAttribute="bottom" id="8dy-g0-wqM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vMt-Lf-uKO" secondAttribute="bottom" id="Abs-qt-LCZ"/>
                             <constraint firstItem="VNp-Yd-8VX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ByF-DC-aQG"/>
-                            <constraint firstItem="56S-yL-Hbu" firstAttribute="top" secondItem="Q6W-vg-4NS" secondAttribute="bottom" id="CoE-4q-c45"/>
                             <constraint firstAttribute="trailing" secondItem="wl3-Lu-rHA" secondAttribute="trailing" id="RDK-7g-FKU"/>
+                            <constraint firstItem="56S-yL-Hbu" firstAttribute="width" secondItem="vMt-Lf-uKO" secondAttribute="width" multiplier="1/3" id="SDI-ue-GKI"/>
+                            <constraint firstItem="56S-yL-Hbu" firstAttribute="centerX" secondItem="vMt-Lf-uKO" secondAttribute="centerX" id="Wd4-OZ-aWd"/>
                             <constraint firstItem="Q6W-vg-4NS" firstAttribute="top" secondItem="wl3-Lu-rHA" secondAttribute="bottom" id="YkD-oX-fvs"/>
                             <constraint firstAttribute="trailing" secondItem="47T-Du-bcg" secondAttribute="trailing" id="Ztz-Xz-yur"/>
                             <constraint firstItem="vMt-Lf-uKO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="a7Z-hq-nXI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="47T-Du-bcg" secondAttribute="bottom" id="bso-ie-raE"/>
                             <constraint firstItem="Q6W-vg-4NS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fiu-pz-CJX"/>
                             <constraint firstItem="47T-Du-bcg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fw8-dI-bjI"/>
-                            <constraint firstItem="56S-yL-Hbu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hDY-55-ylU"/>
+                            <constraint firstItem="56S-yL-Hbu" firstAttribute="top" secondItem="vMt-Lf-uKO" secondAttribute="top" id="imB-kT-DN7"/>
                             <constraint firstItem="vMt-Lf-uKO" firstAttribute="top" secondItem="Q6W-vg-4NS" secondAttribute="bottom" id="n5n-WD-KDn"/>
                             <constraint firstAttribute="trailing" secondItem="VNp-Yd-8VX" secondAttribute="trailing" id="wtr-s3-2Z6"/>
                             <constraint firstItem="Zk6-xc-TSK" firstAttribute="leading" secondItem="vMt-Lf-uKO" secondAttribute="trailing" id="x5F-64-bIV"/>
@@ -279,8 +279,9 @@
                     <connections>
                         <outlet property="booksButton" destination="XDG-sE-dLl" id="KAI-6D-j27"/>
                         <outlet property="bottomContainerView" destination="47T-Du-bcg" id="e3f-xL-06a"/>
+                        <outlet property="bottomYOriginConstraint" destination="n5n-WD-KDn" id="WfW-ez-jeb"/>
                         <outlet property="buttonSelectionView" destination="56S-yL-Hbu" id="jli-n9-Pvr"/>
-                        <outlet property="buttonSelectionViewCenterConstraint" destination="hDY-55-ylU" id="RwR-2R-SSy"/>
+                        <outlet property="buttonSelectionViewCenterConstraint" destination="Wd4-OZ-aWd" id="sno-9S-Hlr"/>
                         <outlet property="collectionButton" destination="REa-5h-VkZ" id="BXc-tN-jsF"/>
                         <outlet property="containerView" destination="Q6W-vg-4NS" id="0ZH-8g-H4V"/>
                         <outlet property="dateButton" destination="zUG-WK-5zj" id="HOK-hu-zDQ"/>
@@ -580,7 +581,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4n-tT-q5n" customClass="BooksDetailView">
                                                     <rect key="frame" x="0.0" y="0.0" width="280" height="460"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tF2-tO-Btq">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tF2-tO-Btq" userLabel="backButton">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                             <animations/>
                                                             <constraints>
@@ -592,7 +593,7 @@
                                                                 <action selector="bookFlipButtonPressed:" destination="4Qf-s8-Fu0" eventType="touchUpInside" id="gFs-R8-7zc"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNH-dK-CuR">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNH-dK-CuR" userLabel="favoriteButton">
                                                             <rect key="frame" x="236" y="0.0" width="44" height="44"/>
                                                             <animations/>
                                                             <constraints>
@@ -786,6 +787,7 @@
                                                     <connections>
                                                         <outlet property="authorLabel" destination="sH7-lZ-Wgc" id="04F-Os-KQ2"/>
                                                         <outlet property="bookTitleLabel" destination="LoQ-Kg-iB3" id="Gl8-lz-kTA"/>
+                                                        <outlet property="bookmarkButton" destination="SNH-dK-CuR" id="VIu-Wy-Ciz"/>
                                                         <outlet property="buyButton" destination="RC3-9a-UNM" id="2Zd-aY-eop"/>
                                                         <outlet property="coverImageView" destination="HhN-ph-pRg" id="1eb-wl-d6A"/>
                                                         <outlet property="descriptionLabel" destination="kwl-Hu-UfW" id="VLP-KH-zB1"/>
@@ -988,6 +990,7 @@
                         <outlet property="backButton" destination="oDS-tf-RP5" id="SVh-uc-dmD"/>
                         <outlet property="collectionTitleLabel" destination="NgJ-Ia-gxQ" id="XDg-wu-gfd"/>
                         <outlet property="collectionView" destination="nVd-za-eNd" id="jpg-OX-s8W"/>
+                        <outlet property="collectionViewTopBorderLayoutConstraint" destination="t6Z-Q1-f1X" id="bCs-8M-zYn"/>
                         <outlet property="recommendedByLabel" destination="e7V-TH-3pe" id="CVP-ig-afn"/>
                     </connections>
                 </viewController>
@@ -1020,7 +1023,7 @@
         <!--Donate View Controller-->
         <scene sceneID="OgO-AX-FZn">
             <objects>
-                <viewController id="v9f-Fq-1zg" customClass="DonateViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="donateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v9f-Fq-1zg" customClass="DonateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="udF-fq-QvV"/>
                         <viewControllerLayoutGuide type="bottom" id="qm0-Or-Y9g"/>
@@ -1050,15 +1053,22 @@
                                             <action selector="donateButtonPressed" destination="v9f-Fq-1zg" eventType="touchUpInside" id="E4Q-F1-ZCI"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donate money to a charity organization of your choice everytime you purchase a book through the BookLove app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="BGS-OW-oCg">
-                                        <rect key="frame" x="20" y="197" width="240" height="61"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="BGS-OW-oCg">
+                                        <rect key="frame" x="20" y="211" width="240" height="56"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Donate to a charity of your choice each time you purchase a book using the BookLove app">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" headIndent="5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="PdG-99-MV3">
-                                        <rect key="frame" x="10" y="134" width="260" height="43"/>
+                                        <rect key="frame" x="10" y="148" width="260" height="43"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="You want to do something good?">
@@ -1072,7 +1082,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A9b-Mo-WiH">
-                                        <rect key="frame" x="115" y="80" width="50" height="34"/>
+                                        <rect key="frame" x="115" y="99" width="50" height="34"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="qdw-ay-Vno"/>
@@ -1091,24 +1101,157 @@
                                             <action selector="closeButtonPressed" destination="v9f-Fq-1zg" eventType="touchUpInside" id="YvQ-1y-dyJ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNm-Bp-pSh">
+                                        <rect key="frame" x="30" y="287" width="230" height="34"/>
+                                        <animations/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Support your favorite chartiable organizations">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOY-Hg-8Uv">
+                                        <rect key="frame" x="30" y="326" width="230" height="33"/>
+                                        <animations/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Choose from among nearly one million charities">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fao-Gw-f7a">
+                                        <rect key="frame" x="30" y="370" width="230" height="16"/>
+                                        <animations/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="No additional cost to you">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez4-oG-O5U">
+                                        <rect key="frame" x="30" y="391" width="230" height="33"/>
+                                        <animations/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Same low prices for books as on Amazon.com">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiY-Sy-2cR" userLabel="dot view">
+                                        <rect key="frame" x="20" y="294" width="4" height="4"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="67Q-js-482"/>
+                                            <constraint firstAttribute="width" constant="4" id="SeX-oT-et1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgL-JA-Fw0" userLabel="dot view">
+                                        <rect key="frame" x="20" y="334" width="4" height="4"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="4" id="QX6-wE-RIp"/>
+                                            <constraint firstAttribute="height" constant="4" id="rxS-Dy-hqH"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OU3-dY-g5G" userLabel="dot view">
+                                        <rect key="frame" x="20" y="378" width="4" height="4"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="Aqu-hr-vFp"/>
+                                            <constraint firstAttribute="width" constant="4" id="lAy-of-0oI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEK-sp-pXi" userLabel="dot view">
+                                        <rect key="frame" x="20" y="399" width="4" height="4"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="BZk-Bo-Dcc"/>
+                                            <constraint firstAttribute="width" constant="4" id="Hcv-rc-U4r"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="fao-Gw-f7a" firstAttribute="top" secondItem="mOY-Hg-8Uv" secondAttribute="bottom" constant="11" id="1rd-uu-ev7"/>
                                     <constraint firstItem="A9b-Mo-WiH" firstAttribute="centerX" secondItem="8Rp-xY-bh0" secondAttribute="centerX" id="2Fu-4D-jIf"/>
-                                    <constraint firstItem="PdG-99-MV3" firstAttribute="top" secondItem="A9b-Mo-WiH" secondAttribute="bottom" constant="20" id="4PB-ES-EKQ"/>
+                                    <constraint firstItem="OU3-dY-g5G" firstAttribute="leading" secondItem="lgL-JA-Fw0" secondAttribute="leading" id="2hA-nD-9Uc"/>
+                                    <constraint firstItem="PdG-99-MV3" firstAttribute="top" secondItem="A9b-Mo-WiH" secondAttribute="bottom" constant="15" id="4PB-ES-EKQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="VNm-Bp-pSh" secondAttribute="trailing" constant="20" id="4x8-rV-geH"/>
                                     <constraint firstAttribute="trailing" secondItem="PdG-99-MV3" secondAttribute="trailing" constant="10" id="98C-LD-1uU"/>
+                                    <constraint firstItem="fao-Gw-f7a" firstAttribute="leading" secondItem="mOY-Hg-8Uv" secondAttribute="leading" id="AKM-RS-r4s"/>
+                                    <constraint firstItem="OU3-dY-g5G" firstAttribute="top" secondItem="fao-Gw-f7a" secondAttribute="top" constant="8" id="Aza-Bn-rIF"/>
                                     <constraint firstAttribute="trailing" secondItem="BGS-OW-oCg" secondAttribute="trailing" constant="20" id="BQD-0G-syL"/>
+                                    <constraint firstItem="lgL-JA-Fw0" firstAttribute="leading" secondItem="LiY-Sy-2cR" secondAttribute="leading" id="CXW-fx-8ZO"/>
                                     <constraint firstAttribute="trailing" secondItem="cb0-xg-FXM" secondAttribute="trailing" id="Eio-Wa-WxA"/>
                                     <constraint firstItem="BGS-OW-oCg" firstAttribute="centerX" secondItem="8Rp-xY-bh0" secondAttribute="centerX" id="H0o-0s-tvK"/>
+                                    <constraint firstItem="PEK-sp-pXi" firstAttribute="leading" secondItem="OU3-dY-g5G" secondAttribute="leading" id="HgR-St-jcP"/>
                                     <constraint firstItem="cb0-xg-FXM" firstAttribute="top" secondItem="8Rp-xY-bh0" secondAttribute="top" id="Iqj-ER-pas"/>
                                     <constraint firstItem="BGS-OW-oCg" firstAttribute="leading" secondItem="8Rp-xY-bh0" secondAttribute="leading" constant="20" id="L1O-Y6-W5W"/>
+                                    <constraint firstItem="Ez4-oG-O5U" firstAttribute="leading" secondItem="fao-Gw-f7a" secondAttribute="leading" id="Lt1-b8-QAM"/>
+                                    <constraint firstItem="BGS-OW-oCg" firstAttribute="centerY" secondItem="8Rp-xY-bh0" secondAttribute="centerY" id="NTj-I5-hf6"/>
+                                    <constraint firstItem="mOY-Hg-8Uv" firstAttribute="top" secondItem="VNm-Bp-pSh" secondAttribute="bottom" constant="5" id="OiI-T7-dIT"/>
+                                    <constraint firstItem="PEK-sp-pXi" firstAttribute="top" secondItem="Ez4-oG-O5U" secondAttribute="top" constant="8" id="Ryc-QW-HVY"/>
+                                    <constraint firstItem="VNm-Bp-pSh" firstAttribute="leading" secondItem="BGS-OW-oCg" secondAttribute="leading" constant="10" id="So0-2J-xfz"/>
+                                    <constraint firstItem="mOY-Hg-8Uv" firstAttribute="leading" secondItem="VNm-Bp-pSh" secondAttribute="leading" id="Syy-9M-uIc"/>
+                                    <constraint firstItem="fao-Gw-f7a" firstAttribute="trailing" secondItem="mOY-Hg-8Uv" secondAttribute="trailing" id="XCQ-Br-cNK"/>
+                                    <constraint firstItem="LiY-Sy-2cR" firstAttribute="leading" secondItem="BGS-OW-oCg" secondAttribute="leading" id="XhJ-i5-dyc"/>
                                     <constraint firstItem="PdG-99-MV3" firstAttribute="leading" secondItem="8Rp-xY-bh0" secondAttribute="leading" constant="10" id="Z2c-3B-qJs"/>
                                     <constraint firstAttribute="bottom" secondItem="wLg-QY-EeP" secondAttribute="bottom" id="b5e-2a-hMC"/>
                                     <constraint firstItem="BGS-OW-oCg" firstAttribute="top" secondItem="PdG-99-MV3" secondAttribute="bottom" constant="20" id="bB7-Rb-Z5m"/>
+                                    <constraint firstItem="Ez4-oG-O5U" firstAttribute="top" secondItem="fao-Gw-f7a" secondAttribute="bottom" constant="5" id="bJp-sH-nsJ"/>
                                     <constraint firstItem="wLg-QY-EeP" firstAttribute="leading" secondItem="8Rp-xY-bh0" secondAttribute="leading" id="bNk-Df-2kh"/>
-                                    <constraint firstItem="A9b-Mo-WiH" firstAttribute="top" secondItem="8Rp-xY-bh0" secondAttribute="top" constant="80" id="gmb-HH-7k2"/>
+                                    <constraint firstItem="A9b-Mo-WiH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8Rp-xY-bh0" secondAttribute="top" constant="80" id="gmb-HH-7k2"/>
+                                    <constraint firstItem="LiY-Sy-2cR" firstAttribute="top" secondItem="VNm-Bp-pSh" secondAttribute="top" constant="7" id="hhf-mH-CMi"/>
+                                    <constraint firstItem="mOY-Hg-8Uv" firstAttribute="trailing" secondItem="VNm-Bp-pSh" secondAttribute="trailing" id="m0M-lF-J9i"/>
+                                    <constraint firstItem="Ez4-oG-O5U" firstAttribute="trailing" secondItem="fao-Gw-f7a" secondAttribute="trailing" id="nz7-cB-ZZc"/>
+                                    <constraint firstItem="VNm-Bp-pSh" firstAttribute="top" secondItem="BGS-OW-oCg" secondAttribute="bottom" constant="20" id="rdp-0A-8mV"/>
                                     <constraint firstAttribute="trailing" secondItem="wLg-QY-EeP" secondAttribute="trailing" id="sq2-Ix-Zch"/>
+                                    <constraint firstItem="lgL-JA-Fw0" firstAttribute="top" secondItem="mOY-Hg-8Uv" secondAttribute="top" constant="8" id="wxp-NL-s18"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1121,6 +1264,7 @@
                             <constraint firstItem="8Rp-xY-bh0" firstAttribute="top" secondItem="udF-fq-QvV" secondAttribute="bottom" constant="50" id="SHB-H4-amU"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKm-DC-572" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

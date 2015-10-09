@@ -30,4 +30,6 @@
 - (void)flipToShowDetailViewWithBookObject:(BookObject*)book;
 - (void)flipToShowNormalView;
 
+- (void)setIsStoredLocally:(BOOL)isStoredLocally;
+
 @end

@@ -59,4 +59,13 @@
     [self.booksDetailView setupViewWithBookObject:book];
 }
 
+- (void)setIsStoredLocally:(BOOL)isStoredLocally
+{
+    if (isStoredLocally) {
+
+    } else {
+
+    }
+}
+
 @end

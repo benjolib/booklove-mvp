@@ -20,6 +20,14 @@
     return pushNotificationView;
 }
 
+- (DonateViewController*)presentDonateViewOnViewController:(UIViewController*)viewController
+{
+    DonateViewController *donateViewController = [StoryboardManager donateViewController];
+    donateViewController.transitioningDelegate = self;
+    [viewController presentViewController:donateViewController animated:YES completion:nil];
+    return donateViewController;
+}
+
 //- (OverlayViewController*)presentOverlayViewWithType:(OverlayType)type onViewController:(UIViewController*)viewController
 //{
 //    OverlayViewController *overlayViewController = [StoryboardManager overlayViewController];

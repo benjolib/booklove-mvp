@@ -30,6 +30,8 @@
 
 + (BookObject*)bookObjectWithParse:(PFObject*)parseObject;
 
+- (PFObject*)convertToParseObject;
+
 - (BOOL)isRecommended;
 
 @end

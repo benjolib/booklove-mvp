@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *selectionViewHeightConstraint;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *topbarYOriginConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomYOriginConstraint;
+
 @property (nonatomic, weak) IBOutlet UIView *topbarView;
 @property (nonatomic, weak) IBOutlet UIView *bottomContainerView;
 @property (nonatomic, weak) IBOutlet TabButton *collectionButton;

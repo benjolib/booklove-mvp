@@ -8,6 +8,7 @@
 
 #import "BooksDetailView.h"
 #import <Haneke/UIImageView+Haneke.h>
+#import "ParseLocalStoreManager.h"
 
 @interface BooksDetailView ()
 @property (nonatomic, strong) CALayer *topBorderLayer;
@@ -61,6 +62,12 @@
     } else {
         self.recommendWrapperViewHeightConstraint.constant = 0.0;
         [self layoutIfNeeded];
+    }
+
+    if ([[ParseLocalStoreManager sharedManager] isBookSavedLocally:bookObject]) {
+        [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmarkIcon"] forState:UIControlStateNormal];
+    } else {
+        [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmarkInactive"] forState:UIControlStateNormal];
     }
 
     self.bookToDisplay = bookObject;

@@ -12,7 +12,39 @@
 #import "BookObject.h"
 #include <stdlib.h>
 
+@interface ParseLocalStoreManager ()
+@property (nonatomic, strong) NSMutableArray *locallySavedObjectIDs;
+@end
+
 @implementation ParseLocalStoreManager
+
++ (instancetype)sharedManager
+{
+    static ParseLocalStoreManager *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    return sharedManager;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self fetchSavedBooksObjectIDs];
+    }
+    return self;
+}
+
+- (NSMutableArray*)locallySavedObjectIDs
+{
+    if (!_locallySavedObjectIDs) {
+        _locallySavedObjectIDs = [[NSMutableArray alloc] init];
+    }
+
+    return _locallySavedObjectIDs;
+}
 
 - (void)loadLibraryBooksWithCompletionBlock:(void (^)(NSArray *booksArray, NSString *errorMessage))completionBlock
 {
@@ -55,24 +87,51 @@
     }];
 }
 
-- (void)storeParseObjectLocally:(PFObject*)parseObject
+- (void)storeBookObjectLocally:(BookObject*)book
 {
+    [self.locallySavedObjectIDs addObject:book.parseID];
 
-}
-
-- (void)removeObjectFromLocalStore:(BookObject*)parseObject completionBlock:(void (^)(BOOL succeeded, NSString *errorMessage))completionBlock
-{
-    [[PFObject objectWithoutDataWithObjectId:parseObject.parseID] unpinInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (completionBlock) {
-            completionBlock(succeeded, error.localizedDescription);
+    PFObject *parseObject = [book convertToParseObject];
+    [parseObject pinInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (!succeeded) {
+            [self.locallySavedObjectIDs removeObject:book.parseID];
         }
-    }];
 
+        [self fetchSavedBooksObjectIDs];
+    }];
 }
 
-- (BOOL)isObjectSavedLocally:(PFObject*)parseObject
+- (void)removeObjectFromLocalStore:(BookObject*)bookObject
 {
-    return NO;
+    [self.locallySavedObjectIDs removeObject:bookObject.parseID];
+
+    [[bookObject convertToParseObject] unpinInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            [self.locallySavedObjectIDs removeObject:bookObject.parseID];
+        } else {
+            [self.locallySavedObjectIDs addObject:bookObject.parseID];
+        }
+        [self fetchSavedBooksObjectIDs];
+    }];
+}
+
+- (BOOL)isBookSavedLocally:(BookObject*)bookObject
+{
+    return [self.locallySavedObjectIDs containsObject:bookObject.parseID];
+}
+
+- (void)fetchSavedBooksObjectIDs
+{
+    PFQuery *bookQuery = [PFQuery queryWithClassName:@"books"];
+    [bookQuery fromLocalDatastore];
+    [bookQuery selectKeys:@[@"objectId"]];
+    [bookQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSMutableArray *tempArray = [NSMutableArray array];
+        for (PFObject *object in objects) {
+            [tempArray addObject:object.objectId];
+        }
+        self.locallySavedObjectIDs = [tempArray mutableCopy];
+    }];
 }
 
 #pragma mark - private methods

@@ -16,14 +16,13 @@
 @interface LibraryViewController ()
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 @property (nonatomic, strong) NSMutableArray *savedBooksArray;
-@property (nonatomic, strong) ParseLocalStoreManager *storageManager;
 @end
 
 @implementation LibraryViewController
 
 - (void)loadSavedBooks
 {
-    [self.storageManager loadLibraryBooksWithCompletionBlock:^(NSArray *booksArray, NSString *errorMessage) {
+    [[ParseLocalStoreManager sharedManager] loadLibraryBooksWithCompletionBlock:^(NSArray *booksArray, NSString *errorMessage) {
         if (errorMessage) {
 
         } else {
@@ -31,15 +30,6 @@
             [self.tableView reloadData];
         }
     }];
-}
-
-- (ParseLocalStoreManager*)storageManager
-{
-    if (!_storageManager) {
-        _storageManager = [[ParseLocalStoreManager alloc] init];
-    }
-
-    return _storageManager;
 }
 
 - (NSMutableArray *)objectsToDisplay
@@ -84,17 +74,12 @@
 
 - (void)removeObject:(BookObject*)object atIndexPath:(NSIndexPath*)indexPath
 {
-    [self.storageManager removeObjectFromLocalStore:object completionBlock:^(BOOL succeeded, NSString *errorMessage) {
-        if (succeeded) {
-            [self.savedBooksArray removeObject:object];
+    [[ParseLocalStoreManager sharedManager] removeObjectFromLocalStore:object];
+    [self.savedBooksArray removeObject:object];
 
-            [self.tableView beginUpdates];
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView endUpdates];
-        } else {
-            // handle error here
-        }
-    }];
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
 }
 
 #pragma mark - tableView methods

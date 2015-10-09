@@ -15,6 +15,7 @@
 #import "PushNotificationViewController.h"
 #import "InviteFriendViewController.h"
 #import "EmailViewController.h"
+#import "ParseLocalStoreManager.h"
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
@@ -149,6 +150,8 @@
     }
 
     [self createAnonymousUser];
+
+    [ParseLocalStoreManager sharedManager];
 
     return YES;
 }

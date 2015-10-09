@@ -13,6 +13,7 @@
 #import "BookObject.h"
 #import "LoadingImageView.h"
 #import "ParseDownloadManager.h"
+#import "ParseLocalStoreManager.h"
 #import "BooksFlowLayout.h"
 #import "BookGenre.h"
 #import <Haneke/UIImageView+Haneke.h>
@@ -50,7 +51,6 @@
 
 - (void)loadBooks
 {
-    self.downloadManager = [[ParseDownloadManager alloc] init];
     [self.downloadManager downloadBooksForDate:self.selectedDate genre:self.selectedGenre withCompletionBlock:^(NSArray *books, NSString *errorMessage) {
         [self.collectionView hideLoadingIndicator];
         if (books) {
@@ -87,13 +87,28 @@
     }
 
     BooksCollectionViewCell *cell = (BooksCollectionViewCell*)aSuperview;
-
     [cell flipToShowNormalView];
 }
 
 - (IBAction)bookmarkButtonPressed:(UIButton*)button
 {
+    UIView *aSuperview = [button superview];
+    while (![aSuperview isKindOfClass:[BooksCollectionViewCell class]]) {
+        aSuperview = [aSuperview superview];
+    }
 
+    BooksCollectionViewCell *cell = (BooksCollectionViewCell*)aSuperview;
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+
+    BookObject *book = self.objectsToDisplay[indexPath.row];
+
+    if ([[ParseLocalStoreManager sharedManager] isBookSavedLocally:book]) {
+        [[ParseLocalStoreManager sharedManager] removeObjectFromLocalStore:book];
+    } else {
+        [[ParseLocalStoreManager sharedManager] storeBookObjectLocally:book];
+    }
+
+    [cell.booksDetailView setupViewWithBookObject:book];
 }
 
 #pragma mark - collectionView methods
@@ -117,10 +132,7 @@
 
     cell.subtitleLabel.text = book.sentence;
     [cell.bookCoverImageView hnk_setImageFromURL:[NSURL URLWithString:book.imageURL]];
-
-    // TODO: check if books is saved to local datastore, if YES, show it with the bookmark icon
     
-
 //    if (indexPath.row == 0 && self.isfirstTimeTransform) { // make a bool and set YES initially, this check will prevent fist load transform
 //        self.isfirstTimeTransform = NO;
 //    }else{
@@ -171,17 +183,19 @@
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    *targetContentOffset = scrollView.contentOffset; // set acceleration to 0.0
-    float pageWidth = (float)self.collectionView.bounds.size.width - 40;
-    int minSpace = 20;
+    if (scrollView == self.collectionView) {
+        *targetContentOffset = scrollView.contentOffset; // set acceleration to 0.0
+        float pageWidth = (float)self.collectionView.bounds.size.width - 40;
+        int minSpace = 20;
 
-    int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5; // cell width + min spacing for lines
-    if (cellToSwipe < 0) {
-        cellToSwipe = 0;
-    } else if (cellToSwipe >= self.booksArray.count) {
-        cellToSwipe = self.booksArray.count - 1;
+        int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5; // cell width + min spacing for lines
+        if (cellToSwipe < 0) {
+            cellToSwipe = 0;
+        } else if (cellToSwipe >= self.booksArray.count) {
+            cellToSwipe = self.booksArray.count - 1;
+        }
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
 //- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
@@ -238,6 +252,15 @@
 //    }
 //}
 
+- (ParseDownloadManager*)downloadManager
+{
+    if (!_downloadManager) {
+        _downloadManager = [[ParseDownloadManager alloc] init];
+    }
+
+    return _downloadManager;
+}
+
 #pragma mark - view methods
 - (void)viewDidLoad
 {
@@ -254,11 +277,10 @@
     [self.collectionView showLoadingIndicator];
 
     // opening from a collection
-    if (self.selectedCollectionObject) {
-        // load the relation object's books
-        if (!self.downloadManager) {
-            self.downloadManager = [[ParseDownloadManager alloc] init];
-        }
+    if (self.selectedCollectionObject)
+    {
+        self.collectionViewTopBorderLayoutConstraint.constant = 40.0;
+        [self.view layoutIfNeeded];
 
         [self.downloadManager downloadBooksForCollectionID:self.selectedCollectionObject.objectID withCompletionBlock:^(NSArray *books, NSString *errorMessage) {
             [self.collectionView hideLoadingIndicator];
@@ -283,6 +305,9 @@
     else
     {
         if (self.bookToDiplay) { // displayed from library
+            self.collectionViewTopBorderLayoutConstraint.constant = 40.0;
+            [self.view layoutIfNeeded];
+
             [self.collectionView hideLoadingIndicator];
             self.booksArray = @[self.bookToDiplay];
             self.backButton.hidden = NO;

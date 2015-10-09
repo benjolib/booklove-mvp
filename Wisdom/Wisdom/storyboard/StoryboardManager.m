@@ -30,6 +30,11 @@
 }
 
 #pragma mark - viewcontrollers
++ (DonateViewController*)donateViewController
+{
+    return (DonateViewController*)[[self mainStoryboard] instantiateViewControllerWithIdentifier:@"donateViewController"];
+}
+
 + (PushNotificationViewController*)pushNotificationViewController
 {
     return (PushNotificationViewController*)[[self notificationStoryboard] instantiateInitialViewController];

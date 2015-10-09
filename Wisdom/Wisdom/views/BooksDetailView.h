@@ -23,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *descriptionTitleLabel;
 @property (nonatomic, weak) IBOutlet BuyButton *buyButton;
+@property (nonatomic, weak) IBOutlet UIButton *bookmarkButton;
 @property (nonatomic, weak) IBOutlet LoadingImageView *coverImageView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *recommendWrapperViewHeightConstraint;
 @property (nonatomic, weak) IBOutlet UIView *recommendWrapperView;

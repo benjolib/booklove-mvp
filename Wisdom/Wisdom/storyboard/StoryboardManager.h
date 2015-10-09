@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class MainContainerViewController, BookCollectionViewController, BooksViewController, QuotesViewController, LibraryViewController, OnboardingViewController, PushNotificationViewController, InviteFriendViewController, LibraryNavigationController, CollectionsNavigationController, EmailViewController;
+@class MainContainerViewController, BookCollectionViewController, BooksViewController, QuotesViewController, LibraryViewController, OnboardingViewController, PushNotificationViewController, InviteFriendViewController, LibraryNavigationController, CollectionsNavigationController, EmailViewController, DonateViewController;
 
 @interface StoryboardManager : NSObject
 
 + (PushNotificationViewController*)pushNotificationViewController;
 + (MainContainerViewController*)mainContainerViewController;
++ (DonateViewController*)donateViewController;
 
 + (InviteFriendViewController*)inviteFriendViewController;
 + (EmailViewController*)emailViewController;

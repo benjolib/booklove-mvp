@@ -8,15 +8,11 @@
 
 #import "DonateViewController.h"
 
-@interface DonateViewController ()
-
-@end
-
 @implementation DonateViewController
 
 - (IBAction)donateButtonPressed
 {
-
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://smile.amazon.com/about"]];
 }
 
 - (IBAction)closeButtonPressed
@@ -25,15 +21,9 @@
 }
 
 #pragma mark - view methods
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
