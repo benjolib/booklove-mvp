@@ -194,7 +194,6 @@
     self.flowLayout = [BooksFlowLayout layoutConfiguredWithCollectionView:self.collectionView
                                                                  itemSize:CGSizeMake(CGRectGetWidth(self.collectionView.frame) - 40.0, CGRectGetHeight(self.collectionView.frame) - 60.0)
                                                         minimumLineSpacing:0];
-//    self.collectionView.collectionViewLayout = self.flowLayout;
 
     self.recommendedByLabel.text = @"";
     self.collectionTitleLabel.text = @"";

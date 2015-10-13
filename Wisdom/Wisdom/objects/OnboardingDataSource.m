@@ -21,7 +21,7 @@
     NSArray *imagesArray = nil;
 
     switch (category) {
-        case OnboardingCategoryCrime: {
+        case OnboardingCategoryMystery: {
             imagesArray = @[[UIImage imageNamed:@"c1"], [UIImage imageNamed:@"c2"], [UIImage imageNamed:@"c3"],
                             [UIImage imageNamed:@"c4"], [UIImage imageNamed:@"c5"], [UIImage imageNamed:@"c6"],
                             [UIImage imageNamed:@"c7"], [UIImage imageNamed:@"c8"]];
@@ -47,6 +47,18 @@
             imagesArray = @[[UIImage imageNamed:@"t1"], [UIImage imageNamed:@"t2"], [UIImage imageNamed:@"t3"],
                             [UIImage imageNamed:@"t4"], [UIImage imageNamed:@"t5"], [UIImage imageNamed:@"t6"],
                             [UIImage imageNamed:@"t7"], [UIImage imageNamed:@"t8"]];
+            break;
+        case OnboardingCategoryFiction:
+//            imagesArray = @[[UIImage imageNamed:@"t1"], [UIImage imageNamed:@"t2"], [UIImage imageNamed:@"t3"],
+//                            [UIImage imageNamed:@"t4"], [UIImage imageNamed:@"t5"], [UIImage imageNamed:@"t6"],
+//                            [UIImage imageNamed:@"t7"], [UIImage imageNamed:@"t8"]];
+            imagesArray = @[];
+            break;
+        case OnboardingCategoryHumanities:
+//            imagesArray = @[[UIImage imageNamed:@"t1"], [UIImage imageNamed:@"t2"], [UIImage imageNamed:@"t3"],
+//                            [UIImage imageNamed:@"t4"], [UIImage imageNamed:@"t5"], [UIImage imageNamed:@"t6"],
+//                            [UIImage imageNamed:@"t7"], [UIImage imageNamed:@"t8"]];
+            imagesArray = @[];
             break;
         default:
             break;
@@ -82,8 +94,8 @@
 - (NSString*)convertOnboardingCategorytoString:(OnboardingCategory)category
 {
     switch (category) {
-        case OnboardingCategoryCrime:
-            return @"Crime";
+        case OnboardingCategoryMystery:
+            return @"Mystery";
             break;
         case OnboardingCategoryClassic:
             return @"Classic";
@@ -96,6 +108,12 @@
             break;
         case OnboardingCategoryTravel:
             return @"Travel";
+            break;
+        case OnboardingCategoryHumanities:
+            return @"Humanities";
+            break;
+        case OnboardingCategoryFiction:
+            return @"Fiction";
             break;
         default:
             break;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -33,11 +33,10 @@
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zk6-xc-TSK">
                                         <rect key="frame" x="276" y="0.0" width="44" height="46"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.1764705882" green="0.42745098040000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="f2u-zp-QnP"/>
                                         </constraints>
-                                        <state key="normal" image="reloadIcon"/>
+                                        <state key="normal" image="donateSmiley"/>
                                         <connections>
                                             <action selector="donateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="50Z-zO-yfg"/>
                                         </connections>
@@ -340,7 +339,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tH-qA-6nd">
-                                                    <rect key="frame" x="100" y="29" width="170" height="16"/>
+                                                    <rect key="frame" x="100" y="29" width="170" height="15.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -359,7 +358,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Benjamin Libor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opL-Ld-d28">
-                                                    <rect key="frame" x="100" y="50" width="170" height="12"/>
+                                                    <rect key="frame" x="100" y="49" width="170" height="12"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                     <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
@@ -381,7 +380,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 9.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v38-of-7oh">
-                                                    <rect key="frame" x="100" y="102" width="65" height="16"/>
+                                                    <rect key="frame" x="100" y="102" width="65" height="15.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.36078431370000003" green="0.50980392159999999" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -430,18 +429,55 @@
                                     <outlet property="delegate" destination="oaS-P0-kwB" id="dE4-2J-yCv"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isU-ZW-uom">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="emptyBooksIcon" translatesAutoresizingMaskIntoConstraints="NO" id="r73-fm-ojf">
+                                        <rect key="frame" x="113" y="198" width="93" height="72"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have not saved any books in Library" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="oKq-oQ-vtt">
+                                        <rect key="frame" x="30" y="300" width="260" height="35"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.30980392156862746" green="0.32549019607843138" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Bookmark your favorite books, to add them to your very own library)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23e-TL-giq">
+                                        <rect key="frame" x="30" y="350" width="260" height="33"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.6705882352941176" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oKq-oQ-vtt" secondAttribute="trailing" constant="30" id="DTa-NV-cTh"/>
+                                    <constraint firstItem="oKq-oQ-vtt" firstAttribute="leading" secondItem="isU-ZW-uom" secondAttribute="leading" constant="30" id="IzS-an-tc7"/>
+                                    <constraint firstItem="23e-TL-giq" firstAttribute="trailing" secondItem="oKq-oQ-vtt" secondAttribute="trailing" id="L8w-n3-LBX"/>
+                                    <constraint firstItem="23e-TL-giq" firstAttribute="leading" secondItem="oKq-oQ-vtt" secondAttribute="leading" id="PzR-y5-Hr0"/>
+                                    <constraint firstItem="r73-fm-ojf" firstAttribute="centerY" secondItem="isU-ZW-uom" secondAttribute="centerY" constant="-50" id="UwS-B9-JG1"/>
+                                    <constraint firstItem="23e-TL-giq" firstAttribute="top" secondItem="oKq-oQ-vtt" secondAttribute="bottom" constant="15" id="mnl-pF-tL7"/>
+                                    <constraint firstItem="r73-fm-ojf" firstAttribute="centerX" secondItem="isU-ZW-uom" secondAttribute="centerX" id="n4U-by-to1"/>
+                                    <constraint firstItem="oKq-oQ-vtt" firstAttribute="centerX" secondItem="isU-ZW-uom" secondAttribute="centerX" id="nPp-DK-sjS"/>
+                                    <constraint firstItem="oKq-oQ-vtt" firstAttribute="top" secondItem="r73-fm-ojf" secondAttribute="bottom" constant="30" id="rwT-a7-Wap"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="isU-ZW-uom" firstAttribute="top" secondItem="ZNr-XN-28n" secondAttribute="bottom" id="7x3-OC-vAi"/>
+                            <constraint firstItem="isU-ZW-uom" firstAttribute="leading" secondItem="YqZ-Ih-x4l" secondAttribute="leading" id="NDO-5e-8St"/>
                             <constraint firstAttribute="trailing" secondItem="ki2-b7-l0T" secondAttribute="trailing" id="WQa-q0-VdV"/>
                             <constraint firstItem="ki2-b7-l0T" firstAttribute="leading" secondItem="YqZ-Ih-x4l" secondAttribute="leading" id="ain-l9-bXS"/>
                             <constraint firstItem="ki2-b7-l0T" firstAttribute="top" secondItem="ZNr-XN-28n" secondAttribute="bottom" id="e2r-Yh-aM3"/>
                             <constraint firstItem="1Rn-34-QLK" firstAttribute="top" secondItem="ki2-b7-l0T" secondAttribute="bottom" id="gc9-ZK-92I"/>
+                            <constraint firstItem="1Rn-34-QLK" firstAttribute="top" secondItem="isU-ZW-uom" secondAttribute="bottom" id="qMU-G5-yMt"/>
+                            <constraint firstAttribute="trailing" secondItem="isU-ZW-uom" secondAttribute="trailing" id="xjn-rm-s8K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6oH-tk-Nnp"/>
                     <connections>
+                        <outlet property="emptyView" destination="isU-ZW-uom" id="Lvg-2w-ENl"/>
                         <outlet property="tableView" destination="ki2-b7-l0T" id="cR8-0H-0Vl"/>
                     </connections>
                 </viewController>
@@ -557,11 +593,11 @@
                         <viewControllerLayoutGuide type="bottom" id="LJ6-9a-Qpw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M8Y-2g-yIF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nVd-za-eNd" customClass="LoadingCollectionView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Iez-JO-dfo">
@@ -572,7 +608,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="vbn-so-pMO" customClass="BooksCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="6" width="280" height="460"/>
+                                        <rect key="frame" x="0.0" y="54" width="280" height="460"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="460"/>
@@ -954,14 +990,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dan's favorite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-TH-3pe">
-                                <rect key="frame" x="125" y="5" width="71" height="14"/>
+                                <rect key="frame" x="125" y="5" width="70.5" height="13.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 Fantastical Sci-Fi Books That Will Make You Think " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgJ-Ia-gxQ">
-                                <rect key="frame" x="63" y="24" width="194" height="28"/>
+                                <rect key="frame" x="63" y="23" width="194" height="28"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.70980392160000005" green="0.41568627450000001" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -1054,7 +1090,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="BGS-OW-oCg">
-                                        <rect key="frame" x="20" y="211" width="240" height="56"/>
+                                        <rect key="frame" x="20" y="211.5" width="240" height="55.5"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="Donate to a charity of your choice each time you purchase a book using the BookLove app">
@@ -1068,7 +1104,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="PdG-99-MV3">
-                                        <rect key="frame" x="10" y="148" width="260" height="43"/>
+                                        <rect key="frame" x="10" y="149" width="260" height="42.5"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="You want to do something good?">
@@ -1081,8 +1117,8 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A9b-Mo-WiH">
-                                        <rect key="frame" x="115" y="99" width="50" height="34"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="donateIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A9b-Mo-WiH">
+                                        <rect key="frame" x="115" y="100" width="50" height="34"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="qdw-ay-Vno"/>
@@ -1130,7 +1166,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fao-Gw-f7a">
-                                        <rect key="frame" x="30" y="370" width="230" height="16"/>
+                                        <rect key="frame" x="30" y="370" width="230" height="15.5"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="No additional cost to you">
@@ -1144,7 +1180,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez4-oG-O5U">
-                                        <rect key="frame" x="30" y="391" width="230" height="33"/>
+                                        <rect key="frame" x="30" y="390.5" width="230" height="33"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="Same low prices for books as on Amazon.com">
@@ -1200,7 +1236,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEK-sp-pXi" userLabel="dot view">
-                                        <rect key="frame" x="20" y="399" width="4" height="4"/>
+                                        <rect key="frame" x="20" y="398.5" width="4" height="4"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1298,10 +1334,12 @@
         <image name="bookmarkIcon" width="19" height="29"/>
         <image name="bookmarkInactive" width="19" height="28"/>
         <image name="closeButton" width="22" height="23"/>
-        <image name="emailIcon" width="50" height="34"/>
+        <image name="donateIcon" width="81" height="51"/>
+        <image name="donateSmiley" width="26" height="27"/>
+        <image name="emptyBooksIcon" width="93" height="72"/>
         <image name="reloadIcon" width="22" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kr3-NF-2nu"/>
+        <segue reference="oDH-Bc-98z"/>
     </inferredMetricsTieBreakers>
 </document>

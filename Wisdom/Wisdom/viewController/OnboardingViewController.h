@@ -9,22 +9,26 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, OnboardingCategory) {
-    OnboardingCategoryCrime,
     OnboardingCategoryClassic,
+    OnboardingCategoryMystery,
     OnboardingCategoryBiography,
+    OnboardingCategoryTravel,
     OnboardingCategoryScience,
-    OnboardingCategoryTravel
+    OnboardingCategoryHumanities,
+    OnboardingCategoryFiction
 };
 
 @class OnboardLabel, RatingButton, PopupView;
 
 @interface OnboardingViewController : UIViewController <UICollectionViewDataSource>
 
-@property (nonatomic, weak) IBOutlet OnboardLabel *crimeLabel;
 @property (nonatomic, weak) IBOutlet OnboardLabel *classicLabel;
 @property (nonatomic, weak) IBOutlet OnboardLabel *biographyLabel;
+@property (nonatomic, weak) IBOutlet OnboardLabel *mysteryLabel;
 @property (nonatomic, weak) IBOutlet OnboardLabel *scienceLabel;
 @property (nonatomic, weak) IBOutlet OnboardLabel *travelLabel;
+@property (nonatomic, weak) IBOutlet OnboardLabel *humanitiesLabel;
+@property (nonatomic, weak) IBOutlet OnboardLabel *fictionLabel;
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;

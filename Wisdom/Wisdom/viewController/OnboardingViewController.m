@@ -45,19 +45,25 @@
 - (void)showNextCategory
 {
     switch (self.currentlySelectedCategory) {
-        case OnboardingCategoryCrime:
-            [self loadCategory:OnboardingCategoryClassic];
-            break;
         case OnboardingCategoryClassic:
+            [self loadCategory:OnboardingCategoryMystery];
+            break;
+        case OnboardingCategoryMystery:
             [self loadCategory:OnboardingCategoryBiography];
             break;
         case OnboardingCategoryBiography:
-            [self loadCategory:OnboardingCategoryScience];
-            break;
-        case OnboardingCategoryScience:
             [self loadCategory:OnboardingCategoryTravel];
             break;
         case OnboardingCategoryTravel:
+            [self loadCategory:OnboardingCategoryFiction];
+            break;
+        case OnboardingCategoryFiction:
+            [self loadCategory:OnboardingCategoryHumanities];
+            break;
+        case OnboardingCategoryHumanities:
+            [self loadCategory:OnboardingCategoryScience];
+            break;
+        case OnboardingCategoryScience:
             [GeneralSettings setOnboardingCompleted:YES];
 
             // send user ratings
@@ -90,40 +96,68 @@
     self.currentlySelectedCategory = category;
 
     switch (category) {
-        case OnboardingCategoryCrime:
-            [self.crimeLabel setActive:YES];
-            [self.classicLabel setActive:NO];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:NO];
-            [self.travelLabel setActive:NO];
-            break;
         case OnboardingCategoryClassic:
-            [self.crimeLabel setActive:NO];
             [self.classicLabel setActive:YES];
+            [self.mysteryLabel setActive:NO];
             [self.biographyLabel setActive:NO];
             [self.scienceLabel setActive:NO];
             [self.travelLabel setActive:NO];
+            [self.humanitiesLabel setActive:NO];
+            [self.fictionLabel setActive:NO];
+            break;
+        case OnboardingCategoryMystery:
+            [self.classicLabel setActive:NO];
+            [self.mysteryLabel setActive:YES];
+            [self.biographyLabel setActive:NO];
+            [self.scienceLabel setActive:NO];
+            [self.travelLabel setActive:NO];
+            [self.humanitiesLabel setActive:NO];
+            [self.fictionLabel setActive:NO];
             break;
         case OnboardingCategoryBiography:
-            [self.crimeLabel setActive:NO];
             [self.classicLabel setActive:NO];
+            [self.mysteryLabel setActive:NO];
             [self.biographyLabel setActive:YES];
             [self.scienceLabel setActive:NO];
             [self.travelLabel setActive:NO];
-            break;
-        case OnboardingCategoryScience:
-            [self.crimeLabel setActive:NO];
-            [self.classicLabel setActive:NO];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:YES];
-            [self.travelLabel setActive:NO];
+            [self.humanitiesLabel setActive:NO];
+            [self.fictionLabel setActive:NO];
             break;
         case OnboardingCategoryTravel:
-            [self.crimeLabel setActive:NO];
             [self.classicLabel setActive:NO];
+            [self.mysteryLabel setActive:NO];
             [self.biographyLabel setActive:NO];
             [self.scienceLabel setActive:NO];
             [self.travelLabel setActive:YES];
+            [self.humanitiesLabel setActive:NO];
+            [self.fictionLabel setActive:NO];
+            break;
+        case OnboardingCategoryScience:
+            [self.classicLabel setActive:NO];
+            [self.mysteryLabel setActive:NO];
+            [self.biographyLabel setActive:NO];
+            [self.scienceLabel setActive:YES];
+            [self.travelLabel setActive:NO];
+            [self.humanitiesLabel setActive:NO];
+            [self.fictionLabel setActive:NO];
+            break;
+        case OnboardingCategoryHumanities:
+            [self.classicLabel setActive:NO];
+            [self.mysteryLabel setActive:NO];
+            [self.biographyLabel setActive:NO];
+            [self.scienceLabel setActive:NO];
+            [self.travelLabel setActive:NO];
+            [self.humanitiesLabel setActive:YES];
+            [self.fictionLabel setActive:NO];
+            break;
+        case OnboardingCategoryFiction:
+            [self.classicLabel setActive:NO];
+            [self.mysteryLabel setActive:NO];
+            [self.biographyLabel setActive:NO];
+            [self.scienceLabel setActive:NO];
+            [self.travelLabel setActive:NO];
+            [self.humanitiesLabel setActive:NO];
+            [self.fictionLabel setActive:YES];
             break;
         default:
             break;
@@ -144,20 +178,26 @@
 - (void)changeTitleAccordingToCategory:(OnboardingCategory)category
 {
     switch (category) {
-        case OnboardingCategoryCrime:
-            self.titleLabel.text = @"How likely are you to read a Crime book in the next time?";
-            break;
         case OnboardingCategoryClassic:
-            self.titleLabel.text = @"How likely are you to read a Classic book in the next time?";
+            self.titleLabel.text = @"How likely are you to read a Classics book in the next time?";
+            break;
+        case OnboardingCategoryMystery:
+            self.titleLabel.text = @"How likely are you to read a Mystery book in the next time?";
             break;
         case OnboardingCategoryBiography:
             self.titleLabel.text = @"How likely are you to read a Biography book in the next time?";
             break;
-        case OnboardingCategoryScience:
-            self.titleLabel.text = @"How likely are you to read a Science book in the next time?";
-            break;
         case OnboardingCategoryTravel:
             self.titleLabel.text = @"How likely are you to read a Travel book in the next time?";
+            break;
+        case OnboardingCategoryScience:
+            self.titleLabel.text = @"How likely are you to read a Science & Business book in the next time?";
+            break;
+        case OnboardingCategoryHumanities:
+            self.titleLabel.text = @"How likely are you to read a Humanities book in the next time?";
+            break;
+        case OnboardingCategoryFiction:
+            self.titleLabel.text = @"How likely are you to read a Fiction book in the next time?";
             break;
         default:
             break;
@@ -223,20 +263,21 @@
     [self customiseLabels];
     [self customiseCenterPopup];
     [self customiseRatingButtons];
-    [self customiseSidePopups];
 
     self.collectionView.backgroundColor = [UIColor clearColor];
 
-    [self loadCategory:OnboardingCategoryCrime];
+    [self loadCategory:OnboardingCategoryClassic];
 }
 
 - (void)customiseLabels
 {
-    [self.crimeLabel setActive:YES];
-    [self.classicLabel setActive:NO];
+    [self.classicLabel setActive:YES];
+    [self.mysteryLabel setActive:NO];
     [self.biographyLabel setActive:NO];
     [self.scienceLabel setActive:NO];
     [self.travelLabel setActive:NO];
+    [self.humanitiesLabel setActive:NO];
+    [self.fictionLabel setActive:NO];
 
     self.titleLabel.textColor = [UIColor grayColorWithValue:55.0];
 
@@ -254,11 +295,6 @@
 {
     [self resetButtons];
     self.buttonsContainerView.backgroundColor = [UIColor clearColor];
-}
-
-- (void)customiseSidePopups
-{
-
 }
 
 - (BOOL)prefersStatusBarHidden

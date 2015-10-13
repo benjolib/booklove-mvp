@@ -28,8 +28,18 @@
         } else {
             self.savedBooksArray = [booksArray mutableCopy];
             [self.tableView reloadData];
+            [self checkToShowEmptyView];
         }
     }];
+}
+
+- (void)checkToShowEmptyView
+{
+    if ([self objectsToDisplay].count > 0) {
+        self.emptyView.hidden = YES;
+    } else {
+        self.emptyView.hidden = NO;
+    }
 }
 
 - (NSMutableArray *)objectsToDisplay
@@ -80,6 +90,8 @@
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
+
+    [self checkToShowEmptyView];
 }
 
 #pragma mark - tableView methods
@@ -130,6 +142,7 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor backgroundColor];
+    self.emptyView.hidden = YES;
     [self loadSavedBooks];
 }
 

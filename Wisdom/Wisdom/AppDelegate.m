@@ -174,14 +174,6 @@
                 NSLog(@"Error occured at signup: %@", error.localizedDescription);
             }
         }];
-
-//        [PFAnonymousUtils logInWithBlock:^(PFUser * _Nullable user, NSError * _Nullable error) {
-//            if (error) {
-//                // error occured
-//            } else {
-//                NSLog(@"Current user: %@", user);
-//            }
-//        }];
     } else {
         // user already exists
         NSLog(@"current user: %@", [PFUser currentUser]);

@@ -10,6 +10,8 @@
 
 @interface LibraryViewController : ImageDownloadBaseViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, weak) IBOutlet UIView *emptyView;
+
 - (IBAction)bookmarkButtonPressed:(UIButton*)button;
 - (IBAction)buyButtonPressed:(UIButton*)button;
 

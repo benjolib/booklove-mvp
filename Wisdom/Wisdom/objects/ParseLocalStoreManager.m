@@ -49,9 +49,7 @@
 - (void)loadLibraryBooksWithCompletionBlock:(void (^)(NSArray *booksArray, NSString *errorMessage))completionBlock
 {
     PFQuery *query = [PFQuery queryWithClassName:@"books"];
-//    if (![self isInternetConnectionAvailable]) {
     [query fromLocalDatastore];
-//    }
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *tempArray = [NSMutableArray array];
         for (PFObject *parseObject in objects) {

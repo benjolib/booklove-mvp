@@ -22,9 +22,8 @@
     if (bookGenre.genreName) {
         [query whereKey:@"category" equalTo:bookGenre.genreName];
     } else {
-        [query whereKey:@"category" equalTo:@"crime"];
+        [query whereKey:@"category" equalTo:@"Classic"];
     }
-
 
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *tempArray = [NSMutableArray array];
