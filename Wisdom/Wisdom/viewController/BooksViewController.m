@@ -132,12 +132,6 @@
 
     cell.subtitleLabel.text = book.sentence;
     [cell.bookCoverImageView hnk_setImageFromURL:[NSURL URLWithString:book.imageURL]];
-    
-//    if (indexPath.row == 0 && self.isfirstTimeTransform) { // make a bool and set YES initially, this check will prevent fist load transform
-//        self.isfirstTimeTransform = NO;
-//    }else{
-//        cell.transform = TRANSFORM_CELL_VALUE; // the new cell will always be transform and without animation
-//    }
 
     return cell;
 }
@@ -181,77 +175,6 @@
     }
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-{
-    if (scrollView == self.collectionView) {
-        *targetContentOffset = scrollView.contentOffset; // set acceleration to 0.0
-        float pageWidth = (float)self.collectionView.bounds.size.width - 40;
-        int minSpace = 20;
-
-        int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5; // cell width + min spacing for lines
-        if (cellToSwipe < 0) {
-            cellToSwipe = 0;
-        } else if (cellToSwipe >= self.booksArray.count) {
-            cellToSwipe = self.booksArray.count - 1;
-        }
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    }
-}
-
-//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-//{
-//    float pageWidth = CGRectGetWidth(self.collectionView.frame) - 40.0; // width + space
-//
-//    float currentOffset = scrollView.contentOffset.x;
-//    float targetOffset = targetContentOffset->x;
-//    float newTargetOffset = 0;
-//
-//    if (targetOffset > currentOffset)
-//        newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth;
-//    else
-//        newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth;
-//
-//    if (newTargetOffset < 0)
-//        newTargetOffset = 0;
-//    else if (newTargetOffset > scrollView.contentSize.width)
-//        newTargetOffset = scrollView.contentSize.width;
-//
-//    targetContentOffset->x = currentOffset;
-//    [scrollView setContentOffset:CGPointMake(newTargetOffset, 0) animated:YES];
-//
-//    int index = newTargetOffset / pageWidth;
-//
-//    if (index == 0) { // If first index
-//        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
-//
-//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
-//            cell.transform = CGAffineTransformIdentity;
-//        }];
-//        cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index + 1 inSection:0]];
-//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
-//            cell.transform = TRANSFORM_CELL_VALUE;
-//        }];
-//    }else{
-//        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
-//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
-//            cell.transform = CGAffineTransformIdentity;
-//        }];
-//
-//        index --; // left
-//        cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
-//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
-//            cell.transform = TRANSFORM_CELL_VALUE;
-//        }];
-//
-//        index ++;
-//        index ++; // right
-//        cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
-//        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
-//            cell.transform = TRANSFORM_CELL_VALUE;
-//        }];
-//    }
-//}
-
 - (ParseDownloadManager*)downloadManager
 {
     if (!_downloadManager) {
@@ -268,8 +191,10 @@
     self.view.backgroundColor = [UIColor backgroundColor];
     self.isfirstTimeTransform = YES;
 
-    self.flowLayout = [[BooksFlowLayout alloc] init];
-    self.collectionView.collectionViewLayout = self.flowLayout;
+    self.flowLayout = [BooksFlowLayout layoutConfiguredWithCollectionView:self.collectionView
+                                                                 itemSize:CGSizeMake(CGRectGetWidth(self.collectionView.frame) - 40.0, CGRectGetHeight(self.collectionView.frame) - 60.0)
+                                                        minimumLineSpacing:0];
+//    self.collectionView.collectionViewLayout = self.flowLayout;
 
     self.recommendedByLabel.text = @"";
     self.collectionTitleLabel.text = @"";
