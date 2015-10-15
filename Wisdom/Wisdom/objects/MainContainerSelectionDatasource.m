@@ -20,7 +20,7 @@
     if (selectedItem == MainContainerSelectedItemDate) {
         self.itemsToDisplay = [self setupArrayForDates];
     } else {
-        self.itemsToDisplay = @[@"Crime", @"Classics", @"Biography", @"Travel", @"Science"];
+        self.itemsToDisplay = @[@"Mystery", @"Classics", @"Biography", @"Travel", @"Science & Business", @"Fiction", @"Humanities"];
     }
 }
 
@@ -50,7 +50,5 @@
     }
     return tempArray;
 }
-
-
 
 @end

@@ -49,16 +49,14 @@
                             [UIImage imageNamed:@"t7"], [UIImage imageNamed:@"t8"]];
             break;
         case OnboardingCategoryFiction:
-//            imagesArray = @[[UIImage imageNamed:@"t1"], [UIImage imageNamed:@"t2"], [UIImage imageNamed:@"t3"],
-//                            [UIImage imageNamed:@"t4"], [UIImage imageNamed:@"t5"], [UIImage imageNamed:@"t6"],
-//                            [UIImage imageNamed:@"t7"], [UIImage imageNamed:@"t8"]];
-            imagesArray = @[];
+            imagesArray = @[[UIImage imageNamed:@"f1"], [UIImage imageNamed:@"f2"], [UIImage imageNamed:@"f3"],
+                            [UIImage imageNamed:@"f4"], [UIImage imageNamed:@"f5"], [UIImage imageNamed:@"f6"],
+                            [UIImage imageNamed:@"f7"], [UIImage imageNamed:@"f8"]];
             break;
         case OnboardingCategoryHumanities:
-//            imagesArray = @[[UIImage imageNamed:@"t1"], [UIImage imageNamed:@"t2"], [UIImage imageNamed:@"t3"],
-//                            [UIImage imageNamed:@"t4"], [UIImage imageNamed:@"t5"], [UIImage imageNamed:@"t6"],
-//                            [UIImage imageNamed:@"t7"], [UIImage imageNamed:@"t8"]];
-            imagesArray = @[];
+            imagesArray = @[[UIImage imageNamed:@"h1"], [UIImage imageNamed:@"h2"], [UIImage imageNamed:@"h3"],
+                            [UIImage imageNamed:@"h4"], [UIImage imageNamed:@"h5"], [UIImage imageNamed:@"h6"],
+                            [UIImage imageNamed:@"h7"], [UIImage imageNamed:@"h8"]];
             break;
         default:
             break;

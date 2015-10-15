@@ -43,6 +43,12 @@
     [self loadBooks];
 }
 
+- (void)loadBooksForGenreName:(NSString*)genreName
+{
+    self.selectedGenre = [BookGenre bookGenreWithName:genreName andRating:0];
+    [self loadBooks];
+}
+
 - (void)loadBooksForGenre:(BookGenre*)genre
 {
     self.selectedGenre = genre;
@@ -243,6 +249,23 @@
             self.backButton.hidden = YES;
             self.recommendedByLabel.hidden = YES;
             self.collectionTitleLabel.hidden = YES;
+        }
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    NSArray *visibleIndexPaths = [self.collectionView indexPathsForVisibleItems];
+    for (NSIndexPath *indexPath in visibleIndexPaths) {
+        BooksCollectionViewCell *bookCell = (BooksCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
+
+        if (bookCell.cellFlipped) {
+            BookObject *book = self.objectsToDisplay[indexPath.row];
+            [bookCell updateBookmarkIconOnBookDetailsWithBookObject:book];
+        } else {
+            // don't do anything if it's not flipped
         }
     }
 }

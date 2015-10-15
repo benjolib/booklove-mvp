@@ -38,7 +38,7 @@
     }];
 
     if (self.currentlySelectedItem == MainContainerSelectedItemGenre) {
-        [self hideSelectionView];
+        [self hideSelectionViewWithAnimation:YES];
     } else {
         if (self.selectionViewHeightConstraint.constant != 0) {
             self.currentlySelectedItem = MainContainerSelectedItemGenre;
@@ -59,7 +59,7 @@
     }];
 
     if (self.currentlySelectedItem == MainContainerSelectedItemDate) {
-        [self hideSelectionView];
+        [self hideSelectionViewWithAnimation:YES];
     } else {
         if (self.selectionViewHeightConstraint.constant != 0) {
             self.currentlySelectedItem = MainContainerSelectedItemDate;
@@ -93,32 +93,33 @@
 
     [self.selectionCollectionView reloadData];
 
-//    BooksViewController *booksViewController = (BooksViewController*)self.currentViewController;
-//
-//    if (self.currentlySelectedItem == MainContainerSelectedItemDate) {
-//        if (booksViewController.selectedDate) {
-//            [self.selectionCollectionView scrollToItemAtIndexPath:[self.selectionDatasource indexPathOfObject:booksViewController.selectedDate] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
-//        }
-//    }
 
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
     }];
 }
 
-- (void)hideSelectionView
+- (void)hideSelectionViewWithAnimation:(BOOL)animated
 {
     self.selectionViewHeightConstraint.constant = 0.0;
     self.bottomYOriginConstraint.constant = 0.0;
 
-    [UIView animateWithDuration:0.3 animations:^{
+    self.currentlySelectedItem = MainContainerSelectedItemNone;
+
+    if (animated) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    } else {
         [self.view layoutIfNeeded];
-    }];
+    }
 }
 
 #pragma mark - changing views
 - (IBAction)collectionButtonPressed:(id)sender
 {
+    [self hideSelectionViewWithAnimation:NO];
+
     self.buttonSelectionViewCenterConstraint.constant = -CGRectGetMaxX(self.libraryButton.frame)/3;
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
@@ -139,6 +140,8 @@
 
 - (IBAction)libraryButtonPressed:(id)sender
 {
+    [self hideSelectionViewWithAnimation:NO];
+
     self.buttonSelectionViewCenterConstraint.constant = CGRectGetMaxX(self.libraryButton.frame)/3;
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
@@ -266,16 +269,12 @@
     if (visible) {
         if (self.topbarYOriginConstraint.constant != 0) {
             self.topbarYOriginConstraint.constant = 0.0;
-            [UIView animateWithDuration:0.2 animations:^{
-                [self.view layoutIfNeeded];
-            }];
+            [self.view layoutIfNeeded];
         }
     } else {
         if (self.topbarYOriginConstraint.constant != -CGRectGetHeight(self.topbarView.frame)) {
             self.topbarYOriginConstraint.constant = -CGRectGetHeight(self.topbarView.frame);
-            [UIView animateWithDuration:0.2 animations:^{
-                [self.view layoutIfNeeded];
-            }];
+            [self.view layoutIfNeeded];
         }
     }
 }
@@ -311,8 +310,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self hideSelectionView];
-
     if (self.currentlySelectedItem == MainContainerSelectedItemDate)
     {
         NSDate *selectedDate = [self.selectionDatasource objectAtIndexPath:indexPath];
@@ -327,7 +324,7 @@
             }
         }
     }
-    else
+    else if (self.currentlySelectedItem == MainContainerSelectedItemGenre)
     {
         NSString *newGenreString = [self.selectionDatasource objectAtIndexPath:indexPath];
         self.genreLabel.text = newGenreString;
@@ -337,10 +334,14 @@
             BooksViewController *booksViewController = (BooksViewController*)self.currentViewController;
 
             if (![booksViewController.selectedGenre.genreName isEqualToString:newGenreString]) {
-                [booksViewController loadBooksForGenre:[self.selectionDatasource objectAtIndexPath:indexPath]];
+                [booksViewController loadBooksForGenreName:[self.selectionDatasource objectAtIndexPath:indexPath]];
             }
         }
+    } else {
+        NSLog(@"Error when selecting options");
     }
+
+    [self hideSelectionViewWithAnimation:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

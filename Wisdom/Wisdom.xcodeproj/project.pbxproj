@@ -41,6 +41,7 @@
 		565EFF4A1BAFE74D00B227E1 /* PushNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565EFF491BAFE74D00B227E1 /* PushNotificationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		566BB4831BBD671F00C9733B /* LoadingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 566BB4821BBD671F00C9733B /* LoadingTableView.m */; settings = {ASSET_TAGS = (); }; };
 		566BB4861BBD68C100C9733B /* LoadingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 566BB4851BBD68C100C9733B /* LoadingCollectionView.m */; settings = {ASSET_TAGS = (); }; };
+		56A6DABD1BCFCD3A00A80680 /* TrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6DABC1BCFCD3A00A80680 /* TrackingManager.m */; settings = {ASSET_TAGS = (); }; };
 		56B648101BBD2AFF00641E43 /* BookGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B6480F1BBD2AFF00641E43 /* BookGenre.m */; settings = {ASSET_TAGS = (); }; };
 		56B648151BBD38F800641E43 /* LibraryNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B648141BBD38F800641E43 /* LibraryNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		56B648181BBD392900641E43 /* CollectionsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B648171BBD392900641E43 /* CollectionsNavigationController.m */; settings = {ASSET_TAGS = (); }; };
@@ -160,6 +161,8 @@
 		566BB4821BBD671F00C9733B /* LoadingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingTableView.m; sourceTree = "<group>"; };
 		566BB4841BBD68C100C9733B /* LoadingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingCollectionView.h; sourceTree = "<group>"; };
 		566BB4851BBD68C100C9733B /* LoadingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingCollectionView.m; sourceTree = "<group>"; };
+		56A6DABB1BCFCD3A00A80680 /* TrackingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingManager.h; sourceTree = "<group>"; };
+		56A6DABC1BCFCD3A00A80680 /* TrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingManager.m; sourceTree = "<group>"; };
 		56B6480E1BBD2AFF00641E43 /* BookGenre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookGenre.h; sourceTree = "<group>"; };
 		56B6480F1BBD2AFF00641E43 /* BookGenre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookGenre.m; sourceTree = "<group>"; };
 		56B648131BBD38F800641E43 /* LibraryNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryNavigationController.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				561D16A21BBD082F00BA7475 /* BooksFlowLayout.m */,
 				565C8DD01BC2600C00F56B93 /* UITextField+Helper.h */,
 				565C8DD11BC2600C00F56B93 /* UITextField+Helper.m */,
+				56A6DABB1BCFCD3A00A80680 /* TrackingManager.h */,
+				56A6DABC1BCFCD3A00A80680 /* TrackingManager.m */,
 			);
 			name = Objects;
 			path = objects;
@@ -743,6 +748,7 @@
 				56FA8C3C1BAFE9BC0040D21E /* Reachability.m in Sources */,
 				56FA8C461BAFF20F0040D21E /* MainContainerViewController.m in Sources */,
 				565EFF031BAFE27E00B227E1 /* AppDelegate.m in Sources */,
+				56A6DABD1BCFCD3A00A80680 /* TrackingManager.m in Sources */,
 				56DD90A71BB297BC00FBD895 /* RatingButton.m in Sources */,
 				565EFF421BAFE39600B227E1 /* ParseDownloadManager.m in Sources */,
 				56FA8C351BAFE9190040D21E /* OverlayTransitionManager.m in Sources */,

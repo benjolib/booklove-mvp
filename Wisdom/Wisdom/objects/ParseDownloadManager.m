@@ -59,7 +59,7 @@
 
 - (void)downloadQuotes
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Quotes"];
+    PFQuery *query = [PFQuery queryWithClassName:@"quotes"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [PFObject pinAllInBackground:objects];
     }];

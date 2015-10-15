@@ -29,6 +29,7 @@
 @property (nonatomic, weak) IBOutlet UIView *recommendWrapperView;
 
 - (void)setupViewWithBookObject:(BookObject*)bookObject;
+- (void)updateBookmarkIconWithBookObject:(BookObject*)bookObject;
 
 - (IBAction)buyNowButtonPressed;
 

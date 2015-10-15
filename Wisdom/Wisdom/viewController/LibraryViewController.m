@@ -113,7 +113,7 @@
 
     cell.bookAuthorLabel.text = book.author;
     cell.bookTitleLabel.text = book.bookTitle;
-    cell.categoryLabel.text = @"Crime and stuff";
+    cell.categoryLabel.text = book.category;
 
     if (book.image) {
         cell.bookCoverImageView.image = book.image;
@@ -143,6 +143,11 @@
 
     self.view.backgroundColor = [UIColor backgroundColor];
     self.emptyView.hidden = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self loadSavedBooks];
 }
 

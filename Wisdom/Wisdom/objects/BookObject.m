@@ -29,6 +29,7 @@
         self.imageURL = parseObject[@"coverImage"];
 
         self.linkURL = parseObject[@"purchaseLink"];
+        self.category = parseObject[@"category"];
         self.price = parseObject[@"price"];
         self.recommendedAt = parseObject[@"recommendedAt"];
         self.bookYear = parseObject[@"year"];
@@ -53,6 +54,7 @@
     parseBook[@"recommendedAt"] = self.recommendedAt ? self.recommendedAt : @"";
     parseBook[@"year"] = self.bookYear ? self.bookYear : 0;
     parseBook[@"sentence"] = self.sentence ? self.sentence : @"";
+    parseBook[@"category"] = self.category ? self.category : @"";
     parseBook.objectId = self.parseID;
 
     if (![self.recommendedByUser isEmpty]) {

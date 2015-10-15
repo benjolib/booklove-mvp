@@ -21,8 +21,18 @@
 {
     [super prepareForReuse];
     self.cellFlipped = NO;
+
+    self.booksDetailView.coverImageView.image = nil;
     self.bookCoverImageView.image = nil;
     self.recommendedByView.recommendedView.image = nil;
+
+    [UIView transitionFromView:self.booksDetailView
+                        toView:self.normalView
+                      duration:0.0
+                       options:UIViewAnimationOptionShowHideTransitionViews | UIViewAnimationOptionTransitionNone
+                    completion:^(BOOL finished) {
+                        self.cellFlipped = NO;
+                    }];
 }
 
 - (NSTimeInterval)flipDuration
@@ -59,13 +69,9 @@
     [self.booksDetailView setupViewWithBookObject:book];
 }
 
-- (void)setIsStoredLocally:(BOOL)isStoredLocally
+- (void)updateBookmarkIconOnBookDetailsWithBookObject:(BookObject*)bookObject
 {
-    if (isStoredLocally) {
-
-    } else {
-
-    }
+    [self.booksDetailView updateBookmarkIconWithBookObject:bookObject];
 }
 
 @end

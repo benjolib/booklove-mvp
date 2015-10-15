@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSDate *recommendedAt;
 @property (nonatomic, copy) NSString *bookTitle;
 @property (nonatomic, copy) NSString *sentence;
+@property (nonatomic, copy) NSString *category;
+
 @property (nonatomic, strong) NSNumber *bookYear;
 @property (nonatomic, strong) RecommendedByUser *recommendedByUser;
 // needs category

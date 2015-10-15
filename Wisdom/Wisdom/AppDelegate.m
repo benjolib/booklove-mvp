@@ -40,7 +40,9 @@
     if ([GeneralSettings showQuotesScreen]) {
         self.quotesViewController = [StoryboardManager quotesViewController];
         self.quotesViewController.view.frame = self.window.frame;
-        [self.window.rootViewController.view addSubview:self.quotesViewController.view];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.window.rootViewController.view addSubview:self.quotesViewController.view];
+        });
     }
 }
 
@@ -132,8 +134,6 @@
         self.window.rootViewController = [StoryboardManager onboardingViewController];
     }
 
-    [self checkToShowQuotesView];
-
     if ([GeneralSettings showPushNotificationView]) {
         [self startPushNotificationTimer];
     }
@@ -152,6 +152,8 @@
     [self createAnonymousUser];
 
     [ParseLocalStoreManager sharedManager];
+
+    [self checkToShowQuotesView];
 
     return YES;
 }

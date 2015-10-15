@@ -21,4 +21,10 @@
     self.coverImageView.backgroundColor = [UIColor whiteColor];
 }
 
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    self.coverImageView.image = nil;
+}
+
 @end

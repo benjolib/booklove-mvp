@@ -64,13 +64,17 @@
         [self layoutIfNeeded];
     }
 
+    [self updateBookmarkIconWithBookObject:bookObject];
+    self.bookToDisplay = bookObject;
+}
+
+- (void)updateBookmarkIconWithBookObject:(BookObject*)bookObject
+{
     if ([[ParseLocalStoreManager sharedManager] isBookSavedLocally:bookObject]) {
         [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmarkIcon"] forState:UIControlStateNormal];
     } else {
         [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmarkInactive"] forState:UIControlStateNormal];
     }
-
-    self.bookToDisplay = bookObject;
 }
 
 - (IBAction)buyNowButtonPressed

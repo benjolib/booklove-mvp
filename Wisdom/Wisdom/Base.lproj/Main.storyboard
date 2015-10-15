@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -339,7 +339,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tH-qA-6nd">
-                                                    <rect key="frame" x="100" y="29" width="170" height="15.5"/>
+                                                    <rect key="frame" x="100" y="29" width="170" height="16"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -358,7 +358,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Benjamin Libor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opL-Ld-d28">
-                                                    <rect key="frame" x="100" y="49" width="170" height="12"/>
+                                                    <rect key="frame" x="100" y="50" width="170" height="12"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                     <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
@@ -380,7 +380,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 9.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v38-of-7oh">
-                                                    <rect key="frame" x="100" y="102" width="65" height="15.5"/>
+                                                    <rect key="frame" x="100" y="102" width="65" height="16"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.36078431370000003" green="0.50980392159999999" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -434,20 +434,24 @@
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="emptyBooksIcon" translatesAutoresizingMaskIntoConstraints="NO" id="r73-fm-ojf">
                                         <rect key="frame" x="113" y="198" width="93" height="72"/>
+                                        <animations/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have not saved any books in Library" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="oKq-oQ-vtt">
                                         <rect key="frame" x="30" y="300" width="260" height="35"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" red="0.30980392156862746" green="0.32549019607843138" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Bookmark your favorite books, to add them to your very own library)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23e-TL-giq">
                                         <rect key="frame" x="30" y="350" width="260" height="33"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="0.6705882352941176" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="oKq-oQ-vtt" secondAttribute="trailing" constant="30" id="DTa-NV-cTh"/>
@@ -582,7 +586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4x-kX-hZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="802" y="-69"/>
+            <point key="canvasLocation" x="845" y="-69"/>
         </scene>
         <!--Books View Controller-->
         <scene sceneID="2mP-a2-O2q">
@@ -990,14 +994,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dan's favorite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-TH-3pe">
-                                <rect key="frame" x="125" y="5" width="70.5" height="13.5"/>
+                                <rect key="frame" x="125" y="5" width="71" height="14"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 Fantastical Sci-Fi Books That Will Make You Think " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgJ-Ia-gxQ">
-                                <rect key="frame" x="63" y="23" width="194" height="28"/>
+                                <rect key="frame" x="63" y="24" width="194" height="28"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.70980392160000005" green="0.41568627450000001" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -1032,7 +1036,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBR-iy-GjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="802" y="651"/>
+            <point key="canvasLocation" x="845" y="651"/>
         </scene>
         <!--Collections Navigation Controller-->
         <scene sceneID="zjq-LQ-vIY">
@@ -1090,7 +1094,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="BGS-OW-oCg">
-                                        <rect key="frame" x="20" y="211.5" width="240" height="55.5"/>
+                                        <rect key="frame" x="20" y="211" width="240" height="56"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="Donate to a charity of your choice each time you purchase a book using the BookLove app">
@@ -1104,7 +1108,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="PdG-99-MV3">
-                                        <rect key="frame" x="10" y="149" width="260" height="42.5"/>
+                                        <rect key="frame" x="10" y="148" width="260" height="43"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="You want to do something good?">
@@ -1118,7 +1122,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="donateIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A9b-Mo-WiH">
-                                        <rect key="frame" x="115" y="100" width="50" height="34"/>
+                                        <rect key="frame" x="115" y="99" width="50" height="34"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="qdw-ay-Vno"/>
@@ -1166,7 +1170,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fao-Gw-f7a">
-                                        <rect key="frame" x="30" y="370" width="230" height="15.5"/>
+                                        <rect key="frame" x="30" y="370" width="230" height="16"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="No additional cost to you">
@@ -1180,7 +1184,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez4-oG-O5U">
-                                        <rect key="frame" x="30" y="390.5" width="230" height="33"/>
+                                        <rect key="frame" x="30" y="391" width="230" height="33"/>
                                         <animations/>
                                         <attributedString key="attributedText">
                                             <fragment content="Same low prices for books as on Amazon.com">
@@ -1236,7 +1240,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEK-sp-pXi" userLabel="dot view">
-                                        <rect key="frame" x="20" y="398.5" width="4" height="4"/>
+                                        <rect key="frame" x="20" y="399" width="4" height="4"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1258,6 +1262,7 @@
                                     <constraint firstItem="OU3-dY-g5G" firstAttribute="leading" secondItem="lgL-JA-Fw0" secondAttribute="leading" id="2hA-nD-9Uc"/>
                                     <constraint firstItem="PdG-99-MV3" firstAttribute="top" secondItem="A9b-Mo-WiH" secondAttribute="bottom" constant="15" id="4PB-ES-EKQ"/>
                                     <constraint firstAttribute="trailing" secondItem="VNm-Bp-pSh" secondAttribute="trailing" constant="20" id="4x8-rV-geH"/>
+                                    <constraint firstItem="wLg-QY-EeP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ez4-oG-O5U" secondAttribute="bottom" constant="10" id="6J8-Bd-2T7"/>
                                     <constraint firstAttribute="trailing" secondItem="PdG-99-MV3" secondAttribute="trailing" constant="10" id="98C-LD-1uU"/>
                                     <constraint firstItem="fao-Gw-f7a" firstAttribute="leading" secondItem="mOY-Hg-8Uv" secondAttribute="leading" id="AKM-RS-r4s"/>
                                     <constraint firstItem="OU3-dY-g5G" firstAttribute="top" secondItem="fao-Gw-f7a" secondAttribute="top" constant="8" id="Aza-Bn-rIF"/>
@@ -1269,7 +1274,7 @@
                                     <constraint firstItem="cb0-xg-FXM" firstAttribute="top" secondItem="8Rp-xY-bh0" secondAttribute="top" id="Iqj-ER-pas"/>
                                     <constraint firstItem="BGS-OW-oCg" firstAttribute="leading" secondItem="8Rp-xY-bh0" secondAttribute="leading" constant="20" id="L1O-Y6-W5W"/>
                                     <constraint firstItem="Ez4-oG-O5U" firstAttribute="leading" secondItem="fao-Gw-f7a" secondAttribute="leading" id="Lt1-b8-QAM"/>
-                                    <constraint firstItem="BGS-OW-oCg" firstAttribute="centerY" secondItem="8Rp-xY-bh0" secondAttribute="centerY" id="NTj-I5-hf6"/>
+                                    <constraint firstItem="BGS-OW-oCg" firstAttribute="centerY" secondItem="8Rp-xY-bh0" secondAttribute="centerY" priority="800" id="NTj-I5-hf6"/>
                                     <constraint firstItem="mOY-Hg-8Uv" firstAttribute="top" secondItem="VNm-Bp-pSh" secondAttribute="bottom" constant="5" id="OiI-T7-dIT"/>
                                     <constraint firstItem="PEK-sp-pXi" firstAttribute="top" secondItem="Ez4-oG-O5U" secondAttribute="top" constant="8" id="Ryc-QW-HVY"/>
                                     <constraint firstItem="VNm-Bp-pSh" firstAttribute="leading" secondItem="BGS-OW-oCg" secondAttribute="leading" constant="10" id="So0-2J-xfz"/>
@@ -1340,6 +1345,6 @@
         <image name="reloadIcon" width="22" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oDH-Bc-98z"/>
+        <segue reference="Hb2-ZX-uEc"/>
     </inferredMetricsTieBreakers>
 </document>

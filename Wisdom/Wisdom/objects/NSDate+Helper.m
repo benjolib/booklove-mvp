@@ -43,8 +43,8 @@
 
 - (BOOL)isDateEqualToDate:(NSDate*)date
 {
-    NSDateComponents *componentsForYesterday = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:self];
-    NSDateComponents *componentsForToday = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    NSDateComponents *componentsForYesterday = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    NSDateComponents *componentsForToday = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:self];
 
     if ((componentsForToday.day == componentsForYesterday.day) && (componentsForToday.month == componentsForYesterday.month) && (componentsForToday.year == componentsForYesterday.year)) {
         return YES;

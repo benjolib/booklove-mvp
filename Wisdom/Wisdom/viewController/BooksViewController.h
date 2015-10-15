@@ -29,6 +29,7 @@
 
 - (void)loadBooksForDate:(NSDate*)date;
 - (void)loadBooksForGenre:(BookGenre*)genre;
+- (void)loadBooksForGenreName:(NSString*)genreName;
 
 - (IBAction)backButtonPressed:(id)sender;
 

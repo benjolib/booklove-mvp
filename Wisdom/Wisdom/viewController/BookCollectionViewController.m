@@ -15,6 +15,7 @@
 @interface BookCollectionViewController ()
 @property (nonatomic, strong) NSArray *collectionsArray;
 @property (nonatomic, strong) ParseDownloadManager *parseDownloadManager;
+@property (nonatomic, strong) UIRefreshControl *refreshController;
 @end
 
 @implementation BookCollectionViewController
@@ -93,9 +94,23 @@
     [super viewDidLoad];
     [self.tableView showLoadingIndicator];
 
+    self.refreshController = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0.0, -50.0, CGRectGetWidth(self.view.frame), 50.0)];
+    [self.tableView addSubview:self.refreshController];
+    self.refreshController.tintColor = [UIColor globalGreenColor];
+    [self.refreshController addTarget:self action:@selector(downloadCollections) forControlEvents:UIControlEventValueChanged];
+
+    [self downloadCollections];
+}
+
+- (void)downloadCollections
+{
+    [self.refreshController beginRefreshing];
+
     self.parseDownloadManager = [[ParseDownloadManager alloc] init];
     [self.parseDownloadManager downloadCollectionsWithCompletionBlock:^(NSArray *collections, NSString *errorMessage) {
         [self.tableView hideLoadingIndicator];
+        [self.refreshController endRefreshing];
+
         if (collections) {
             self.collectionsArray = [collections copy];
         } else {
