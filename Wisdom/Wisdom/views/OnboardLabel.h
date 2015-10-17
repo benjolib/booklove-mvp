@@ -10,6 +10,6 @@
 
 @interface OnboardLabel : UILabel
 
-- (void)setActive:(BOOL)active;
+- (void)setCompleted:(BOOL)completed;
 
 @end

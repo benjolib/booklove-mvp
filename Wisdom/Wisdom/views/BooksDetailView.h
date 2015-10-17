@@ -27,6 +27,7 @@
 @property (nonatomic, weak) IBOutlet LoadingImageView *coverImageView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *recommendWrapperViewHeightConstraint;
 @property (nonatomic, weak) IBOutlet UIView *recommendWrapperView;
+@property (nonatomic, weak) IBOutlet UIView *gradientLayerView;
 
 - (void)setupViewWithBookObject:(BookObject*)bookObject;
 - (void)updateBookmarkIconWithBookObject:(BookObject*)bookObject;

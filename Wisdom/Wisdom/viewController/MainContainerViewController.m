@@ -16,6 +16,7 @@
 #import "NSDate+Helper.h"
 #import "OverlayTransitionManager.h"
 #import "TabButton.h"
+#import "AppDelegate.h"
 
 @interface MainContainerViewController ()
 @property (nonatomic) MenuItem currentMenuItem;
@@ -31,6 +32,8 @@
 
 - (IBAction)genreButtonPressed:(id)sender
 {
+    [TRACKER trackRecommendationGenre];
+
     [UIView animateWithDuration:0.2 animations:^{
         self.genreLabel.alpha = 0.4;
     } completion:^(BOOL finished) {
@@ -52,6 +55,8 @@
 
 - (IBAction)dateButtonPressed:(id)sender
 {
+    [TRACKER trackRecommendationDate];
+
     [UIView animateWithDuration:0.2 animations:^{
         self.dateLabel.alpha = 0.4;
     } completion:^(BOOL finished) {
@@ -73,6 +78,8 @@
 
 - (IBAction)donateButtonPressed:(id)sender
 {
+    [TRACKER trackSelectedDonationTab];
+
     // show donate view
     self.overlayTransitionManager = [[OverlayTransitionManager alloc] init];
     [self.overlayTransitionManager presentDonateViewOnViewController:self];
@@ -118,6 +125,8 @@
 #pragma mark - changing views
 - (IBAction)collectionButtonPressed:(id)sender
 {
+    [TRACKER trackSelectedCollectionTab];
+
     [self hideSelectionViewWithAnimation:NO];
 
     self.buttonSelectionViewCenterConstraint.constant = -CGRectGetMaxX(self.libraryButton.frame)/3;
@@ -130,6 +139,8 @@
 
 - (IBAction)booksButtonPressed:(id)sender
 {
+    [TRACKER trackSelectedBooksTab];
+
     self.buttonSelectionViewCenterConstraint.constant = 0.0;
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
@@ -140,6 +151,8 @@
 
 - (IBAction)libraryButtonPressed:(id)sender
 {
+    [TRACKER trackSelectedLibraryTab];
+
     [self hideSelectionViewWithAnimation:NO];
 
     self.buttonSelectionViewCenterConstraint.constant = CGRectGetMaxX(self.libraryButton.frame)/3;
@@ -419,6 +432,11 @@
 {
     [super viewDidLoad];
 
+    if ([GeneralSettings showPushNotificationView]) {
+        AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        [appdelegate startPushNotificationTimer];
+    }
+
     self.view.backgroundColor = [UIColor backgroundColor];
 
     self.bottomContainerView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -429,9 +447,11 @@
     self.genreLabel.text = [GeneralSettings favoriteCategory];
 }
 
-- (void)checkToShowQuotesView
+- (void)viewWillAppear:(BOOL)animated
 {
-
+    [super viewWillAppear:animated];
+    AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appdelegate checkToShowQuotesView];
 }
 
 - (BOOL)prefersStatusBarHidden

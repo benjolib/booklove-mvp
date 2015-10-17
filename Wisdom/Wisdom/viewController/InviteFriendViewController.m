@@ -26,10 +26,13 @@
                                                      UIActivityTypePostToFlickr,
                                                      UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityViewController animated:YES completion:NULL];
+
+    [TRACKER trackInviteTapsInvite];
 }
 
 - (IBAction)closeButtonPressed:(UIButton*)button
 {
+    [TRACKER trackInviteTapClosed];
     [self hideNotificationView];
 }
 
@@ -39,8 +42,25 @@
         ratingButton.selected = [button isEqual:ratingButton];
     }
 
-    #warning Add tracking here
-
+    switch (button.tag) {
+        case 1:
+            [TRACKER trackInviteTapsOne];
+            break;
+        case 2:
+            [TRACKER trackInviteTapsTwo];
+            break;
+        case 3:
+            [TRACKER trackInviteTapsThree];
+            break;
+        case 4:
+            [TRACKER trackInviteTapsFour];
+            break;
+        case 5:
+            [TRACKER trackInviteTapsFive];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)hideNotificationView

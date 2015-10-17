@@ -78,10 +78,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="256" y="423"/>
+            <point key="canvasLocation" x="87" y="461"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launchIcon" width="101" height="101"/>
+        <image name="launchIcon" width="80" height="80"/>
     </resources>
 </document>

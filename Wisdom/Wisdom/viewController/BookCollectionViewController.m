@@ -76,7 +76,10 @@
 {
     if ([segue.identifier isEqualToString:@"userSelectedCollection"])
     {
-        if ([sender isKindOfClass:[BookCollectionTableViewCell class]]) {
+        if ([sender isKindOfClass:[BookCollectionTableViewCell class]])
+        {
+            [TRACKER trackCollectionSelected];
+
             NSIndexPath *indexPath = [self.tableView indexPathForCell:(BookCollectionTableViewCell*)sender];
 
             BookCollectionObject *collection = self.collectionsArray[indexPath.row];

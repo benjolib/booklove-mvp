@@ -22,7 +22,6 @@
 
 #define IS_iOS8 [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0
 
-
 @interface AppDelegate ()
 @property (nonatomic, strong) QuotesViewController *quotesViewController;
 @property (nonatomic, strong) PushNotificationViewController *pushNotificaitonViewController;
@@ -40,9 +39,7 @@
     if ([GeneralSettings showQuotesScreen]) {
         self.quotesViewController = [StoryboardManager quotesViewController];
         self.quotesViewController.view.frame = self.window.frame;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.window.rootViewController.view addSubview:self.quotesViewController.view];
-        });
+        [self.window.rootViewController.view addSubview:self.quotesViewController.view];
     }
 }
 
@@ -134,10 +131,6 @@
         self.window.rootViewController = [StoryboardManager onboardingViewController];
     }
 
-    if ([GeneralSettings showPushNotificationView]) {
-        [self startPushNotificationTimer];
-    }
-
     if (![GeneralSettings appLaunchDate]) {
         [GeneralSettings setAppLaunchDate];
     }
@@ -152,8 +145,6 @@
     [self createAnonymousUser];
 
     [ParseLocalStoreManager sharedManager];
-
-    [self checkToShowQuotesView];
 
     return YES;
 }

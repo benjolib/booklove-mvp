@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "565EFEFA1BAFE27E00B227E1"
-               BuildableName = "Wisdom.app"
-               BlueprintName = "Wisdom"
-               ReferencedContainer = "container:Wisdom.xcodeproj">
+               BuildableName = "BookLove.app"
+               BlueprintName = "BookLove"
+               ReferencedContainer = "container:BookLove.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "565EFF161BAFE27E00B227E1"
-               BuildableName = "WisdomTests.xctest"
-               BlueprintName = "WisdomTests"
-               ReferencedContainer = "container:Wisdom.xcodeproj">
+               BuildableName = "BookLove.xctest"
+               BlueprintName = "BookLoveTests"
+               ReferencedContainer = "container:BookLove.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "565EFF211BAFE27E00B227E1"
-               BuildableName = "WisdomUITests.xctest"
-               BlueprintName = "WisdomUITests"
-               ReferencedContainer = "container:Wisdom.xcodeproj">
+               BuildableName = "BookLove.xctest"
+               BlueprintName = "BookLoveUITests"
+               ReferencedContainer = "container:BookLove.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "565EFEFA1BAFE27E00B227E1"
-            BuildableName = "Wisdom.app"
-            BlueprintName = "Wisdom"
-            ReferencedContainer = "container:Wisdom.xcodeproj">
+            BuildableName = "BookLove.app"
+            BlueprintName = "BookLove"
+            ReferencedContainer = "container:BookLove.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "565EFEFA1BAFE27E00B227E1"
-            BuildableName = "Wisdom.app"
-            BlueprintName = "Wisdom"
-            ReferencedContainer = "container:Wisdom.xcodeproj">
+            BuildableName = "BookLove.app"
+            BlueprintName = "BookLove"
+            ReferencedContainer = "container:BookLove.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "565EFEFA1BAFE27E00B227E1"
-            BuildableName = "Wisdom.app"
-            BlueprintName = "Wisdom"
-            ReferencedContainer = "container:Wisdom.xcodeproj">
+            BuildableName = "BookLove.app"
+            BlueprintName = "BookLove"
+            ReferencedContainer = "container:BookLove.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

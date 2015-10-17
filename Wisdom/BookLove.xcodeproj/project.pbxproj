@@ -133,7 +133,7 @@
 		565C8DD11BC2600C00F56B93 /* UITextField+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Helper.m"; sourceTree = "<group>"; };
 		565C8DD31BC27FCA00F56B93 /* OnboardingFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingFlowLayout.h; sourceTree = "<group>"; };
 		565C8DD41BC27FCA00F56B93 /* OnboardingFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingFlowLayout.m; sourceTree = "<group>"; };
-		565EFEFB1BAFE27E00B227E1 /* Wisdom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wisdom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		565EFEFB1BAFE27E00B227E1 /* BookLove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookLove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		565EFEFF1BAFE27E00B227E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		565EFF011BAFE27E00B227E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		565EFF021BAFE27E00B227E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,10 +141,10 @@
 		565EFF0B1BAFE27E00B227E1 /* Wisdom.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wisdom.xcdatamodel; sourceTree = "<group>"; };
 		565EFF0D1BAFE27E00B227E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		565EFF121BAFE27E00B227E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		565EFF171BAFE27E00B227E1 /* WisdomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WisdomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		565EFF171BAFE27E00B227E1 /* BookLove.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookLove.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565EFF1B1BAFE27E00B227E1 /* WisdomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WisdomTests.m; sourceTree = "<group>"; };
 		565EFF1D1BAFE27E00B227E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		565EFF221BAFE27E00B227E1 /* WisdomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WisdomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		565EFF221BAFE27E00B227E1 /* BookLove.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookLove.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565EFF261BAFE27F00B227E1 /* WisdomUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WisdomUITests.m; sourceTree = "<group>"; };
 		565EFF281BAFE27F00B227E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565EFF361BAFE2A900B227E1 /* StoryboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryboardManager.h; path = storyboard/StoryboardManager.h; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		56C01CA01BB9B4DC00873885 /* BaseImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageModel.m; sourceTree = "<group>"; };
 		56DD909D1BB2920F00FBD895 /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingViewController.h; sourceTree = "<group>"; };
 		56DD909E1BB2920F00FBD895 /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingViewController.m; sourceTree = "<group>"; };
-		56DD90A01BB294FA00FBD895 /* Wisdom-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wisdom-PrefixHeader.pch"; sourceTree = "<group>"; };
+		56DD90A01BB294FA00FBD895 /* BookLove-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BookLove-PrefixHeader.pch"; sourceTree = "<group>"; };
 		56DD90A21BB2958700FBD895 /* OnboardLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardLabel.h; sourceTree = "<group>"; };
 		56DD90A31BB2958700FBD895 /* OnboardLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardLabel.m; sourceTree = "<group>"; };
 		56DD90A51BB297BC00FBD895 /* RatingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingButton.h; sourceTree = "<group>"; };
@@ -286,9 +286,9 @@
 		565EFEFC1BAFE27E00B227E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				565EFEFB1BAFE27E00B227E1 /* Wisdom.app */,
-				565EFF171BAFE27E00B227E1 /* WisdomTests.xctest */,
-				565EFF221BAFE27E00B227E1 /* WisdomUITests.xctest */,
+				565EFEFB1BAFE27E00B227E1 /* BookLove.app */,
+				565EFF171BAFE27E00B227E1 /* BookLove.xctest */,
+				565EFF221BAFE27E00B227E1 /* BookLove.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 				56FA8C371BAFE9B60040D21E /* UIImage+ImageEffects.h */,
 				56FA8C381BAFE9B60040D21E /* UIImage+ImageEffects.m */,
 				565EFEFF1BAFE27E00B227E1 /* main.m */,
-				56DD90A01BB294FA00FBD895 /* Wisdom-PrefixHeader.pch */,
+				56DD90A01BB294FA00FBD895 /* BookLove-PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -538,9 +538,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		565EFEFA1BAFE27E00B227E1 /* Wisdom */ = {
+		565EFEFA1BAFE27E00B227E1 /* BookLove */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 565EFF2B1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "Wisdom" */;
+			buildConfigurationList = 565EFF2B1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "BookLove" */;
 			buildPhases = (
 				A367B335956F86E99C39402A /* Check Pods Manifest.lock */,
 				565EFEF71BAFE27E00B227E1 /* Sources */,
@@ -553,14 +553,14 @@
 			);
 			dependencies = (
 			);
-			name = Wisdom;
+			name = BookLove;
 			productName = Wisdom;
-			productReference = 565EFEFB1BAFE27E00B227E1 /* Wisdom.app */;
+			productReference = 565EFEFB1BAFE27E00B227E1 /* BookLove.app */;
 			productType = "com.apple.product-type.application";
 		};
-		565EFF161BAFE27E00B227E1 /* WisdomTests */ = {
+		565EFF161BAFE27E00B227E1 /* BookLoveTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 565EFF2E1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "WisdomTests" */;
+			buildConfigurationList = 565EFF2E1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "BookLoveTests" */;
 			buildPhases = (
 				565EFF131BAFE27E00B227E1 /* Sources */,
 				565EFF141BAFE27E00B227E1 /* Frameworks */,
@@ -571,14 +571,14 @@
 			dependencies = (
 				565EFF191BAFE27E00B227E1 /* PBXTargetDependency */,
 			);
-			name = WisdomTests;
+			name = BookLoveTests;
 			productName = WisdomTests;
-			productReference = 565EFF171BAFE27E00B227E1 /* WisdomTests.xctest */;
+			productReference = 565EFF171BAFE27E00B227E1 /* BookLove.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		565EFF211BAFE27E00B227E1 /* WisdomUITests */ = {
+		565EFF211BAFE27E00B227E1 /* BookLoveUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 565EFF311BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "WisdomUITests" */;
+			buildConfigurationList = 565EFF311BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "BookLoveUITests" */;
 			buildPhases = (
 				565EFF1E1BAFE27E00B227E1 /* Sources */,
 				565EFF1F1BAFE27E00B227E1 /* Frameworks */,
@@ -589,9 +589,9 @@
 			dependencies = (
 				565EFF241BAFE27E00B227E1 /* PBXTargetDependency */,
 			);
-			name = WisdomUITests;
+			name = BookLoveUITests;
 			productName = WisdomUITests;
-			productReference = 565EFF221BAFE27E00B227E1 /* WisdomUITests.xctest */;
+			productReference = 565EFF221BAFE27E00B227E1 /* BookLove.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -608,7 +608,7 @@
 						DevelopmentTeam = NDMF32TPPR;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -622,7 +622,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 565EFEF61BAFE27E00B227E1 /* Build configuration list for PBXProject "Wisdom" */;
+			buildConfigurationList = 565EFEF61BAFE27E00B227E1 /* Build configuration list for PBXProject "BookLove" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -635,9 +635,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				565EFEFA1BAFE27E00B227E1 /* Wisdom */,
-				565EFF161BAFE27E00B227E1 /* WisdomTests */,
-				565EFF211BAFE27E00B227E1 /* WisdomUITests */,
+				565EFEFA1BAFE27E00B227E1 /* BookLove */,
+				565EFF161BAFE27E00B227E1 /* BookLoveTests */,
+				565EFF211BAFE27E00B227E1 /* BookLoveUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -803,12 +803,12 @@
 /* Begin PBXTargetDependency section */
 		565EFF191BAFE27E00B227E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 565EFEFA1BAFE27E00B227E1 /* Wisdom */;
+			target = 565EFEFA1BAFE27E00B227E1 /* BookLove */;
 			targetProxy = 565EFF181BAFE27E00B227E1 /* PBXContainerItemProxy */;
 		};
 		565EFF241BAFE27E00B227E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 565EFEFA1BAFE27E00B227E1 /* Wisdom */;
+			target = 565EFEFA1BAFE27E00B227E1 /* BookLove */;
 			targetProxy = 565EFF231BAFE27E00B227E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -921,12 +921,12 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Wisdom",
 				);
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Wisdom/Wisdom-PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Wisdom/BookLove-PrefixHeader.pch";
 				INFOPLIST_FILE = Wisdom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wisdom.Wisdom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bookLove.BookLove;
+				PRODUCT_NAME = BookLove;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -947,13 +947,13 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Wisdom",
 				);
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Wisdom/Wisdom-PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Wisdom/BookLove-PrefixHeader.pch";
 				INFOPLIST_FILE = Wisdom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wisdom.Wisdom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2bc69b66-48a0-44b6-a7a7-8610dfe9fc31";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bookLove.BookLove;
+				PRODUCT_NAME = BookLove;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -964,8 +964,8 @@
 				INFOPLIST_FILE = WisdomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zappdesigntemplates.WisdomTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wisdom.app/Wisdom";
+				PRODUCT_NAME = BookLove;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookLove.app/BookLove";
 			};
 			name = Debug;
 		};
@@ -976,8 +976,8 @@
 				INFOPLIST_FILE = WisdomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zappdesigntemplates.WisdomTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wisdom.app/Wisdom";
+				PRODUCT_NAME = BookLove;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookLove.app/BookLove";
 			};
 			name = Release;
 		};
@@ -987,7 +987,7 @@
 				INFOPLIST_FILE = WisdomUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zappdesigntemplates.WisdomUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BookLove;
 				TEST_TARGET_NAME = Wisdom;
 				USES_XCTRUNNER = YES;
 			};
@@ -999,7 +999,7 @@
 				INFOPLIST_FILE = WisdomUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zappdesigntemplates.WisdomUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BookLove;
 				TEST_TARGET_NAME = Wisdom;
 				USES_XCTRUNNER = YES;
 			};
@@ -1008,7 +1008,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		565EFEF61BAFE27E00B227E1 /* Build configuration list for PBXProject "Wisdom" */ = {
+		565EFEF61BAFE27E00B227E1 /* Build configuration list for PBXProject "BookLove" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				565EFF291BAFE27F00B227E1 /* Debug */,
@@ -1017,7 +1017,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		565EFF2B1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "Wisdom" */ = {
+		565EFF2B1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "BookLove" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				565EFF2C1BAFE27F00B227E1 /* Debug */,
@@ -1026,7 +1026,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		565EFF2E1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "WisdomTests" */ = {
+		565EFF2E1BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "BookLoveTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				565EFF2F1BAFE27F00B227E1 /* Debug */,
@@ -1035,7 +1035,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		565EFF311BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "WisdomUITests" */ = {
+		565EFF311BAFE27F00B227E1 /* Build configuration list for PBXNativeTarget "BookLoveUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				565EFF321BAFE27F00B227E1 /* Debug */,

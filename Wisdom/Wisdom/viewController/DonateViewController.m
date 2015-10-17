@@ -13,11 +13,15 @@
 - (IBAction)donateButtonPressed
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://smile.amazon.com/about"]];
+
+    [TRACKER trackDonateButtonPressed];
 }
 
 - (IBAction)closeButtonPressed
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+
+    [TRACKER trackDonateViewClosed];
 }
 
 #pragma mark - view methods

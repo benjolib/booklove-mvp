@@ -21,13 +21,11 @@
     NSArray *imagesArray = nil;
 
     switch (category) {
-        case OnboardingCategoryMystery: {
+        case OnboardingCategoryMystery:
             imagesArray = @[[UIImage imageNamed:@"c1"], [UIImage imageNamed:@"c2"], [UIImage imageNamed:@"c3"],
                             [UIImage imageNamed:@"c4"], [UIImage imageNamed:@"c5"], [UIImage imageNamed:@"c6"],
                             [UIImage imageNamed:@"c7"], [UIImage imageNamed:@"c8"]];
             break;
-        }
-
         case OnboardingCategoryClassic:
             imagesArray = @[[UIImage imageNamed:@"cl1"], [UIImage imageNamed:@"cl2"], [UIImage imageNamed:@"cl3"],
                             [UIImage imageNamed:@"cl4"], [UIImage imageNamed:@"cl5"], [UIImage imageNamed:@"cl6"],
@@ -96,7 +94,7 @@
             return @"Mystery";
             break;
         case OnboardingCategoryClassic:
-            return @"Classic";
+            return @"Classics";
             break;
         case OnboardingCategoryBiography:
             return @"Biography";

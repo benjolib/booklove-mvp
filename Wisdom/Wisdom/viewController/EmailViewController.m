@@ -29,6 +29,7 @@
             PFUser *user = [PFUser currentUser];
             user.email = self.emailField.text;
             [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                [TRACKER trackEmailOverlaySubmitted];
                 if (succeeded) {
                     [self showThankYouScreen];
                 } else {
@@ -52,6 +53,7 @@
 
 - (IBAction)closeButtonPressed:(UIButton*)button
 {
+    [TRACKER trackEmailOverlayClosed];
     [self hideView];
 }
 

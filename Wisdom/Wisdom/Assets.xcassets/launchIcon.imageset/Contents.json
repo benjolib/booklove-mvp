@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Rectangle 183.png",
+      "filename" : "Icon-Small-40@2x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Rectangle 183@2x.png",
+      "filename" : "apple-icon-120x120-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Rectangle 183@3x.png",
+      "filename" : "apple-icon-180x180.png",
       "scale" : "3x"
     }
   ],

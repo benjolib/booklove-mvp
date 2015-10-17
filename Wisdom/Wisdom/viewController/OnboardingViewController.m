@@ -21,6 +21,7 @@
 @property (nonatomic) OnboardingCategory currentlySelectedCategory;
 @property (nonatomic, strong) OnboardingDataSource *imagesDataSource;
 @property (nonatomic, strong) OnboardingFlowLayout *onboardingFlowLayout;
+@property (nonatomic, strong) ParseDownloadManager *downloadManager;
 @end
 
 @implementation OnboardingViewController
@@ -97,67 +98,67 @@
 
     switch (category) {
         case OnboardingCategoryClassic:
-            [self.classicLabel setActive:YES];
-            [self.mysteryLabel setActive:NO];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:NO];
-            [self.travelLabel setActive:NO];
-            [self.humanitiesLabel setActive:NO];
-            [self.fictionLabel setActive:NO];
+            self.classicLabel.text = @"Classics";
+            [self.mysteryLabel setCompleted:NO];
+            [self.biographyLabel setCompleted:NO];
+            [self.travelLabel setCompleted:NO];
+            [self.fictionLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
+            [self.scienceLabel setCompleted:NO];
             break;
         case OnboardingCategoryMystery:
-            [self.classicLabel setActive:NO];
-            [self.mysteryLabel setActive:YES];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:NO];
-            [self.travelLabel setActive:NO];
-            [self.humanitiesLabel setActive:NO];
-            [self.fictionLabel setActive:NO];
+            [self.classicLabel setCompleted:YES];
+            self.mysteryLabel.text = @"Mystery";
+            [self.biographyLabel setCompleted:NO];
+            [self.travelLabel setCompleted:NO];
+            [self.fictionLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
+            [self.scienceLabel setCompleted:NO];
             break;
         case OnboardingCategoryBiography:
-            [self.classicLabel setActive:NO];
-            [self.mysteryLabel setActive:NO];
-            [self.biographyLabel setActive:YES];
-            [self.scienceLabel setActive:NO];
-            [self.travelLabel setActive:NO];
-            [self.humanitiesLabel setActive:NO];
-            [self.fictionLabel setActive:NO];
+            [self.classicLabel setCompleted:YES];
+            [self.mysteryLabel setCompleted:YES];
+            self.biographyLabel.text = @"Biography";
+            [self.travelLabel setCompleted:NO];
+            [self.fictionLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
+            [self.scienceLabel setCompleted:NO];
             break;
         case OnboardingCategoryTravel:
-            [self.classicLabel setActive:NO];
-            [self.mysteryLabel setActive:NO];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:NO];
-            [self.travelLabel setActive:YES];
-            [self.humanitiesLabel setActive:NO];
-            [self.fictionLabel setActive:NO];
-            break;
-        case OnboardingCategoryScience:
-            [self.classicLabel setActive:NO];
-            [self.mysteryLabel setActive:NO];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:YES];
-            [self.travelLabel setActive:NO];
-            [self.humanitiesLabel setActive:NO];
-            [self.fictionLabel setActive:NO];
-            break;
-        case OnboardingCategoryHumanities:
-            [self.classicLabel setActive:NO];
-            [self.mysteryLabel setActive:NO];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:NO];
-            [self.travelLabel setActive:NO];
-            [self.humanitiesLabel setActive:YES];
-            [self.fictionLabel setActive:NO];
+            [self.classicLabel setCompleted:YES];
+            [self.mysteryLabel setCompleted:YES];
+            [self.biographyLabel setCompleted:YES];
+            self.travelLabel.text = @"Travel";
+            [self.fictionLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
+            [self.scienceLabel setCompleted:NO];
             break;
         case OnboardingCategoryFiction:
-            [self.classicLabel setActive:NO];
-            [self.mysteryLabel setActive:NO];
-            [self.biographyLabel setActive:NO];
-            [self.scienceLabel setActive:NO];
-            [self.travelLabel setActive:NO];
-            [self.humanitiesLabel setActive:NO];
-            [self.fictionLabel setActive:YES];
+            [self.classicLabel setCompleted:YES];
+            [self.mysteryLabel setCompleted:YES];
+            [self.biographyLabel setCompleted:YES];
+            [self.travelLabel setCompleted:YES];
+            self.fictionLabel.text = @"Fiction";
+            [self.humanitiesLabel setCompleted:NO];
+            [self.scienceLabel setCompleted:NO];
+            break;
+        case OnboardingCategoryHumanities:
+            [self.classicLabel setCompleted:YES];
+            [self.mysteryLabel setCompleted:YES];
+            [self.biographyLabel setCompleted:YES];
+            [self.travelLabel setCompleted:YES];
+            [self.fictionLabel setCompleted:YES];
+            self.humanitiesLabel.text = @"Humanities";
+            [self.scienceLabel setCompleted:NO];
+            break;
+        case OnboardingCategoryScience:
+            [self.classicLabel setCompleted:YES];
+            [self.mysteryLabel setCompleted:YES];
+            [self.biographyLabel setCompleted:YES];
+            [self.travelLabel setCompleted:YES];
+            [self.fictionLabel setCompleted:YES];
+            [self.humanitiesLabel setCompleted:YES];
+            self.scienceLabel.text = @"Science & Business";
             break;
         default:
             break;
@@ -166,6 +167,10 @@
     [self reloadImagesForCategory:category];
     [self changeTitleAccordingToCategory:category];
     [self resetButtons];
+
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)reloadImagesForCategory:(OnboardingCategory)category
@@ -179,25 +184,25 @@
 {
     switch (category) {
         case OnboardingCategoryClassic:
-            self.titleLabel.text = @"How likely are you to read a Classics book in the next time?";
+            self.titleLabel.text = @"How likely are you to read a Classic literature in the near future?";
             break;
         case OnboardingCategoryMystery:
-            self.titleLabel.text = @"How likely are you to read a Mystery book in the next time?";
+            self.titleLabel.text = @"How likely are you to read a Mystery novel in the near future?";
             break;
         case OnboardingCategoryBiography:
-            self.titleLabel.text = @"How likely are you to read a Biography book in the next time?";
+            self.titleLabel.text = @"How likely are you to read a Biography in the near future?";
             break;
         case OnboardingCategoryTravel:
-            self.titleLabel.text = @"How likely are you to read a Travel book in the next time?";
+            self.titleLabel.text = @"How likely are you to read Travel literature in the near future?";
             break;
         case OnboardingCategoryScience:
-            self.titleLabel.text = @"How likely are you to read a Science & Business book in the next time?";
+            self.titleLabel.text = @"How likely are you to read a Science/Business book in the near future?";
             break;
         case OnboardingCategoryHumanities:
-            self.titleLabel.text = @"How likely are you to read a Humanities book in the next time?";
+            self.titleLabel.text = @"How likely are you to read a Humanities literature in the near future?";
             break;
         case OnboardingCategoryFiction:
-            self.titleLabel.text = @"How likely are you to read a Fiction book in the next time?";
+            self.titleLabel.text = @"How likely are you to read a work of Fiction in the near future?";
             break;
         default:
             break;
@@ -246,8 +251,8 @@
 - (void)downloadQuotesInTheBackground
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void){
-        ParseDownloadManager *downloadManager = [[ParseDownloadManager alloc] init];
-        [downloadManager downloadQuotes];
+        self.downloadManager = [[ParseDownloadManager alloc] init];
+        [self.downloadManager downloadQuotes];
     });
 }
 
@@ -271,13 +276,13 @@
 
 - (void)customiseLabels
 {
-    [self.classicLabel setActive:YES];
-    [self.mysteryLabel setActive:NO];
-    [self.biographyLabel setActive:NO];
-    [self.scienceLabel setActive:NO];
-    [self.travelLabel setActive:NO];
-    [self.humanitiesLabel setActive:NO];
-    [self.fictionLabel setActive:NO];
+    self.classicLabel.text = @"Classics";
+    [self.mysteryLabel setCompleted:NO];
+    [self.biographyLabel setCompleted:NO];
+    [self.travelLabel setCompleted:NO];
+    [self.fictionLabel setCompleted:NO];
+    [self.humanitiesLabel setCompleted:NO];
+    [self.scienceLabel setCompleted:NO];
 
     self.titleLabel.textColor = [UIColor grayColorWithValue:55.0];
 

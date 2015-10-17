@@ -66,7 +66,7 @@
 
 - (void)loadRandomQuoteWithCompletionBlock:(void (^)(QuoteObject *quote))completionBlock
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Quotes"];
+    PFQuery *query = [PFQuery queryWithClassName:@"quotes"];
     [query fromLocalDatastore];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (objects.count > 0) {

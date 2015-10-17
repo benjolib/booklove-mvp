@@ -22,7 +22,7 @@
     if (bookGenre.genreName) {
         [query whereKey:@"category" equalTo:bookGenre.genreName];
     } else {
-        [query whereKey:@"category" equalTo:@"Classic"];
+        [query whereKey:@"category" equalTo:@"Classics"];
     }
 
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {

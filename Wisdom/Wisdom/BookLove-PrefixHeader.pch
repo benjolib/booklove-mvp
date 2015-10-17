@@ -6,13 +6,18 @@
 //  Copyright © 2015 Zappdesigntemplates. All rights reserved.
 //
 
-#ifndef Wisdom_PrefixHeader_pch
-#define Wisdom_PrefixHeader_pch
+#ifndef BookLove_PrefixHeader_pch
+#define BookLove_PrefixHeader_pch
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "UIColor+AppColors.h"
 #import "GeneralSettings.h"
+#import "TrackingManager.h"
+
+#ifndef TRACKER
+    #define TRACKER [TrackingManager sharedManager]
+#endif
 
 #endif /* Wisdom_PrefixHeader_pch */

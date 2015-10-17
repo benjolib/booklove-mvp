@@ -21,75 +21,74 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqe-fk-LEZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Classics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgQ-8s-Bef" customClass="OnboardLabel">
-                                        <rect key="frame" x="8" y="26" width="30" height="10"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgQ-8s-Bef" customClass="OnboardLabel">
+                                        <rect key="frame" x="63" y="22" width="52" height="17"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mystery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3S-di-QxE" customClass="OnboardLabel">
-                                        <rect key="frame" x="54" y="26" width="29" height="9"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3S-di-QxE" customClass="OnboardLabel">
+                                        <rect key="frame" x="125" y="18" width="6" height="24"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Travel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qun-m9-V5O" customClass="OnboardLabel">
-                                        <rect key="frame" x="149" y="26" width="21" height="9"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8y-No-ail" customClass="OnboardLabel">
+                                        <rect key="frame" x="141" y="18" width="6" height="24"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Humanities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPw-Ae-rWf" customClass="OnboardLabel">
-                                        <rect key="frame" x="232" y="26" width="40" height="9"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qun-m9-V5O" customClass="OnboardLabel">
+                                        <rect key="frame" x="157" y="18" width="6" height="24"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Biography" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8y-No-ail" customClass="OnboardLabel">
-                                        <rect key="frame" x="96" y="26" width="37" height="9"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-YW-KT3" customClass="OnboardLabel">
+                                        <rect key="frame" x="173" y="18" width="6" height="24"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fiction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-YW-KT3" customClass="OnboardLabel">
-                                        <rect key="frame" x="193" y="26" width="24" height="9"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPw-Ae-rWf" customClass="OnboardLabel">
+                                        <rect key="frame" x="189" y="18" width="6" height="24"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Science &amp; Business" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-3E-cI0" customClass="OnboardLabel">
-                                        <rect key="frame" x="278" y="21" width="38" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-3E-cI0" customClass="OnboardLabel">
+                                        <rect key="frame" x="205" y="18" width="6" height="24"/>
                                         <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="38" id="Qu6-lu-lFL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="MPf-3E-cI0" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="13:7" id="0Bf-CG-65I"/>
                                     <constraint firstItem="B8y-No-ail" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="24i-bR-5qS"/>
                                     <constraint firstItem="v3S-di-QxE" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="4xB-8t-kDx"/>
                                     <constraint firstItem="qun-m9-V5O" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="7:7" id="5WO-1v-tXe"/>
-                                    <constraint firstItem="gUg-YW-KT3" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="9:7" id="7KP-Xx-oah"/>
-                                    <constraint firstItem="TPw-Ae-rWf" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="11:7" id="MRI-rh-Vdg"/>
-                                    <constraint firstItem="LgQ-8s-Bef" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="1:7" id="OjF-XK-7rl"/>
+                                    <constraint firstItem="v3S-di-QxE" firstAttribute="leading" secondItem="LgQ-8s-Bef" secondAttribute="trailing" constant="10" id="Dgq-eH-cM0"/>
+                                    <constraint firstItem="LgQ-8s-Bef" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fqe-fk-LEZ" secondAttribute="leading" constant="10" id="DoD-Pq-0Bp"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MPf-3E-cI0" secondAttribute="trailing" constant="10" id="EVI-sj-Cg3"/>
+                                    <constraint firstItem="B8y-No-ail" firstAttribute="leading" secondItem="v3S-di-QxE" secondAttribute="trailing" constant="10" id="Gdb-Yn-MGP"/>
+                                    <constraint firstItem="gUg-YW-KT3" firstAttribute="leading" secondItem="qun-m9-V5O" secondAttribute="trailing" constant="10" id="HYi-gC-bPk"/>
+                                    <constraint firstItem="qun-m9-V5O" firstAttribute="leading" secondItem="B8y-No-ail" secondAttribute="trailing" constant="10" id="HcP-8h-off"/>
+                                    <constraint firstItem="MPf-3E-cI0" firstAttribute="leading" secondItem="TPw-Ae-rWf" secondAttribute="trailing" constant="10" id="Nr5-AD-bze"/>
                                     <constraint firstItem="gUg-YW-KT3" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="U5J-fj-Kea"/>
+                                    <constraint firstItem="TPw-Ae-rWf" firstAttribute="leading" secondItem="gUg-YW-KT3" secondAttribute="trailing" constant="10" id="ZWF-oA-uVn"/>
                                     <constraint firstItem="MPf-3E-cI0" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="bem-Bb-PkI"/>
-                                    <constraint firstItem="B8y-No-ail" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="5:7" id="cV2-qE-ed7"/>
                                     <constraint firstItem="TPw-Ae-rWf" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="iei-Nw-9ec"/>
                                     <constraint firstAttribute="height" constant="50" id="kGg-gj-fSl"/>
-                                    <constraint firstItem="v3S-di-QxE" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="3:7" id="kj0-28-hLq"/>
                                     <constraint firstItem="qun-m9-V5O" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="sD8-2y-baq"/>
                                     <constraint firstItem="LgQ-8s-Bef" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="z5M-OI-xWC"/>
                                 </constraints>
@@ -470,6 +469,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="c1" width="110" height="166"/>
+        <image name="c1" width="108" height="166"/>
     </resources>
 </document>

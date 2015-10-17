@@ -15,7 +15,9 @@
 - (void)askUserForPushNotifications;
 
 - (void)showPushNotificationView;
+- (void)startPushNotificationTimer;
 
+- (void)checkToShowQuotesView;
 - (void)hideQuotesScreen;
 
 - (void)hideInviteFriendScreen;

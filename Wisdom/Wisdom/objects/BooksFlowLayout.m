@@ -33,11 +33,6 @@
     self = [super init];
     if (self)
     {
-////        self.minimumInteritemSpacing = 10.0;
-//        self.minimumLineSpacing = 0.0;
-//        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-////        self.sectionInset = UIEdgeInsetsMake(0.0, 20.0, 0.0, 20.0);
-//        self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
         [self configureDefaults];
     }
     return self;
@@ -58,7 +53,7 @@
 - (CGSize)itemSize
 {
 //    return CGSizeMake(200, 400);
-    return CGSizeMake(CGRectGetWidth(self.collectionView.frame) - 40.0, CGRectGetHeight(self.collectionView.frame) - 60.0);
+    return CGSizeMake(CGRectGetWidth(self.collectionView.frame) - 40.0, CGRectGetHeight(self.collectionView.frame) - 40.0);
 }
 
 #pragma mark - Invalidation

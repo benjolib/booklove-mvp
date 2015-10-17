@@ -34,4 +34,7 @@
 
 - (void)updateBookmarkIconOnBookDetailsWithBookObject:(BookObject*)bookObject;
 
+- (void)showNormalView;
+- (void)showFlippedDetailView;
+
 @end

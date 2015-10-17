@@ -50,7 +50,7 @@
     [self.coverImageView hnk_setImageFromURL:[NSURL URLWithString:bookObject.imageURL]];
 
     if (bookObject.price) {
-        [self.buyButton setTitle:[NSString stringWithFormat:@"BUY FOR $ %@", bookObject.price] forState:UIControlStateNormal];
+        [self.buyButton setTitle:[NSString stringWithFormat:@"BUY FOR $ %.2f", [bookObject.price floatValue]] forState:UIControlStateNormal];
     } else {
         [self.buyButton setTitle:@"BUY IT" forState:UIControlStateNormal];
     }
@@ -79,6 +79,7 @@
 
 - (IBAction)buyNowButtonPressed
 {
+    [TRACKER trackBookDetailBuy];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.bookToDisplay.linkURL]];
 }
 

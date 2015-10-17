@@ -18,12 +18,16 @@
 
     [GeneralSettings setShowPushNotificationAllowed:YES];
     [self hideNotificationView];
+
+    [TRACKER trackPushNotificationOK];
 }
 
 - (IBAction)notnowButtonPressed:(UIButton*)button
 {
     [GeneralSettings setShowPushNotificationAllowed:NO];
     [self hideNotificationView];
+
+    [TRACKER trackPushNotificationNotNow];
 }
 
 - (IBAction)closeButtonPressed:(UIButton*)button

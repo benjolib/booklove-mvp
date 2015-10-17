@@ -27,13 +27,14 @@
 @property (nonatomic, strong) NSArray *booksArray;
 @property (nonatomic, strong) ParseDownloadManager *downloadManager;
 @property (nonatomic, strong) BooksFlowLayout *flowLayout;
-@property (nonatomic) BOOL isfirstTimeTransform;
+@property (nonatomic) BOOL showFlippedState;
 @end
 
 @implementation BooksViewController
 
 - (IBAction)backButtonPressed:(id)sender
 {
+    [TRACKER trackCollectionClosed];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -59,6 +60,7 @@
 {
     [self.downloadManager downloadBooksForDate:self.selectedDate genre:self.selectedGenre withCompletionBlock:^(NSArray *books, NSString *errorMessage) {
         [self.collectionView hideLoadingIndicator];
+        self.showFlippedState = NO;
         if (books) {
             self.booksArray = [books copy];
         } else {
@@ -94,6 +96,10 @@
 
     BooksCollectionViewCell *cell = (BooksCollectionViewCell*)aSuperview;
     [cell flipToShowNormalView];
+
+    self.showFlippedState = NO;
+
+    [TRACKER trackBookDetailFlipped];
 }
 
 - (IBAction)bookmarkButtonPressed:(UIButton*)button
@@ -115,6 +121,8 @@
     }
 
     [cell.booksDetailView setupViewWithBookObject:book];
+
+    [TRACKER trackBookDetailBookmarked];
 }
 
 #pragma mark - collectionView methods
@@ -139,6 +147,13 @@
     cell.subtitleLabel.text = book.sentence;
     [cell.bookCoverImageView hnk_setImageFromURL:[NSURL URLWithString:book.imageURL]];
 
+    if (self.showFlippedState) {
+        [cell showFlippedDetailView];
+        [cell updateViewWithBook:book];
+    } else {
+        [cell showNormalView];
+    }
+
     return cell;
 }
 
@@ -151,9 +166,26 @@
 {
     BooksCollectionViewCell *cell = (BooksCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
 
-    if (!cell.cellFlipped) {
+    if (!self.showFlippedState) {
+        self.showFlippedState = YES;
+
+        if (self.selectedCollectionObject) {
+            [TRACKER trackCollectionSelected];
+        } else {
+            [TRACKER trackRecommendationBookCover];
+        }
+
         BookObject *book = self.objectsToDisplay[indexPath.row];
         [cell flipToShowDetailViewWithBookObject:book];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.selectedCollectionObject) {
+        [TRACKER trackCollectionSwipe];
+    } else {
+        [TRACKER trackRecommendationSwipeToBrowse];
     }
 }
 
@@ -195,7 +227,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor backgroundColor];
-    self.isfirstTimeTransform = YES;
 
     self.flowLayout = [BooksFlowLayout layoutConfiguredWithCollectionView:self.collectionView
                                                                  itemSize:CGSizeMake(CGRectGetWidth(self.collectionView.frame) - 40.0, CGRectGetHeight(self.collectionView.frame) - 60.0)

@@ -79,11 +79,14 @@
 
 - (void)openWebsiteWithURL:(NSURL*)url
 {
+    [TRACKER trackLibraryBuyButton];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 - (void)removeObject:(BookObject*)object atIndexPath:(NSIndexPath*)indexPath
 {
+    [TRACKER trackLibraryBookmarkRemove];
+
     [[ParseLocalStoreManager sharedManager] removeObjectFromLocalStore:object];
     [self.savedBooksArray removeObject:object];
 
@@ -159,8 +162,11 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showBookDetail"]) {
-        if ([sender isKindOfClass:[LibraryTableViewCell class]]) {
+    if ([segue.identifier isEqualToString:@"showBookDetail"])
+    {
+        if ([sender isKindOfClass:[LibraryTableViewCell class]])
+        {
+            [TRACKER trackLibraryBookFlipped];
             LibraryTableViewCell *cell = (LibraryTableViewCell*)sender;
             NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 

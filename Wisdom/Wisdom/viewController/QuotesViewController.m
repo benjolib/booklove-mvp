@@ -38,9 +38,9 @@
 
     NSTimeInterval dismissTime = 3.0;
 
-#ifdef DEBUG
-    dismissTime = 0.5;
-#endif
+//#ifdef DEBUG
+//    dismissTime = 0.5;
+//#endif
 
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(dismissTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
