@@ -52,6 +52,11 @@
     [Adjust trackEvent:event];
 }
 
+- (void)trackUserLaunchedTheApp
+{
+    [self trackEventWithToken:@"bj553s"];
+}
+
 - (void)trackPushNotificationOK
 {
     [self trackEventWithToken:@"dagy9b"];

@@ -38,6 +38,8 @@ typedef NS_ENUM(NSUInteger, OnboardingCategory) {
 @property (nonatomic, weak) IBOutlet PopupView *popupView;
 @property (nonatomic, weak) IBOutlet UIView *buttonsContainerView;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *travelLeadingConstraint;
+
 @property (nonatomic, strong) IBOutletCollection(RatingButton) NSArray *ratingButtons;
 
 - (IBAction)ratingButtonPressed:(RatingButton*)button;

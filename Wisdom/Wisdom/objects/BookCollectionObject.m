@@ -8,6 +8,7 @@
 
 #import "BookCollectionObject.h"
 #import "PFObject.h"
+#import "PFFile.h"
 
 @implementation BookCollectionObject
 
@@ -18,10 +19,10 @@
         self.title = parseObject[@"title"];
         self.collectionID = parseObject[@"collectionId"];
         self.objectID = [parseObject objectId];
-        self.imageURL = parseObject[@"imageUrl"];
         self.author = parseObject[@"author"];
 
-        self.booksRelation = [parseObject relationForKey:@"books"];
+        PFFile *imageFile = parseObject[@"imageFile"];
+        self.imageURL = imageFile.url;
     }
     return self;
 }
@@ -33,7 +34,11 @@
 
 - (NSString*)author
 {
-    return [NSString stringWithFormat:@"%@'%@ %@", _author, [self stringToShowAfterAuthorName], @"favorites"];
+    if (_author) {
+        return [NSString stringWithFormat:@"%@'%@ %@", _author, [self stringToShowAfterAuthorName], @"favorites"];
+    } else {
+        return @"";
+    }
 }
 
 - (NSString*)stringToShowAfterAuthorName

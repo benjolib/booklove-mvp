@@ -26,6 +26,7 @@
 @property (nonatomic) MainContainerSelectedItem currentlySelectedItem;
 @property (nonatomic, strong) OverlayTransitionManager *overlayTransitionManager;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic) BOOL didShowQuotesScreen;
 @end
 
 @implementation MainContainerViewController
@@ -96,10 +97,8 @@
 - (void)openSelectionView
 {
     self.selectionViewHeightConstraint.constant = CGRectGetHeight(self.containerView.frame) - 50.0;
-    self.bottomYOriginConstraint.constant = -self.selectionViewHeightConstraint.constant;
 
     [self.selectionCollectionView reloadData];
-
 
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
@@ -109,7 +108,6 @@
 - (void)hideSelectionViewWithAnimation:(BOOL)animated
 {
     self.selectionViewHeightConstraint.constant = 0.0;
-    self.bottomYOriginConstraint.constant = 0.0;
 
     self.currentlySelectedItem = MainContainerSelectedItemNone;
 
@@ -432,9 +430,11 @@
 {
     [super viewDidLoad];
 
-    if ([GeneralSettings showPushNotificationView]) {
-        AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        [appdelegate startPushNotificationTimer];
+    if ([GeneralSettings onboardingCompleted]) {
+        if ([GeneralSettings showPushNotificationView]) {
+            AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            [appdelegate startPushNotificationTimer];
+        }
     }
 
     self.view.backgroundColor = [UIColor backgroundColor];
@@ -444,14 +444,18 @@
     self.bottomContainerView.layer.shadowOpacity = 0.2;
     self.bottomContainerView.layer.shadowRadius = 1.5;
 
+    self.selectionCollectionView.backgroundColor = self.view.backgroundColor;
     self.genreLabel.text = [GeneralSettings favoriteCategory];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [appdelegate checkToShowQuotesView];
+    if (!self.didShowQuotesScreen) {
+        self.didShowQuotesScreen = YES;
+        AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        [appdelegate checkToShowQuotesView];
+    }
 }
 
 - (BOOL)prefersStatusBarHidden

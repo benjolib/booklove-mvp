@@ -5,10 +5,10 @@
         "mode" : "3-part-horizontal",
         "center" : {
           "mode" : "stretch",
-          "width" : 5
+          "width" : 2
         },
         "cap-insets" : {
-          "right" : 5,
+          "right" : 2,
           "left" : 0
         }
       },
@@ -21,10 +21,10 @@
         "mode" : "3-part-horizontal",
         "center" : {
           "mode" : "stretch",
-          "width" : 5
+          "width" : 4
         },
         "cap-insets" : {
-          "right" : 5,
+          "right" : 4,
           "left" : 0
         }
       },
@@ -37,10 +37,10 @@
         "mode" : "3-part-horizontal",
         "center" : {
           "mode" : "stretch",
-          "width" : 5
+          "width" : 6
         },
         "cap-insets" : {
-          "right" : 5,
+          "right" : 6,
           "left" : 0
         }
       },

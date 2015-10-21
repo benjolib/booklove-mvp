@@ -21,44 +21,46 @@
 {
     self = [super init];
     if (self) {
-        self.author = parseObject[@"author"];
-        self.bookDescription = parseObject[@"description"];
+        self.author = parseObject[@"Author"];
+        self.bookDescription = parseObject[@"description_long"];
         self.bookTitle = parseObject[@"title"];
-        self.sentence = parseObject[@"sentence"];
+        self.sentence = parseObject[@"description_short"];
 
-        self.imageURL = parseObject[@"coverImage"];
+        self.imageURL = parseObject[@"coverimage"];
 
-        self.linkURL = parseObject[@"purchaseLink"];
-        self.category = parseObject[@"category"];
-        self.price = parseObject[@"price"];
-        self.recommendedAt = parseObject[@"recommendedAt"];
-        self.bookYear = parseObject[@"year"];
+        self.linkURL = parseObject[@"purchaselink"];
+        self.category = parseObject[@"Category"];
+        self.price = parseObject[@"Price"];
+        self.recommendedAt = parseObject[@"createdAt"];
+        self.bookYear = parseObject[@"Year"];
         self.sentence = parseObject[@"sentence"];
         self.parseID = parseObject.objectId;
 
-        NSDictionary *recommendedBy = parseObject[@"recommendedBy"];
-        self.recommendedByUser = [[RecommendedByUser alloc] initWithName:recommendedBy[@"name"] andURL:recommendedBy[@"image"]];
+        NSString *recommendedByName = parseObject[@"rcmnded_name"];
+        NSString *recommendedByImage = parseObject[@"rcmnded_img"];
+        self.recommendedByUser = [[RecommendedByUser alloc] initWithName:recommendedByName andURL:recommendedByImage];
     }
     return self;
 }
 
 - (PFObject*)convertToParseObject
 {
-    PFObject *parseBook = [PFObject objectWithClassName:@"books"];
-    parseBook[@"author"] = self.author ? self.author : @"";
-    parseBook[@"description"] = self.bookDescription ? self.bookDescription : @"";
+    PFObject *parseBook = [PFObject objectWithClassName:@"Booklove"];
+    parseBook[@"Author"] = self.author ? self.author : @"";
+    parseBook[@"description_long"] = self.bookDescription ? self.bookDescription : @"";
     parseBook[@"title"] = self.bookTitle ? self.bookTitle : @"";
-    parseBook[@"coverImage"] = self.imageURL ? self.imageURL : @"";
-    parseBook[@"purchaseLink"] = self.linkURL ? self.linkURL : @"";
-    parseBook[@"price"] = self.price ? self.price : 0;
-    parseBook[@"recommendedAt"] = self.recommendedAt ? self.recommendedAt : @"";
-    parseBook[@"year"] = self.bookYear ? self.bookYear : 0;
-    parseBook[@"sentence"] = self.sentence ? self.sentence : @"";
-    parseBook[@"category"] = self.category ? self.category : @"";
+    parseBook[@"coverimage"] = self.imageURL ? self.imageURL : @"";
+    parseBook[@"purchaselink"] = self.linkURL ? self.linkURL : @"";
+    parseBook[@"Price"] = self.price ? self.price : 0;
+    parseBook[@"createdAt"] = self.recommendedAt ? self.recommendedAt : @"";
+    parseBook[@"Year"] = self.bookYear ? self.bookYear : 0;
+    parseBook[@"description_short"] = self.sentence ? self.sentence : @"";
+    parseBook[@"Category"] = self.category ? self.category : @"";
     parseBook.objectId = self.parseID;
 
     if (![self.recommendedByUser isEmpty]) {
-        parseBook[@"recommendedBy"] = @{@"name": self.recommendedByUser.name, @"image": self.recommendedByUser.imageURL};
+        parseBook[@"rcmnded_img"] = self.recommendedByUser.imageURL ? self.recommendedByUser.imageURL : @"";
+        parseBook[@"rcmnded_name"] = self.recommendedByUser.name ? self.recommendedByUser.name : @"";
     }
     return parseBook;
 }

@@ -48,8 +48,9 @@
 
 - (void)loadLibraryBooksWithCompletionBlock:(void (^)(NSArray *booksArray, NSString *errorMessage))completionBlock
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"books"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Booklove"];
     [query fromLocalDatastore];
+    [query orderByAscending:@"savedDate"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *tempArray = [NSMutableArray array];
         for (PFObject *parseObject in objects) {
@@ -90,6 +91,7 @@
     [self.locallySavedObjectIDs addObject:book.parseID];
 
     PFObject *parseObject = [book convertToParseObject];
+    [parseObject setObject:[NSDate date] forKey:@"savedDate"];
     [parseObject pinInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (!succeeded) {
             [self.locallySavedObjectIDs removeObject:book.parseID];
@@ -120,7 +122,7 @@
 
 - (void)fetchSavedBooksObjectIDs
 {
-    PFQuery *bookQuery = [PFQuery queryWithClassName:@"books"];
+    PFQuery *bookQuery = [PFQuery queryWithClassName:@"Booklove"];
     [bookQuery fromLocalDatastore];
     [bookQuery selectKeys:@[@"objectId"]];
     [bookQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {

@@ -31,8 +31,7 @@
     [button setSelected:YES];
 
     [self.imagesDataSource setRating:button.tag forCategory:self.currentlySelectedCategory];
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self showNextCategory];
     });
 }
@@ -46,25 +45,25 @@
 - (void)showNextCategory
 {
     switch (self.currentlySelectedCategory) {
-        case OnboardingCategoryClassic:
-            [self loadCategory:OnboardingCategoryMystery];
-            break;
-        case OnboardingCategoryMystery:
-            [self loadCategory:OnboardingCategoryBiography];
-            break;
-        case OnboardingCategoryBiography:
-            [self loadCategory:OnboardingCategoryTravel];
-            break;
         case OnboardingCategoryTravel:
             [self loadCategory:OnboardingCategoryFiction];
             break;
         case OnboardingCategoryFiction:
-            [self loadCategory:OnboardingCategoryHumanities];
+            [self loadCategory:OnboardingCategoryMystery];
             break;
-        case OnboardingCategoryHumanities:
+        case OnboardingCategoryMystery:
+            [self loadCategory:OnboardingCategoryClassic];
+            break;
+        case OnboardingCategoryClassic:
             [self loadCategory:OnboardingCategoryScience];
             break;
         case OnboardingCategoryScience:
+            [self loadCategory:OnboardingCategoryBiography];
+            break;
+        case OnboardingCategoryBiography:
+            [self loadCategory:OnboardingCategoryHumanities];
+            break;
+        case OnboardingCategoryHumanities:
             [GeneralSettings setOnboardingCompleted:YES];
 
             // send user ratings
@@ -97,69 +96,78 @@
     self.currentlySelectedCategory = category;
 
     switch (category) {
-        case OnboardingCategoryClassic:
-            self.classicLabel.text = @"Classics";
-            [self.mysteryLabel setCompleted:NO];
-            [self.biographyLabel setCompleted:NO];
-            [self.travelLabel setCompleted:NO];
-            [self.fictionLabel setCompleted:NO];
-            [self.humanitiesLabel setCompleted:NO];
-            [self.scienceLabel setCompleted:NO];
-            break;
-        case OnboardingCategoryMystery:
-            [self.classicLabel setCompleted:YES];
-            self.mysteryLabel.text = @"Mystery";
-            [self.biographyLabel setCompleted:NO];
-            [self.travelLabel setCompleted:NO];
-            [self.fictionLabel setCompleted:NO];
-            [self.humanitiesLabel setCompleted:NO];
-            [self.scienceLabel setCompleted:NO];
-            break;
-        case OnboardingCategoryBiography:
-            [self.classicLabel setCompleted:YES];
-            [self.mysteryLabel setCompleted:YES];
-            self.biographyLabel.text = @"Biography";
-            [self.travelLabel setCompleted:NO];
-            [self.fictionLabel setCompleted:NO];
-            [self.humanitiesLabel setCompleted:NO];
-            [self.scienceLabel setCompleted:NO];
-            break;
         case OnboardingCategoryTravel:
-            [self.classicLabel setCompleted:YES];
-            [self.mysteryLabel setCompleted:YES];
-            [self.biographyLabel setCompleted:YES];
             self.travelLabel.text = @"Travel";
             [self.fictionLabel setCompleted:NO];
-            [self.humanitiesLabel setCompleted:NO];
+            [self.mysteryLabel setCompleted:NO];
+            [self.classicLabel setCompleted:NO];
             [self.scienceLabel setCompleted:NO];
+            [self.biographyLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
             break;
+
         case OnboardingCategoryFiction:
-            [self.classicLabel setCompleted:YES];
-            [self.mysteryLabel setCompleted:YES];
-            [self.biographyLabel setCompleted:YES];
             [self.travelLabel setCompleted:YES];
             self.fictionLabel.text = @"Fiction";
+            [self.mysteryLabel setCompleted:NO];
+            [self.classicLabel setCompleted:NO];
+            [self.scienceLabel setCompleted:NO];
+            [self.biographyLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
+            break;
+
+        case OnboardingCategoryMystery:
+            [self.travelLabel setCompleted:YES];
+            [self.fictionLabel setCompleted:YES];
+            self.mysteryLabel.text = @"Mystery";
+            [self.classicLabel setCompleted:NO];
+            [self.biographyLabel setCompleted:NO];
+            [self.travelLabel setCompleted:NO];
+            [self.fictionLabel setCompleted:NO];
             [self.humanitiesLabel setCompleted:NO];
             [self.scienceLabel setCompleted:NO];
             break;
-        case OnboardingCategoryHumanities:
-            [self.classicLabel setCompleted:YES];
-            [self.mysteryLabel setCompleted:YES];
-            [self.biographyLabel setCompleted:YES];
+
+        case OnboardingCategoryClassic:
             [self.travelLabel setCompleted:YES];
             [self.fictionLabel setCompleted:YES];
-            self.humanitiesLabel.text = @"Humanities";
+            [self.mysteryLabel setCompleted:YES];
+            self.classicLabel.text = @"Classics";
             [self.scienceLabel setCompleted:NO];
+            [self.biographyLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
             break;
+
         case OnboardingCategoryScience:
-            [self.classicLabel setCompleted:YES];
-            [self.mysteryLabel setCompleted:YES];
-            [self.biographyLabel setCompleted:YES];
             [self.travelLabel setCompleted:YES];
             [self.fictionLabel setCompleted:YES];
-            [self.humanitiesLabel setCompleted:YES];
-            self.scienceLabel.text = @"Science & Business";
+            [self.mysteryLabel setCompleted:YES];
+            [self.classicLabel setCompleted:YES];
+            self.scienceLabel.text = @"Science/\rBusiness";
+            [self.biographyLabel setCompleted:NO];
+            [self.humanitiesLabel setCompleted:NO];
             break;
+
+        case OnboardingCategoryBiography:
+            [self.travelLabel setCompleted:YES];
+            [self.fictionLabel setCompleted:YES];
+            [self.mysteryLabel setCompleted:YES];
+            [self.classicLabel setCompleted:YES];
+            [self.scienceLabel setCompleted:YES];
+            self.biographyLabel.text = @"Biography";
+            [self.humanitiesLabel setCompleted:NO];
+            break;
+
+        case OnboardingCategoryHumanities:
+            [self.travelLabel setCompleted:YES];
+            [self.fictionLabel setCompleted:YES];
+            [self.mysteryLabel setCompleted:YES];
+            [self.classicLabel setCompleted:YES];
+            [self.scienceLabel setCompleted:YES];
+            [self.biographyLabel setCompleted:YES];
+            self.humanitiesLabel.text = @"Humanities";
+            break;
+
         default:
             break;
     }
@@ -168,7 +176,7 @@
     [self changeTitleAccordingToCategory:category];
     [self resetButtons];
 
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         [self.view layoutIfNeeded];
     }];
 }
@@ -246,6 +254,13 @@
     self.collectionView.collectionViewLayout = self.onboardingFlowLayout;
 
     [self downloadQuotesInTheBackground];
+
+
+    CGFloat leadingValue = CGRectGetMinX(self.travelLabel.frame);
+    CGFloat widthOfLabels = CGRectGetMaxX(self.humanitiesLabel.frame);
+
+    self.travelLeadingConstraint.constant = (leadingValue + widthOfLabels) / 2 - 30.0;
+    [self.view layoutIfNeeded];
 }
 
 - (void)downloadQuotesInTheBackground
@@ -271,15 +286,14 @@
 
     self.collectionView.backgroundColor = [UIColor clearColor];
 
-    [self loadCategory:OnboardingCategoryClassic];
+    [self loadCategory:OnboardingCategoryTravel];
 }
 
 - (void)customiseLabels
 {
-    self.classicLabel.text = @"Classics";
+    [self.classicLabel setCompleted:NO];
     [self.mysteryLabel setCompleted:NO];
     [self.biographyLabel setCompleted:NO];
-    [self.travelLabel setCompleted:NO];
     [self.fictionLabel setCompleted:NO];
     [self.humanitiesLabel setCompleted:NO];
     [self.scienceLabel setCompleted:NO];

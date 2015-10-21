@@ -16,13 +16,14 @@
 #pragma mark - downloading methods
 - (void)downloadBooksForDate:(NSDate*)date genre:(BookGenre*)bookGenre withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"books"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Booklove"];
 
 //    [query whereKey:@"createdAt" equalTo:date];
+
     if (bookGenre.genreName) {
-        [query whereKey:@"category" equalTo:bookGenre.genreName];
+        [query whereKey:@"Category" equalTo:[bookGenre.genreName stringByReplacingOccurrencesOfString:@" " withString:@""]];
     } else {
-        [query whereKey:@"category" equalTo:@"Classics"];
+        [query whereKey:@"Category" equalTo:@"Classics"];
     }
 
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
@@ -41,7 +42,7 @@
 
 - (void)downloadBooksForCollectionID:(NSString*)collectionID withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"books"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Booklove"];
     [query whereKey:@"parentCollectionIDs" containedIn:@[collectionID]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *tempArray = [NSMutableArray array];

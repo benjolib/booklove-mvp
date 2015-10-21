@@ -5,6 +5,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Merriweather-LightItalic.ttf">
+            <string>Merriweather-LightItalic</string>
+            <string>Merriweather-LightItalic</string>
+            <string>Merriweather-LightItalic</string>
+            <string>Merriweather-LightItalic</string>
+            <string>Merriweather-LightItalic</string>
+            <string>Merriweather-LightItalic</string>
+            <string>Merriweather-LightItalic</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Onboarding View Controller-->
         <scene sceneID="RkG-Xf-xfv">
@@ -21,52 +32,52 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqe-fk-LEZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgQ-8s-Bef" customClass="OnboardLabel">
-                                        <rect key="frame" x="63" y="22" width="52" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgQ-8s-Bef" customClass="OnboardLabel">
+                                        <rect key="frame" x="70" y="19" width="51" height="23"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Merriweather-LightItalic" family="Merriweather" pointSize="18"/>
                                         <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3S-di-QxE" customClass="OnboardLabel">
-                                        <rect key="frame" x="125" y="18" width="6" height="24"/>
+                                        <rect key="frame" x="131" y="19" width="5" height="23"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Merriweather-LightItalic" family="Merriweather" pointSize="18"/>
                                         <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8y-No-ail" customClass="OnboardLabel">
-                                        <rect key="frame" x="141" y="18" width="6" height="24"/>
+                                        <rect key="frame" x="146" y="19" width="5" height="23"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Merriweather-LightItalic" family="Merriweather" pointSize="18"/>
                                         <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qun-m9-V5O" customClass="OnboardLabel">
-                                        <rect key="frame" x="157" y="18" width="6" height="24"/>
+                                        <rect key="frame" x="161" y="19" width="5" height="23"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Merriweather-LightItalic" family="Merriweather" pointSize="18"/>
                                         <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-YW-KT3" customClass="OnboardLabel">
-                                        <rect key="frame" x="173" y="18" width="6" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-YW-KT3" customClass="OnboardLabel">
+                                        <rect key="frame" x="176" y="19" width="5" height="23"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Merriweather-LightItalic" family="Merriweather" pointSize="18"/>
                                         <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPw-Ae-rWf" customClass="OnboardLabel">
-                                        <rect key="frame" x="189" y="18" width="6" height="24"/>
+                                        <rect key="frame" x="191" y="19" width="5" height="23"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Merriweather-LightItalic" family="Merriweather" pointSize="18"/>
                                         <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-3E-cI0" customClass="OnboardLabel">
-                                        <rect key="frame" x="205" y="18" width="6" height="24"/>
+                                        <rect key="frame" x="206" y="19" width="5" height="23"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Merriweather-LightItalic" family="Merriweather" pointSize="18"/>
                                         <color key="textColor" red="0.67462479440000001" green="0.3762689266" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -76,11 +87,10 @@
                                 <constraints>
                                     <constraint firstItem="B8y-No-ail" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="24i-bR-5qS"/>
                                     <constraint firstItem="v3S-di-QxE" firstAttribute="centerY" secondItem="Fqe-fk-LEZ" secondAttribute="centerY" constant="5" id="4xB-8t-kDx"/>
-                                    <constraint firstItem="qun-m9-V5O" firstAttribute="centerX" secondItem="Fqe-fk-LEZ" secondAttribute="centerX" multiplier="7:7" id="5WO-1v-tXe"/>
                                     <constraint firstItem="v3S-di-QxE" firstAttribute="leading" secondItem="LgQ-8s-Bef" secondAttribute="trailing" constant="10" id="Dgq-eH-cM0"/>
-                                    <constraint firstItem="LgQ-8s-Bef" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fqe-fk-LEZ" secondAttribute="leading" constant="10" id="DoD-Pq-0Bp"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MPf-3E-cI0" secondAttribute="trailing" constant="10" id="EVI-sj-Cg3"/>
                                     <constraint firstItem="B8y-No-ail" firstAttribute="leading" secondItem="v3S-di-QxE" secondAttribute="trailing" constant="10" id="Gdb-Yn-MGP"/>
+                                    <constraint firstItem="LgQ-8s-Bef" firstAttribute="leading" secondItem="Fqe-fk-LEZ" secondAttribute="leading" constant="70" id="HTR-kT-GJ0"/>
                                     <constraint firstItem="gUg-YW-KT3" firstAttribute="leading" secondItem="qun-m9-V5O" secondAttribute="trailing" constant="10" id="HYi-gC-bPk"/>
                                     <constraint firstItem="qun-m9-V5O" firstAttribute="leading" secondItem="B8y-No-ail" secondAttribute="trailing" constant="10" id="HcP-8h-off"/>
                                     <constraint firstItem="MPf-3E-cI0" firstAttribute="leading" secondItem="TPw-Ae-rWf" secondAttribute="trailing" constant="10" id="Nr5-AD-bze"/>
@@ -378,20 +388,21 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="biographyLabel" destination="B8y-No-ail" id="bw6-u7-aWJ"/>
+                        <outlet property="biographyLabel" destination="TPw-Ae-rWf" id="y94-Uo-Zm9"/>
                         <outlet property="buttonsContainerView" destination="noe-yy-x7n" id="RhG-Z2-Mit"/>
-                        <outlet property="classicLabel" destination="LgQ-8s-Bef" id="XpG-E8-oZX"/>
+                        <outlet property="classicLabel" destination="qun-m9-V5O" id="Zt3-Mh-XqS"/>
                         <outlet property="collectionView" destination="D2p-ey-21Y" id="zAl-mC-s9a"/>
-                        <outlet property="fictionLabel" destination="gUg-YW-KT3" id="hYI-CA-Zdz"/>
-                        <outlet property="humanitiesLabel" destination="TPw-Ae-rWf" id="TAc-h1-Irb"/>
+                        <outlet property="fictionLabel" destination="v3S-di-QxE" id="9ad-sk-NJX"/>
+                        <outlet property="humanitiesLabel" destination="MPf-3E-cI0" id="nFh-pu-vn7"/>
                         <outlet property="likelyLabel" destination="Xfx-0K-BpE" id="ZNX-4u-T4t"/>
-                        <outlet property="mysteryLabel" destination="v3S-di-QxE" id="tug-iO-YnZ"/>
+                        <outlet property="mysteryLabel" destination="B8y-No-ail" id="XZ5-Tz-eee"/>
                         <outlet property="notLikelyLabel" destination="wey-cf-l1H" id="dKH-1u-7BC"/>
                         <outlet property="popupView" destination="zhW-ST-uih" id="NQ3-5D-PPv"/>
-                        <outlet property="scienceLabel" destination="MPf-3E-cI0" id="vJO-df-ajE"/>
+                        <outlet property="scienceLabel" destination="gUg-YW-KT3" id="Bi5-lH-mKE"/>
                         <outlet property="separatorView" destination="IPP-fh-ORE" id="z4d-0e-TBw"/>
                         <outlet property="titleLabel" destination="75W-Tg-696" id="x37-LB-I4x"/>
-                        <outlet property="travelLabel" destination="qun-m9-V5O" id="xvo-i1-4eH"/>
+                        <outlet property="travelLabel" destination="LgQ-8s-Bef" id="5Iv-My-0v8"/>
+                        <outlet property="travelLeadingConstraint" destination="HTR-kT-GJ0" id="Vlb-M3-Tx6"/>
                         <outletCollection property="ratingButtons" destination="VmW-2s-OS6" id="jHH-Ue-jOW"/>
                         <outletCollection property="ratingButtons" destination="4Zl-Tr-FcM" id="KbE-oz-fI0"/>
                         <outletCollection property="ratingButtons" destination="2Gm-sM-Us2" id="YWW-Ih-psL"/>

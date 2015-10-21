@@ -16,6 +16,7 @@
 #import "InviteFriendViewController.h"
 #import "EmailViewController.h"
 #import "ParseLocalStoreManager.h"
+#import "ParseDownloadManager.h"
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
@@ -30,6 +31,7 @@
 
 @property (nonatomic, strong) NSTimer *pushNotificationTimer;
 @property (nonatomic, strong) NSTimer *inviteFriendTimer;
+@property (nonatomic, strong) ParseDownloadManager *downloadManager;
 @end
 
 @implementation AppDelegate
@@ -121,12 +123,20 @@
 #pragma mark - app launch methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TRACKER trackUserLaunchedTheApp];
+
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"FqdCInc5wYV5Hk2kDVF0mIF2l5WvqhIFyXTaUhw9" clientKey:@"78xx8sl0wFaqK97BWnqev2C4I3LPv9XpEhIv76Vv"];
     [Fabric with:@[[Crashlytics class]]];
 
     if ([GeneralSettings onboardingCompleted]) {
         self.window.rootViewController = [StoryboardManager mainContainerViewController];
+
+        // refresh quotes in the background
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void){
+            self.downloadManager = [[ParseDownloadManager alloc] init];
+            [self.downloadManager downloadQuotes];
+        });
     } else {
         self.window.rootViewController = [StoryboardManager onboardingViewController];
     }
@@ -135,17 +145,19 @@
         [GeneralSettings setAppLaunchDate];
     }
 
-    if ([GeneralSettings inviteFriendScreenNeedsToShow]) {
-        [self startInviteFriendTimer];
-        [GeneralSettings resetInviteFriendShowCount];
-    } else {
-        [GeneralSettings increaseInviteFriendShowCount];
+    if ([GeneralSettings onboardingCompleted])
+    {
+        if ([GeneralSettings inviteFriendScreenNeedsToShow]) {
+            [self startInviteFriendTimer];
+            [GeneralSettings resetInviteFriendShowCount];
+        } else {
+            [GeneralSettings increaseInviteFriendShowCount];
+        }
     }
 
     [self createAnonymousUser];
-
     [ParseLocalStoreManager sharedManager];
-
+    
     return YES;
 }
 

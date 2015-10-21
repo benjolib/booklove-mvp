@@ -16,7 +16,6 @@
 @property (nonatomic, copy) NSString *objectID;
 @property (nonatomic, copy) NSString *collectionID;
 @property (nonatomic, copy) NSString *author;
-@property (nonatomic, strong) PFRelation *booksRelation;
 
 - (instancetype)initWithParseObject:(PFObject*)parseObject;
 

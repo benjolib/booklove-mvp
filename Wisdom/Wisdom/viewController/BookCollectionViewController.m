@@ -11,6 +11,7 @@
 #import "ParseDownloadManager.h"
 #import "BookCollectionObject.h"
 #import "BooksViewController.h"
+#import <Haneke/UIImageView+Haneke.h>
 
 @interface BookCollectionViewController ()
 @property (nonatomic, strong) NSArray *collectionsArray;
@@ -51,25 +52,8 @@
         cell.titleLabel.text = @"";
     }
 
-    if (collection.image) {
-        cell.coverImageView.image = collection.image;
-    } else {
-        if (!tableView.dragging && !tableView.decelerating) {
-            [super startImageDownloadForObject:collection atIndexPath:indexPath];
-        }
-    }
-
+    [cell.coverImageView hnk_setImageFromURL:[NSURL URLWithString:collection.imageURL]];
     return cell;
-}
-
-- (void)updateTableViewCellAtIndexPath:(NSIndexPath *)indexPath image:(UIImage *)image
-{
-    BookCollectionTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    if (cell) {
-        BookCollectionObject *collection = self.collectionsArray[indexPath.row];
-        collection.image = image;
-        cell.coverImageView.image = image;
-    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -121,7 +105,6 @@
                 // handle error somehow
             }
         }
-
         [self.tableView reloadData];
     }];
 }

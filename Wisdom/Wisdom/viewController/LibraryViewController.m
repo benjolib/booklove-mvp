@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "BookObject.h"
 #import "BooksViewController.h"
+#import <Haneke/UIImageView+Haneke.h>
 
 @interface LibraryViewController ()
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
@@ -118,25 +119,9 @@
     cell.bookTitleLabel.text = book.bookTitle;
     cell.categoryLabel.text = book.category;
 
-    if (book.image) {
-        cell.bookCoverImageView.image = book.image;
-    } else {
-        if (!tableView.dragging && !tableView.decelerating) {
-            [super startImageDownloadForObject:book atIndexPath:indexPath];
-        }
-    }
+    [cell.bookCoverImageView hnk_setImageFromURL:[NSURL URLWithString:book.imageURL]];
 
     return cell;
-}
-
-- (void)updateTableViewCellAtIndexPath:(NSIndexPath *)indexPath image:(UIImage *)image
-{
-    LibraryTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    if (cell) {
-        BookObject *book = self.objectsToDisplay[indexPath.row];
-        book.image = image;
-        cell.bookCoverImageView.image = image;
-    }
 }
 
 #pragma mark - view methods

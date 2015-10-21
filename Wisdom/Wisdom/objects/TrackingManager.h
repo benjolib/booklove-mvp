@@ -12,6 +12,8 @@
 
 + (instancetype)sharedManager;
 
+- (void)trackUserLaunchedTheApp;
+
 - (void)trackLibraryBookmarkRemove;
 - (void)trackLibraryBuyButton;
 - (void)trackLibraryBookFlipped;
