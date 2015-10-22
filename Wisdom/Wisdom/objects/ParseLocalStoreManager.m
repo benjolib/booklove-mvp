@@ -50,7 +50,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Booklove"];
     [query fromLocalDatastore];
-    [query orderByAscending:@"savedDate"];
+    [query orderByDescending:@"savedDate"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *tempArray = [NSMutableArray array];
         for (PFObject *parseObject in objects) {

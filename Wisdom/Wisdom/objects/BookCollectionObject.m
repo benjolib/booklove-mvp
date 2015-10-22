@@ -34,7 +34,7 @@
 
 - (NSString*)author
 {
-    if (_author) {
+    if (_author.length != 0) {
         return [NSString stringWithFormat:@"%@'%@ %@", _author, [self stringToShowAfterAuthorName], @"favorites"];
     } else {
         return @"";
@@ -43,10 +43,14 @@
 
 - (NSString*)stringToShowAfterAuthorName
 {
-    if ([[_author substringFromIndex:_author.length - 1] isEqualToString:@"s"]) {
-        return @"";
+    if (_author.length != 0) {
+        if ([[_author substringFromIndex:_author.length - 1] isEqualToString:@"s"]) {
+            return @"";
+        } else {
+            return @"s";
+        }
     } else {
-        return @"s";
+        return @"";
     }
 }
 

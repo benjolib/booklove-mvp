@@ -224,9 +224,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="SUBMIT">
-                                            <color key="titleShadowColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.29853779560810811" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <state key="normal" title="SUBMIT"/>
                                         <connections>
                                             <action selector="inviteButtonPressed:" destination="X27-xz-C4L" eventType="touchUpInside" id="cRu-Vp-znM"/>
                                         </connections>

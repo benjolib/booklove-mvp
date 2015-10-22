@@ -33,7 +33,6 @@
         self.price = parseObject[@"Price"];
         self.recommendedAt = parseObject[@"createdAt"];
         self.bookYear = parseObject[@"Year"];
-        self.sentence = parseObject[@"sentence"];
         self.parseID = parseObject.objectId;
 
         NSString *recommendedByName = parseObject[@"rcmnded_name"];

@@ -50,13 +50,17 @@ static NSString * const kAppLaunchDate = @"AppLaunchDate";
 
 + (void)setAppLaunchDate
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kAppLaunchDate];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kAppLaunchDate];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSDate*)appLaunchDate
 {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kAppLaunchDate];
+    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    dateComponents.day = 11;
+    dateComponents.month = 10;
+    return [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+//    return [[NSUserDefaults standardUserDefaults] objectForKey:kAppLaunchDate];
 }
 
 + (BOOL)inviteFriendScreenNeedsToShow

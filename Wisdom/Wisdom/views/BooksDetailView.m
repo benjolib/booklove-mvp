@@ -59,6 +59,7 @@
         // update the recommended view
         [self.recommendedView.recommendedView hnk_setImageFromURL:[NSURL URLWithString:bookObject.recommendedByUser.imageURL]];
         self.recommendedView.titleLabel.text = bookObject.recommendedByUser.name;
+        self.recommendWrapperViewHeightConstraint.constant = 40.0;
     } else {
         self.recommendWrapperViewHeightConstraint.constant = 0.0;
         [self layoutIfNeeded];

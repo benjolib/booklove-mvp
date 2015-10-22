@@ -100,6 +100,9 @@
     self.showFlippedState = NO;
 
     [TRACKER trackBookDetailFlipped];
+
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    [self refreshSurroundingCellsAtCenterIndexPath:indexPath];
 }
 
 - (IBAction)bookmarkButtonPressed:(UIButton*)button
@@ -177,6 +180,26 @@
 
         BookObject *book = self.objectsToDisplay[indexPath.row];
         [cell flipToShowDetailViewWithBookObject:book];
+
+        [self refreshSurroundingCellsAtCenterIndexPath:indexPath];
+    }
+}
+
+- (void)refreshSurroundingCellsAtCenterIndexPath:(NSIndexPath*)indexPath
+{
+    if (indexPath) {
+        if (indexPath.row + 1 <= self.booksArray.count -1) {
+            NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:indexPath.row+1 inSection:indexPath.section];
+            if (nextIndexPath) {
+                [self.collectionView reloadItemsAtIndexPaths:@[nextIndexPath]];
+            }
+        }
+        if (indexPath.row != 0) {
+            NSIndexPath *prevIndexPath = [NSIndexPath indexPathForItem:indexPath.row-1 inSection:indexPath.section];
+            if (prevIndexPath) {
+                [self.collectionView reloadItemsAtIndexPaths:@[prevIndexPath]];
+            }
+        }
     }
 }
 

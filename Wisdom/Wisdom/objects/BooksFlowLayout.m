@@ -45,14 +45,13 @@
 }
 
 - (void)configureDefaults {
-    self.scalingOffset = 200;
-    self.minimumScaleFactor = 0.7;
+    self.scalingOffset = 800;
+    self.minimumScaleFactor = 0.8;
     self.scaleItems = YES;
 }
 
 - (CGSize)itemSize
 {
-//    return CGSizeMake(200, 400);
     return CGSizeMake(CGRectGetWidth(self.collectionView.frame) - 40.0, CGRectGetHeight(self.collectionView.frame) - 40.0);
 }
 
@@ -69,13 +68,13 @@
 
 - (void)configureInset {
     CGFloat inset = self.collectionView.bounds.size.width/2 - self.itemSize.width/2;
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, inset, 0, inset);
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, inset, 0, inset); // UIEdgeInsetsMake(0, 0, 0, 0);
     self.collectionView.contentOffset = CGPointMake(-inset, 0);
 }
 
 #pragma mark - UICollectionViewLayout (UISubclassingHooks)
-
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+{
     CGSize collectionViewSize = self.collectionView.bounds.size;
     CGFloat proposedContentOffsetCenterX = proposedContentOffset.x + collectionViewSize.width / 2;
     CGRect proposedRect = CGRectMake(proposedContentOffset.x, 0, collectionViewSize.width, collectionViewSize.height);
@@ -111,7 +110,8 @@
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    if (!self.scaleItems) return [super layoutAttributesForElementsInRect:rect];
+    if (!self.scaleItems)
+        return [super layoutAttributesForElementsInRect:rect];
 
     NSArray *attributesArray = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:rect]
                                                     copyItems:YES];

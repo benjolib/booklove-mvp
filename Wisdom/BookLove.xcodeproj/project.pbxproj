@@ -385,9 +385,9 @@
 				565EFF071BAFE27E00B227E1 /* Main.storyboard */,
 				565EFF431BAFE3B200B227E1 /* Onboarding.storyboard */,
 				565EFF451BAFE5CC00B227E1 /* Notification.storyboard */,
+				5626E1AE1BC7A7D800D567E7 /* Launch Screen.storyboard */,
 				565EFF361BAFE2A900B227E1 /* StoryboardManager.h */,
 				565EFF371BAFE2A900B227E1 /* StoryboardManager.m */,
-				5626E1AE1BC7A7D800D567E7 /* Launch Screen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";

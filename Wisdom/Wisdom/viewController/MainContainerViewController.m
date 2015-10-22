@@ -96,7 +96,7 @@
 
 - (void)openSelectionView
 {
-    self.selectionViewHeightConstraint.constant = CGRectGetHeight(self.containerView.frame) - 50.0;
+    self.selectionViewHeightConstraint.constant = CGRectGetHeight(self.containerView.frame);
 
     [self.selectionCollectionView reloadData];
 
@@ -280,12 +280,12 @@
     if (visible) {
         if (self.topbarYOriginConstraint.constant != 0) {
             self.topbarYOriginConstraint.constant = 0.0;
-            [self.view layoutIfNeeded];
+//            [self.view layoutIfNeeded];
         }
     } else {
         if (self.topbarYOriginConstraint.constant != -CGRectGetHeight(self.topbarView.frame)) {
             self.topbarYOriginConstraint.constant = -CGRectGetHeight(self.topbarView.frame);
-            [self.view layoutIfNeeded];
+//            [self.view layoutIfNeeded];
         }
     }
 }

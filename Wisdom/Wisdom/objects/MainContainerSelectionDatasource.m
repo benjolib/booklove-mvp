@@ -9,6 +9,8 @@
 #import "MainContainerSelectionDatasource.h"
 #import "NSDate+Helper.h"
 
+#define dateLimitCount 30
+
 @interface MainContainerSelectionDatasource ()
 @property (nonatomic, strong, readwrite) NSArray *itemsToDisplay;
 @end
@@ -40,7 +42,7 @@
     NSDate *date = [calendar startOfDayForDate:[NSDate date]];
 
     NSMutableArray *tempArray = [NSMutableArray array];
-    while (![date isDateEqualToDate:[GeneralSettings appLaunchDate]]) {
+    while (![date isDateEqualToDate:[GeneralSettings appLaunchDate]] && tempArray.count != dateLimitCount) {
         [tempArray addObject:date];
         date = [calendar dateByAddingUnit:NSDayCalendarUnit value:-1 toDate:date options:0];
     }

@@ -11,14 +11,28 @@
 #import "BookObject.h"
 #import "BookGenre.h"
 
+@interface ParseDownloadManager ()
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@end
+
 @implementation ParseDownloadManager
+
+- (NSDateFormatter*)dateFormatter
+{
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        _dateFormatter.dateFormat = @"dd-MMM-YYYY";
+    }
+
+    return _dateFormatter;
+}
 
 #pragma mark - downloading methods
 - (void)downloadBooksForDate:(NSDate*)date genre:(BookGenre*)bookGenre withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Booklove"];
 
-//    [query whereKey:@"createdAt" equalTo:date];
+    [query whereKey:@"Date_Published" equalTo:[self.dateFormatter stringFromDate:date]];
 
     if (bookGenre.genreName) {
         [query whereKey:@"Category" equalTo:[bookGenre.genreName stringByReplacingOccurrencesOfString:@" " withString:@""]];
