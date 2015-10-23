@@ -18,7 +18,6 @@
 + (BOOL)showPushNotificationView;
 + (void)setShowPushNotificationAllowed:(BOOL)allowed;
 
-+ (void)setAppLaunchDate;
 + (NSDate*)appLaunchDate;
 
 + (BOOL)inviteFriendScreenNeedsToShow;

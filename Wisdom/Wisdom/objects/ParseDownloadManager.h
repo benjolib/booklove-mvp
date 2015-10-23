@@ -14,6 +14,7 @@
 
 #pragma mark - download methods
 - (void)downloadBooksForDate:(NSDate*)date genre:(BookGenre*)bookGenre withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock;
+- (void)downloadAllBooksForDate:(NSDate*)date genre:(BookGenre*)currentBookGenre withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock;
 
 - (void)downloadBooksForCollectionID:(NSString*)collectionID withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock;
 

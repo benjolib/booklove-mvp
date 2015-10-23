@@ -28,6 +28,11 @@
 @property (nonatomic, strong) ParseDownloadManager *downloadManager;
 @property (nonatomic, strong) BooksFlowLayout *flowLayout;
 @property (nonatomic) BOOL showFlippedState;
+
+// After how many swipes it should download new content.
+@property (nonatomic) NSInteger numberOfSwipesToDownloadNewBooks;
+@property (nonatomic) NSInteger numberOfTimesSwiped;
+@property (nonatomic) BOOL additionalBooksDownloaded;
 @end
 
 @implementation BooksViewController
@@ -46,12 +51,16 @@
 
 - (void)loadBooksForGenreName:(NSString*)genreName
 {
+    self.additionalBooksDownloaded = NO;
+    self.numberOfTimesSwiped = 0;
     self.selectedGenre = [BookGenre bookGenreWithName:genreName andRating:0];
     [self loadBooks];
 }
 
 - (void)loadBooksForGenre:(BookGenre*)genre
 {
+    self.additionalBooksDownloaded = NO;
+    self.numberOfTimesSwiped = 0;
     self.selectedGenre = genre;
     [self loadBooks];
 }
@@ -63,6 +72,25 @@
         self.showFlippedState = NO;
         if (books) {
             self.booksArray = [books copy];
+            self.numberOfSwipesToDownloadNewBooks = self.booksArray.count-1;
+        } else {
+            if (errorMessage) {
+
+            }
+        }
+        [self.collectionView reloadData];
+    }];
+}
+
+- (void)downloadAdditionalBooks
+{
+    [self.downloadManager downloadAllBooksForDate:self.selectedDate genre:self.selectedGenre withCompletionBlock:^(NSArray *books, NSString *errorMessage) {
+        if (books) {
+            NSMutableArray *tempBooks = [NSMutableArray arrayWithArray:self.booksArray];
+            [tempBooks addObjectsFromArray:books];
+            self.booksArray = tempBooks;
+            self.numberOfSwipesToDownloadNewBooks = self.booksArray.count-1;
+            self.additionalBooksDownloaded = YES;
         } else {
             if (errorMessage) {
 
@@ -209,31 +237,48 @@
         [TRACKER trackCollectionSwipe];
     } else {
         [TRACKER trackRecommendationSwipeToBrowse];
-    }
-}
 
-- (void)loadImagesForVisibleRows
-{
-    NSArray *visibleRows = [self.collectionView indexPathsForVisibleItems];
-    for (NSIndexPath *indexpath in visibleRows) {
-        if (indexpath.row < [self objectsToDisplay].count )
-        {
-            BaseImageModel *object = self.objectsToDisplay[indexpath.row];
-            if (!object.image) {
-                [self startImageDownloadForObject:object atIndexPath:indexpath];
-            }
+        self.numberOfTimesSwiped++;
+        if (((self.numberOfSwipesToDownloadNewBooks == self.numberOfTimesSwiped) || self.numberOfSwipesToDownloadNewBooks == 0) && !self.additionalBooksDownloaded) {
+            [self downloadAdditionalBooks];
         }
+
+//        [self checkToUpdateSelectedGenre];
     }
 }
 
-- (void)updateTableViewCellAtIndexPath:(NSIndexPath *)indexPath image:(UIImage *)image
+- (void)checkToUpdateSelectedGenre
 {
-    BooksCollectionViewCell *cell = (BooksCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
-    if (cell) {
-        BookObject *book = self.objectsToDisplay[indexPath.row];
-        book.image = image;
-        cell.bookCoverImageView.image = image;
+    NSIndexPath *centerCellIndexPath = [self.collectionView indexPathForItemAtPoint:[self.view convertPoint:[self.view center] toView:self.collectionView]];
+
+    if (centerCellIndexPath.row <= self.booksArray.count-1) {
+        BookObject *bookObject = self.booksArray[centerCellIndexPath.row];
+        NSLog(@"Category: %@", bookObject.category);
+
+        [self updateSelectedGenreLabelWithCategory:bookObject.category];
     }
+}
+
+- (void)updateSelectedGenreLabelWithCategory:(NSString*)category
+{
+    AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    NSLog(@"Root: %@", appdelegate.window.rootViewController);
+    if ([appdelegate.window.rootViewController isKindOfClass:[MainContainerViewController class]]) {
+        MainContainerViewController *mainVC = (MainContainerViewController*)appdelegate.window.rootViewController;
+        [mainVC updateGenreLabelWithCategory:category];
+
+        self.selectedGenre = [BookGenre bookGenreWithName:category andRating:0];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self checkToUpdateSelectedGenre];
 }
 
 - (ParseDownloadManager*)downloadManager

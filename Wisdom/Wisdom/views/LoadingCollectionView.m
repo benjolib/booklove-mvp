@@ -56,7 +56,7 @@
 
 - (void)adjustSizeOfLoadingIndicator
 {
-    self.loadingIndicatorView.frame = CGRectMake(CGRectGetWidth(self.frame)/2 - CGRectGetWidth(self.loadingIndicatorView.frame)/2, CGRectGetHeight(self.frame)/2-CGRectGetHeight(self.loadingIndicatorView.frame)/2, 30.0, 30.0);
+    self.loadingIndicatorView.frame = CGRectMake(CGRectGetWidth(self.frame)/2 - CGRectGetWidth(self.loadingIndicatorView.frame)/2, CGRectGetHeight(self.frame)/2-30.0/2 - 50.0, 30.0, 30.0);
 }
 
 - (void)layoutSubviews

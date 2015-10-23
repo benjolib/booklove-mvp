@@ -33,12 +33,31 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Booklove"];
 
     [query whereKey:@"Date_Published" equalTo:[self.dateFormatter stringFromDate:date]];
-
     if (bookGenre.genreName) {
         [query whereKey:@"Category" equalTo:[bookGenre.genreName stringByReplacingOccurrencesOfString:@" " withString:@""]];
     } else {
         [query whereKey:@"Category" equalTo:@"Classics"];
     }
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSMutableArray *tempArray = [NSMutableArray array];
+        for (PFObject *parseObject in objects) {
+            [tempArray addObject:[BookObject bookObjectWithParse:parseObject]];
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completionBlock) {
+                completionBlock(tempArray, error.localizedDescription);
+            }
+        });
+    }];
+}
+
+- (void)downloadAllBooksForDate:(NSDate*)date genre:(BookGenre*)currentBookGenre withCompletionBlock:(void (^)(NSArray *books, NSString *errorMessage))completionBlock
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Booklove"];
+    [query whereKey:@"Date_Published" equalTo:[self.dateFormatter stringFromDate:date]];
+    [query whereKey:@"Category" notEqualTo:currentBookGenre.genreName];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *tempArray = [NSMutableArray array];

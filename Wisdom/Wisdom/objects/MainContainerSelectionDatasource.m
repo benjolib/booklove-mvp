@@ -22,7 +22,7 @@
     if (selectedItem == MainContainerSelectedItemDate) {
         self.itemsToDisplay = [self setupArrayForDates];
     } else {
-        self.itemsToDisplay = @[@"Mystery", @"Classics", @"Biography", @"Travel", @"Science & Business", @"Fiction", @"Humanities"];
+        self.itemsToDisplay = @[@"Mystery", @"Classics", @"Biography", @"Travel", @"Science&Business", @"Fiction", @"Humanities"];
     }
 }
 

@@ -93,7 +93,9 @@
 {
     [self.refreshController beginRefreshing];
 
-    self.parseDownloadManager = [[ParseDownloadManager alloc] init];
+    if (!self.parseDownloadManager) {
+        self.parseDownloadManager = [[ParseDownloadManager alloc] init];
+    }
     [self.parseDownloadManager downloadCollectionsWithCompletionBlock:^(NSArray *collections, NSString *errorMessage) {
         [self.tableView hideLoadingIndicator];
         [self.refreshController endRefreshing];

@@ -141,10 +141,6 @@
         self.window.rootViewController = [StoryboardManager onboardingViewController];
     }
 
-    if (![GeneralSettings appLaunchDate]) {
-        [GeneralSettings setAppLaunchDate];
-    }
-
     if ([GeneralSettings onboardingCompleted])
     {
         if ([GeneralSettings inviteFriendScreenNeedsToShow]) {

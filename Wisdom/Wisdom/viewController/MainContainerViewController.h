@@ -50,4 +50,6 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 
 - (void)setTopBarVisible:(BOOL)visible;
 
+- (void)updateGenreLabelWithCategory:(NSString*)category;
+
 @end

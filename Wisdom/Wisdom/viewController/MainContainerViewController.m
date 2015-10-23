@@ -31,6 +31,12 @@
 
 @implementation MainContainerViewController
 
+- (void)updateGenreLabelWithCategory:(NSString*)category
+{
+    self.genreLabel.text = category;
+    
+}
+
 - (IBAction)genreButtonPressed:(id)sender
 {
     [TRACKER trackRecommendationGenre];

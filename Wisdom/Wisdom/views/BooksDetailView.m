@@ -44,7 +44,12 @@
     self.authorLabel.text = bookObject.author;
 
     self.detailLabel.text = bookObject.sentence;
-    self.descriptionLabel.text = bookObject.bookDescription;
+
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:bookObject.bookDescription];
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setLineSpacing:8];
+    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, bookObject.bookDescription.length)];
+    self.descriptionLabel.attributedText = attrString;
     [self layoutIfNeeded];
 
     [self.coverImageView hnk_setImageFromURL:[NSURL URLWithString:bookObject.imageURL]];
