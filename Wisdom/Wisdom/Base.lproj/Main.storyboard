@@ -616,11 +616,11 @@
                         <viewControllerLayoutGuide type="bottom" id="LJ6-9a-Qpw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M8Y-2g-yIF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nVd-za-eNd" customClass="LoadingCollectionView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Iez-JO-dfo">
@@ -631,7 +631,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="vbn-so-pMO" customClass="BooksCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="54" width="280" height="460"/>
+                                        <rect key="frame" x="0.0" y="6" width="280" height="460"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="460"/>
@@ -890,18 +890,15 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdX-Ax-ABF" customClass="PopupView">
                                                     <rect key="frame" x="0.0" y="0.0" width="280" height="460"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="The End of Money The End of Money" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="Edw-Bl-1Te">
-                                                            <rect key="frame" x="30" y="15" width="220" height="40"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="The End of Money The End of Money" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="Edw-Bl-1Te">
+                                                            <rect key="frame" x="30" y="15" width="220" height="43"/>
                                                             <animations/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="Xt8-Eh-e3O"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="Merriweather-Bold" family="Merriweather" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Coming cashless society The Coming cashless society" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiR-An-cC4">
-                                                            <rect key="frame" x="30" y="60" width="220" height="34"/>
+                                                            <rect key="frame" x="30" y="63" width="220" height="34"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="34" id="eqX-CB-R8W"/>
@@ -968,7 +965,7 @@
                                                             </constraints>
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UO0-A7-jIO" customClass="LoadingImageView">
-                                                            <rect key="frame" x="50" y="109" width="180" height="291"/>
+                                                            <rect key="frame" x="51" y="112" width="178" height="288"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="UO0-A7-jIO" secondAttribute="height" multiplier="18:29" id="ScK-02-f2F"/>
@@ -991,7 +988,8 @@
                                                         <constraint firstItem="nJ2-Kj-lHw" firstAttribute="top" secondItem="UO0-A7-jIO" secondAttribute="bottom" constant="20" id="jM1-55-jrZ"/>
                                                         <constraint firstItem="MiR-An-cC4" firstAttribute="trailing" secondItem="Edw-Bl-1Te" secondAttribute="trailing" id="ncx-jr-Sjh"/>
                                                         <constraint firstItem="cvF-sj-kQA" firstAttribute="leading" secondItem="pdX-Ax-ABF" secondAttribute="leading" id="oEQ-p7-QqL"/>
-                                                        <constraint firstItem="MiR-An-cC4" firstAttribute="top" secondItem="Edw-Bl-1Te" secondAttribute="bottom" constant="5" id="trO-lg-nZc"/>
+                                                        <constraint firstItem="MiR-An-cC4" firstAttribute="top" secondItem="pdX-Ax-ABF" secondAttribute="top" constant="63" id="qbf-px-OrA"/>
+                                                        <constraint firstItem="MiR-An-cC4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Edw-Bl-1Te" secondAttribute="bottom" constant="5" id="trO-lg-nZc"/>
                                                         <constraint firstItem="nJ2-Kj-lHw" firstAttribute="leading" secondItem="pdX-Ax-ABF" secondAttribute="leading" id="vuJ-zH-DtH"/>
                                                     </constraints>
                                                 </view>
@@ -1393,6 +1391,6 @@
         <image name="reloadIcon" width="22" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hb2-ZX-uEc"/>
+        <segue reference="kr3-NF-2nu"/>
     </inferredMetricsTieBreakers>
 </document>

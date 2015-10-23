@@ -18,4 +18,6 @@
 
 - (BOOL)isEmpty;
 
+- (NSString*)formattedName;
+
 @end

@@ -168,7 +168,7 @@
     if ([book isRecommended]) {
         cell.recommendWrapperView.alpha = 1.0;
         cell.recommendSeparatorLineView.alpha = 1.0;
-        cell.recommendedByView.titleLabel.text = book.recommendedByUser.name;
+        cell.recommendedByView.titleLabel.text = [book.recommendedByUser formattedName];
         [cell.recommendedByView.recommendedView hnk_setImageFromURL:[NSURL URLWithString:book.recommendedByUser.imageURL]];
     } else {
         cell.recommendWrapperView.alpha = 0.0;
@@ -238,12 +238,13 @@
     } else {
         [TRACKER trackRecommendationSwipeToBrowse];
 
-        self.numberOfTimesSwiped++;
-        if (((self.numberOfSwipesToDownloadNewBooks == self.numberOfTimesSwiped) || self.numberOfSwipesToDownloadNewBooks == 0) && !self.additionalBooksDownloaded) {
-            [self downloadAdditionalBooks];
+        if (!self.bookToDiplay)
+        {
+            self.numberOfTimesSwiped++;
+            if (((self.numberOfSwipesToDownloadNewBooks == self.numberOfTimesSwiped) || self.numberOfSwipesToDownloadNewBooks == 0) && !self.additionalBooksDownloaded) {
+                [self downloadAdditionalBooks];
+            }
         }
-
-//        [self checkToUpdateSelectedGenre];
     }
 }
 
@@ -271,14 +272,11 @@
     }
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self checkToUpdateSelectedGenre];
+    if (!self.selectedCollectionObject) {
+        [self checkToUpdateSelectedGenre];
+    }
 }
 
 - (ParseDownloadManager*)downloadManager
@@ -308,7 +306,7 @@
     // opening from a collection
     if (self.selectedCollectionObject)
     {
-        self.collectionViewTopBorderLayoutConstraint.constant = 40.0;
+        self.collectionViewTopBorderLayoutConstraint.constant = 50.0;
         [self.view layoutIfNeeded];
 
         [self.downloadManager downloadBooksForCollectionID:self.selectedCollectionObject.objectID withCompletionBlock:^(NSArray *books, NSString *errorMessage) {
@@ -334,7 +332,7 @@
     else
     {
         if (self.bookToDiplay) { // displayed from library
-            self.collectionViewTopBorderLayoutConstraint.constant = 40.0;
+            self.collectionViewTopBorderLayoutConstraint.constant = 50.0;
             [self.view layoutIfNeeded];
 
             [self.collectionView hideLoadingIndicator];

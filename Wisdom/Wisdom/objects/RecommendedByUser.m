@@ -25,9 +25,9 @@
     return _name.length == 0 || self.imageURL.length == 0;
 }
 
-- (NSString*)name
+- (NSString*)formattedName
 {
-    return [NSString stringWithFormat:@"Recommended by: %@", _name];
+    return [NSString stringWithFormat:@"Recommended by: %@", self.name];
 }
 
 @end
