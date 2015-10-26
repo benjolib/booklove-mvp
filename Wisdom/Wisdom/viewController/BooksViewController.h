@@ -20,7 +20,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *collectionTitleLabel;
 
 @property (nonatomic, strong) BookCollectionObject *selectedCollectionObject;
+@property (nonatomic, strong) NSArray *booksArray;
 @property (nonatomic, strong) BookObject *bookToDiplay;
+@property (nonatomic) BOOL loadLibraryBooks;
+@property (nonatomic) NSInteger selectedIndexOfBook;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *collectionViewTopBorderLayoutConstraint;
 

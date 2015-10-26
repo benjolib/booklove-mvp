@@ -133,9 +133,15 @@
     self.emptyView.hidden = YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    [self loadSavedBooks];
+//}
+
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     [self loadSavedBooks];
 }
 
@@ -155,9 +161,10 @@
             LibraryTableViewCell *cell = (LibraryTableViewCell*)sender;
             NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 
-            BookObject *book = self.objectsToDisplay[indexPath.row];
             BooksViewController *booksViewController = segue.destinationViewController;
-            booksViewController.bookToDiplay = book;
+            booksViewController.loadLibraryBooks = YES;
+            booksViewController.booksArray = self.objectsToDisplay;
+            booksViewController.selectedIndexOfBook = indexPath.row;
         }
     }
 }

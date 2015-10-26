@@ -24,7 +24,6 @@
 #define ANIMATION_SPEED 0.2
 
 @interface BooksViewController ()
-@property (nonatomic, strong) NSArray *booksArray;
 @property (nonatomic, strong) ParseDownloadManager *downloadManager;
 @property (nonatomic, strong) BooksFlowLayout *flowLayout;
 @property (nonatomic) BOOL showFlippedState;
@@ -46,6 +45,8 @@
 - (void)loadBooksForDate:(NSDate*)date
 {
     self.selectedDate = date;
+    self.additionalBooksDownloaded = NO;
+    self.numberOfTimesSwiped = 0;
     [self loadBooks];
 }
 
@@ -147,7 +148,23 @@
 
     if ([[ParseLocalStoreManager sharedManager] isBookSavedLocally:book]) {
         [[ParseLocalStoreManager sharedManager] removeObjectFromLocalStore:book];
-    } else {
+
+        if (self.loadLibraryBooks) {
+            NSMutableArray *tempArray = [self.objectsToDisplay mutableCopy];
+            [tempArray removeObject:book];
+            self.booksArray = [tempArray copy];
+
+            [self.collectionView performBatchUpdates:^{
+                [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+            } completion:^(BOOL finished) {
+                if (self.objectsToDisplay.count == 0) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }];
+        }
+    }
+    else
+    {
         [[ParseLocalStoreManager sharedManager] storeBookObjectLocally:book];
     }
 
@@ -238,7 +255,7 @@
     } else {
         [TRACKER trackRecommendationSwipeToBrowse];
 
-        if (!self.bookToDiplay)
+        if (!self.loadLibraryBooks)
         {
             self.numberOfTimesSwiped++;
             if (((self.numberOfSwipesToDownloadNewBooks == self.numberOfTimesSwiped) || self.numberOfSwipesToDownloadNewBooks == 0) && !self.additionalBooksDownloaded) {
@@ -331,16 +348,17 @@
     }
     else
     {
-        if (self.bookToDiplay) { // displayed from library
+        if (self.loadLibraryBooks) { // displayed from library
             self.collectionViewTopBorderLayoutConstraint.constant = 50.0;
             [self.view layoutIfNeeded];
 
             [self.collectionView hideLoadingIndicator];
-            self.booksArray = @[self.bookToDiplay];
             self.backButton.hidden = NO;
             self.recommendedByLabel.hidden = YES;
             self.collectionTitleLabel.hidden = YES;
             [self.collectionView reloadData];
+
+            self.collectionView.alpha = 0.0;
         } else {
             [self loadBooks];
             self.backButton.hidden = YES;
@@ -364,6 +382,13 @@
         } else {
             // don't do anything if it's not flipped
         }
+    }
+
+    if (self.loadLibraryBooks) {
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectedIndexOfBook inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+        [UIView animateWithDuration:0.1 animations:^{
+            self.collectionView.alpha = 1.0;
+        }];
     }
 }
 
