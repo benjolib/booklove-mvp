@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *backButton;
 @property (nonatomic, weak) IBOutlet UILabel *recommendedByLabel;
 @property (nonatomic, weak) IBOutlet UILabel *collectionTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *yourLibraryTitleLabel;
 
 @property (nonatomic, strong) BookCollectionObject *selectedCollectionObject;
 @property (nonatomic, strong) NSArray *booksArray;

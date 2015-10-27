@@ -16,6 +16,13 @@
 
     self.backgroundColor = [UIColor whiteColor];
     [self setTitleColor:[UIColor grayColorWithValue:137.0] forState:UIControlStateNormal];
+
+    if (IS_IPHONE_5) {
+        UIFont *font = self.titleLabel.font;
+
+        UIFont *newFont = [UIFont fontWithName:font.familyName size:font.pointSize-1];
+        self.titleLabel.font = newFont;
+    }
 }
 
 - (void)setSelected:(BOOL)selected

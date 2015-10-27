@@ -133,12 +133,6 @@
     self.emptyView.hidden = YES;
 }
 
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-//    [self loadSavedBooks];
-//}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

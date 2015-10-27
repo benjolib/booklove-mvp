@@ -320,6 +320,8 @@
 
     [self.collectionView showLoadingIndicator];
 
+    self.yourLibraryTitleLabel.hidden = YES;
+    
     // opening from a collection
     if (self.selectedCollectionObject)
     {
@@ -349,6 +351,7 @@
     else
     {
         if (self.loadLibraryBooks) { // displayed from library
+            self.yourLibraryTitleLabel.hidden = NO;
             self.collectionViewTopBorderLayoutConstraint.constant = 50.0;
             [self.view layoutIfNeeded];
 
@@ -384,11 +387,14 @@
         }
     }
 
-    if (self.loadLibraryBooks) {
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectedIndexOfBook inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
-        [UIView animateWithDuration:0.1 animations:^{
-            self.collectionView.alpha = 1.0;
-        }];
+    if (self.loadLibraryBooks)
+    {
+        if (self.selectedIndexOfBook <= self.booksArray.count-1) {
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectedIndexOfBook inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+            [UIView animateWithDuration:0.1 animations:^{
+                self.collectionView.alpha = 1.0;
+            }];
+        }
     }
 }
 

@@ -15,6 +15,12 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+
+    if (IS_IPHONE_5) {
+        UIFont *font = self.subtitleLabel.font;
+        UIFont *newFont = [UIFont fontWithName:font.familyName size:font.pointSize-1];
+        self.subtitleLabel.font = newFont;
+    }
 }
 
 - (void)prepareForReuse
