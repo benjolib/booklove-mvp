@@ -36,7 +36,7 @@
     self.quoteLabel.text = quote.quote;
     self.authorLabel.text = quote.author;
 
-    NSTimeInterval dismissTime = 3.0;
+    NSTimeInterval dismissTime = 5.0;
 
 //#ifdef DEBUG
 //    dismissTime = 0.5;
