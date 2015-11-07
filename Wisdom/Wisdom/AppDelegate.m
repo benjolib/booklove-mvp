@@ -31,6 +31,7 @@
 
 @property (nonatomic, strong) NSTimer *pushNotificationTimer;
 @property (nonatomic, strong) NSTimer *inviteFriendTimer;
+@property (nonatomic, strong) NSTimer *emailTimer;
 @property (nonatomic, strong) ParseDownloadManager *downloadManager;
 @end
 
@@ -75,11 +76,48 @@
     }];
 }
 
+
+// email popup
 - (void)showEmailFieldScreen
 {
     self.emailViewController = [StoryboardManager emailViewController];
     self.emailViewController.view.frame = self.window.frame;
     [self.window.rootViewController.view addSubview:self.emailViewController.view];
+}
+
+- (void)hideEmailFieldScreen
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.emailViewController.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [self.emailViewController.view removeFromSuperview];
+        self.emailViewController = nil;
+    }];
+}
+
+- (void)checkToShowEmailScreen
+{
+    if (![GeneralSettings emailOverlayWasCompleted]) {
+        [self startEmailTimer];
+    }
+}
+
+- (void)startEmailTimer
+{
+    [self stopPushNotificationTimer];
+    self.emailTimer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(emailTimerFired) userInfo:nil repeats:NO];
+}
+
+- (void)emailTimerFired
+{
+    [self stopEmailTimer];
+    [self showEmailFieldScreen];
+}
+
+- (void)stopEmailTimer
+{
+    [self.emailTimer invalidate];
+    self.emailTimer = nil;
 }
 
 #pragma mark - push notification timer methods
@@ -110,7 +148,7 @@
 
 - (void)inviteFriendTimerFired
 {
-    [self stopInviteFriendTimer];
+    [self stopEmailTimer];
     [self showInviteFriendScreen];
 }
 
@@ -149,6 +187,8 @@
         } else {
             [GeneralSettings increaseInviteFriendShowCount];
         }
+
+        [self checkToShowEmailScreen];
     }
 
     [self createAnonymousUser];

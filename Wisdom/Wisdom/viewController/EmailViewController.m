@@ -30,6 +30,7 @@
             user.email = self.emailField.text;
             [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 [TRACKER trackEmailOverlaySubmitted];
+                [GeneralSettings setEmailOverlayWasCompleted];
                 if (succeeded) {
                     [self showThankYouScreen];
                 } else {

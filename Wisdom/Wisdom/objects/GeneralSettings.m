@@ -14,6 +14,8 @@ static NSString * const kPushNotificationShow = @"PushNotificationShow";
 static NSString * const kInviteFriendScreen = @"InviteFriendScreen";
 static NSString * const kFavoriteCategory = @"FavoriteCategory";
 
+static NSString * const kEmailOverlay = @"EmailOverlay";
+
 static NSString * const kAppLaunchDate = @"AppLaunchDate";
 
 @implementation GeneralSettings
@@ -97,6 +99,17 @@ static NSString * const kAppLaunchDate = @"AppLaunchDate";
 + (NSString*)favoriteCategory
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kFavoriteCategory];
+}
+
++ (BOOL)emailOverlayWasCompleted
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kEmailOverlay];
+}
+
++ (void)setEmailOverlayWasCompleted
+{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kEmailOverlay];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

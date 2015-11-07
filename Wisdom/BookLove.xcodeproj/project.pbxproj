@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10BE8A2DADA9AE570C3EFFC2 /* libPods-BookLove.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8BAA2B891C27407656E3AC /* libPods-BookLove.a */; };
 		56115DDD1BB512D4004D95AF /* GeneralSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115DDC1BB512D4004D95AF /* GeneralSettings.m */; };
 		56115DE01BB5157F004D95AF /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115DDF1BB5157F004D95AF /* LibraryViewController.m */; };
 		56115DE31BB517CF004D95AF /* LibraryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56115DE21BB517CF004D95AF /* LibraryTableViewCell.m */; };
@@ -80,7 +81,8 @@
 		56FDD0E11BD78B6800493337 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56FDD0D91BD78B6800493337 /* Merriweather-Light.ttf */; };
 		56FDD0E21BD78B6800493337 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56FDD0DA1BD78B6800493337 /* Merriweather-LightItalic.ttf */; };
 		56FDD0E31BD78B6800493337 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56FDD0DB1BD78B6800493337 /* Merriweather-Regular.ttf */; };
-		63645A4D504D016D16A74D82 /* libPods-Wisdom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D2265711FDA008D9CBC729 /* libPods-Wisdom.a */; };
+		56FFE4721BEDF60000AE0746 /* Pods-BookLove.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 56FFE4701BEDF60000AE0746 /* Pods-BookLove.debug.xcconfig */; };
+		56FFE4731BEDF60000AE0746 /* Pods-BookLove.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 56FFE4711BEDF60000AE0746 /* Pods-BookLove.release.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +103,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A99FA23A469358A9C5F13F8 /* Pods-Wisdom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wisdom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wisdom/Pods-Wisdom.debug.xcconfig"; sourceTree = "<group>"; };
 		53D2265711FDA008D9CBC729 /* libPods-Wisdom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wisdom.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56115DDB1BB512D4004D95AF /* GeneralSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralSettings.h; sourceTree = "<group>"; };
 		56115DDC1BB512D4004D95AF /* GeneralSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralSettings.m; sourceTree = "<group>"; };
@@ -238,7 +239,9 @@
 		56FDD0D91BD78B6800493337 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
 		56FDD0DA1BD78B6800493337 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
 		56FDD0DB1BD78B6800493337 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
-		5DBCC774A30C62DED046DFDB /* Pods-Wisdom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wisdom.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wisdom/Pods-Wisdom.release.xcconfig"; sourceTree = "<group>"; };
+		56FFE4701BEDF60000AE0746 /* Pods-BookLove.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-BookLove.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookLove/Pods-BookLove.debug.xcconfig"; sourceTree = "<group>"; };
+		56FFE4711BEDF60000AE0746 /* Pods-BookLove.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-BookLove.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookLove/Pods-BookLove.release.xcconfig"; sourceTree = "<group>"; };
+		FB8BAA2B891C27407656E3AC /* libPods-BookLove.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BookLove.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56115DE51BB51BF0004D95AF /* libsqlite3.tbd in Frameworks */,
-				63645A4D504D016D16A74D82 /* libPods-Wisdom.a in Frameworks */,
+				10BE8A2DADA9AE570C3EFFC2 /* libPods-BookLove.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,8 +458,8 @@
 		56C220C89F7B85367D0143D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0A99FA23A469358A9C5F13F8 /* Pods-Wisdom.debug.xcconfig */,
-				5DBCC774A30C62DED046DFDB /* Pods-Wisdom.release.xcconfig */,
+				56FFE4701BEDF60000AE0746 /* Pods-BookLove.debug.xcconfig */,
+				56FFE4711BEDF60000AE0746 /* Pods-BookLove.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 			children = (
 				56115DE41BB51BF0004D95AF /* libsqlite3.tbd */,
 				53D2265711FDA008D9CBC729 /* libPods-Wisdom.a */,
+				FB8BAA2B891C27407656E3AC /* libPods-BookLove.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -580,6 +584,7 @@
 				565EFEF91BAFE27E00B227E1 /* Resources */,
 				6EA6A2C73BB18E68D61FD714 /* Copy Pods Resources */,
 				56B648111BBD351D00641E43 /* ShellScript */,
+				E2E786855F8202680CA11467 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -685,8 +690,10 @@
 				565EFF441BAFE3B200B227E1 /* Onboarding.storyboard in Resources */,
 				56FDD0E01BD78B6800493337 /* Merriweather-HeavyItalic.ttf in Resources */,
 				56FDD0DE1BD78B6800493337 /* Merriweather-Black.ttf in Resources */,
+				56FFE4721BEDF60000AE0746 /* Pods-BookLove.debug.xcconfig in Resources */,
 				56FDD0DD1BD78B6800493337 /* CODE Light.otf in Resources */,
 				56FDD0DC1BD78B6800493337 /* Arvo-Bold.ttf in Resources */,
+				56FFE4731BEDF60000AE0746 /* Pods-BookLove.release.xcconfig in Resources */,
 				56FDD0E31BD78B6800493337 /* Merriweather-Regular.ttf in Resources */,
 				56FDD0DF1BD78B6800493337 /* Merriweather-Bold.ttf in Resources */,
 				5626E1AF1BC7A7D800D567E7 /* Launch Screen.storyboard in Resources */,
@@ -737,7 +744,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wisdom/Pods-Wisdom-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookLove/Pods-BookLove-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A367B335956F86E99C39402A /* Check Pods Manifest.lock */ = {
@@ -753,6 +760,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E2E786855F8202680CA11467 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookLove/Pods-BookLove-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -925,7 +947,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -947,7 +970,7 @@
 		};
 		565EFF2C1BAFE27F00B227E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A99FA23A469358A9C5F13F8 /* Pods-Wisdom.debug.xcconfig */;
+			baseConfigurationReference = 56FFE4701BEDF60000AE0746 /* Pods-BookLove.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -973,12 +996,12 @@
 		};
 		565EFF2D1BAFE27F00B227E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DBCC774A30C62DED046DFDB /* Pods-Wisdom.release.xcconfig */;
+			baseConfigurationReference = 56FFE4711BEDF60000AE0746 /* Pods-BookLove.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: RunaShop GmbH (NDMF32TPPR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RunaShop GmbH (NDMF32TPPR)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/Crashlytics\"",
@@ -993,7 +1016,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bookLove.BookLove;
 				PRODUCT_NAME = BookLove;
-				PROVISIONING_PROFILE = "f9c1e187-a195-4d74-b291-c51265eed456";
+				PROVISIONING_PROFILE = "6a0b9225-091c-4095-a823-a58a4468d597";
 			};
 			name = Release;
 		};

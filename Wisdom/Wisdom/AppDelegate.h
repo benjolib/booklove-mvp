@@ -21,6 +21,7 @@
 - (void)hideQuotesScreen;
 
 - (void)hideInviteFriendScreen;
+- (void)hideEmailFieldScreen;
 
 @end
 

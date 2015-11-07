@@ -29,4 +29,7 @@
 + (NSString*)favoriteCategory;
 + (void)setFavoriteCategory:(NSString*)categoryString;
 
++ (BOOL)emailOverlayWasCompleted;
++ (void)setEmailOverlayWasCompleted;
+
 @end
