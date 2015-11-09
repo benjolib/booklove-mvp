@@ -1016,7 +1016,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bookLove.BookLove;
 				PRODUCT_NAME = BookLove;
-				PROVISIONING_PROFILE = "6a0b9225-091c-4095-a823-a58a4468d597";
+				PROVISIONING_PROFILE = "f9c1e187-a195-4d74-b291-c51265eed456";
 			};
 			name = Release;
 		};

@@ -96,15 +96,26 @@
 
 - (void)checkToShowEmailScreen
 {
-    if (![GeneralSettings emailOverlayWasCompleted]) {
+    if ([GeneralSettings emailOverlayShouldBeShown]) {
         [self startEmailTimer];
+    } else {
+        if (![GeneralSettings emailOverlayWasCompleted]) {
+            [GeneralSettings increaseEmailScreenCount];
+        }
     }
 }
 
 - (void)startEmailTimer
 {
     [self stopPushNotificationTimer];
-    self.emailTimer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(emailTimerFired) userInfo:nil repeats:NO];
+
+    NSTimeInterval interval = 120.0;
+
+#ifdef DEBUG
+    interval = 5.0;
+#endif
+
+    self.emailTimer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(emailTimerFired) userInfo:nil repeats:NO];
 }
 
 - (void)emailTimerFired
@@ -184,11 +195,11 @@
             [self startInviteFriendTimer];
             [GeneralSettings resetInviteFriendShowCount];
         } else {
+            [GeneralSettings increaseInviteFriendShowFirstTimeCount];
             [GeneralSettings increaseInviteFriendShowCount];
         }
 
-        [self showInviteFriendScreen];
-//        [self checkToShowEmailScreen];
+        [self checkToShowEmailScreen];
     }
 
     [self createAnonymousUser];

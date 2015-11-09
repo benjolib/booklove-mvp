@@ -1,6 +1,6 @@
 # platform :ios, '7.0'
 
-target 'Wisdom' do
+target 'BookLove' do
 
 pod 'Parse'
 pod 'Adjust', :git => 'git://github.com/adjust/ios_sdk.git', :tag => 'v4.2.7'

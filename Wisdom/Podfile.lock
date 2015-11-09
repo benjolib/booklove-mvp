@@ -2,11 +2,12 @@ PODS:
   - Adjust (4.2.7):
     - Adjust/Core (= 4.2.7)
   - Adjust/Core (4.2.7)
-  - Bolts/Tasks (1.2.2)
-  - Crashlytics (3.3.1)
-  - Fabric (1.5.1):
-    - Fabric/Base (= 1.5.1)
-  - Fabric/Base (1.5.1)
+  - Bolts/Tasks (1.4.0)
+  - Crashlytics (3.4.0):
+    - Fabric (~> 1.6.0)
+  - Fabric (1.6.0):
+    - Fabric/Base (= 1.6.0)
+  - Fabric/Base (1.6.0)
   - Google/Analytics (1.0.7):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
@@ -17,12 +18,12 @@ PODS:
   - GoogleAnalytics (3.13.0)
   - GoogleNetworkingUtilities (1.0.0):
     - GoogleSymbolUtilities (~> 1.0)
-  - GoogleSymbolUtilities (1.0.0)
-  - GoogleUtilities (1.0.1):
-    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.0.3)
+  - GoogleUtilities (1.1.0):
+    - GoogleSymbolUtilities (~> 1.0.0)
   - Haneke (1.0.1)
-  - Parse (1.8.5):
-    - Bolts/Tasks (>= 1.2.2)
+  - Parse (1.9.1):
+    - Bolts/Tasks (>= 1.4.0)
 
 DEPENDENCIES:
   - Adjust (from `git://github.com/adjust/ios_sdk.git`, tag `v4.2.7`)
@@ -44,15 +45,15 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Adjust: 2c3d4db6047c6bba68d7c5ede63fbdc989eb57b7
-  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
-  Crashlytics: 0e61bdda9def51f1e99720f804eebe94865442b2
-  Fabric: 03c3b3fe77e11a2bc31421b989a9c7adaa4779a5
+  Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
+  Crashlytics: 1ee87895c37472eb3f01f409ea1654a464d2f8d4
+  Fabric: d737eda3a26ac940a5430230eedb35f16b226131
   Google: 875f5a8ade86dd02e36586e4a54814843938c7f6
   GoogleAnalytics: fcf1f1cad57ae1a9a53520018f0f680ceeeb8b49
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
-  GoogleSymbolUtilities: a7b0feed1fe667c8d5e647177938d0ecd62d6948
-  GoogleUtilities: e3475cd4d45134221d2f3f3626095a1c49b62041
+  GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
+  GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   Haneke: d60be8b96b228633b24708dd153169d6849d6f78
-  Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
+  Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

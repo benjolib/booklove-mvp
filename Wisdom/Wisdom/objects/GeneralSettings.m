@@ -12,11 +12,15 @@ static NSString * const kOnboardingCompleted = @"onboardingCompleted";
 static NSString * const kQuotesScreen = @"quotesScreen";
 static NSString * const kPushNotificationShow = @"PushNotificationShow";
 static NSString * const kInviteFriendScreen = @"InviteFriendScreen";
+static NSString * const kInviteFriendScreenFirstCounter = @"InviteFriendScreenFirstCounter";
 static NSString * const kFavoriteCategory = @"FavoriteCategory";
 
 static NSString * const kEmailOverlay = @"EmailOverlay";
+static NSString * const kEmailOverlayCounter = @"EmailOverlayCounter";
 
 static NSString * const kAppLaunchDate = @"AppLaunchDate";
+
+#define kInviteFriendLimit 8
 
 @implementation GeneralSettings
 
@@ -56,23 +60,35 @@ static NSString * const kAppLaunchDate = @"AppLaunchDate";
     dateComponents.day = 23;
     dateComponents.month = 10;
     return [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
-    
-//    return [[NSUserDefaults standardUserDefaults] objectForKey:kAppLaunchDate];
 }
 
 + (BOOL)inviteFriendScreenNeedsToShow
 {
-    if ([[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreen] >= 3) {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreenFirstCounter] >= 3 && [[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreenFirstCounter] < 4) {
+        return YES;
+    }
+
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreen] >= kInviteFriendLimit) {
         return YES;
     } else {
         return NO;
     }
 }
 
++ (void)increaseInviteFriendShowFirstTimeCount
+{
+    NSInteger currentShowCount = [[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreenFirstCounter];
+    if (currentShowCount <= 3) {
+        currentShowCount++;
+        [[NSUserDefaults standardUserDefaults] setInteger:currentShowCount forKey:kInviteFriendScreenFirstCounter];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 + (void)increaseInviteFriendShowCount
 {
     NSInteger currentShowCount = [[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreen];
-    if (currentShowCount < 3) {
+    if (currentShowCount <= kInviteFriendLimit) {
         currentShowCount++;
         [[NSUserDefaults standardUserDefaults] setInteger:currentShowCount forKey:kInviteFriendScreen];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -87,7 +103,7 @@ static NSString * const kAppLaunchDate = @"AppLaunchDate";
 
 + (NSString*)appStoreURL
 {
-    return @"NEED TO ADD THE APP STORE URL HERE__";
+    return [NSString stringWithFormat:@"itms://itunes.apple.com/us/app/apple-store/id%@?mt=8", @"1048146918"];
 }
 
 + (void)setFavoriteCategory:(NSString*)categoryString
@@ -99,6 +115,33 @@ static NSString * const kAppLaunchDate = @"AppLaunchDate";
 + (NSString*)favoriteCategory
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kFavoriteCategory];
+}
+
+#pragma mark - email
++ (void)increaseEmailScreenCount
+{
+    NSInteger currentShowCount = [[NSUserDefaults standardUserDefaults] integerForKey:kEmailOverlayCounter];
+    if (currentShowCount <= 3) {
+        currentShowCount++;
+        [[NSUserDefaults standardUserDefaults] setInteger:currentShowCount forKey:kEmailOverlayCounter];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
++ (BOOL)emailOverlayShouldBeShown
+{
+    if (![self emailOverlayWasCompleted] || [[NSUserDefaults standardUserDefaults] integerForKey:kEmailOverlayCounter] >= 4) {
+        [self resetEmailCount];
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
++ (void)resetEmailCount
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kEmailOverlayCounter];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (BOOL)emailOverlayWasCompleted

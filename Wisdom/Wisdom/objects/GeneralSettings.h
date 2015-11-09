@@ -22,6 +22,7 @@
 
 + (BOOL)inviteFriendScreenNeedsToShow;
 + (void)increaseInviteFriendShowCount;
++ (void)increaseInviteFriendShowFirstTimeCount;
 + (void)resetInviteFriendShowCount;
 
 + (NSString*)appStoreURL;
@@ -31,5 +32,8 @@
 
 + (BOOL)emailOverlayWasCompleted;
 + (void)setEmailOverlayWasCompleted;
+
++ (void)increaseEmailScreenCount;
++ (BOOL)emailOverlayShouldBeShown;
 
 @end

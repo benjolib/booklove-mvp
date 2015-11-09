@@ -518,7 +518,7 @@
                                     <constraint firstItem="QDa-6c-eje" firstAttribute="centerX" secondItem="h61-Jz-jZ5" secondAttribute="centerX" id="15q-lP-ldb"/>
                                     <constraint firstItem="YrO-Ky-bP0" firstAttribute="top" secondItem="h61-Jz-jZ5" secondAttribute="top" id="3NG-UI-IDr"/>
                                     <constraint firstItem="skc-f2-WgQ" firstAttribute="top" secondItem="r8s-qF-Y1Z" secondAttribute="bottom" constant="50" id="5cN-MZ-hRm"/>
-                                    <constraint firstItem="ld4-wj-I0h" firstAttribute="centerY" secondItem="h61-Jz-jZ5" secondAttribute="centerY" constant="-50" id="7Lo-89-dkU"/>
+                                    <constraint firstItem="ld4-wj-I0h" firstAttribute="centerY" secondItem="h61-Jz-jZ5" secondAttribute="centerY" priority="700" constant="-50" id="7Lo-89-dkU"/>
                                     <constraint firstItem="ld4-wj-I0h" firstAttribute="top" secondItem="QDa-6c-eje" secondAttribute="bottom" constant="20" id="7TS-bG-iyg"/>
                                     <constraint firstItem="skc-f2-WgQ" firstAttribute="leading" secondItem="h61-Jz-jZ5" secondAttribute="leading" id="8oC-aQ-P75"/>
                                     <constraint firstItem="r8s-qF-Y1Z" firstAttribute="leading" secondItem="h61-Jz-jZ5" secondAttribute="leading" constant="15" id="F2J-2T-wpS"/>
@@ -559,7 +559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGp-dj-opW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="40" y="1134"/>
+            <point key="canvasLocation" x="779" y="486"/>
         </scene>
     </scenes>
     <resources>
