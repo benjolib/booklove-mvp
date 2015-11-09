@@ -76,7 +76,6 @@
     }];
 }
 
-
 // email popup
 - (void)showEmailFieldScreen
 {
@@ -188,7 +187,8 @@
             [GeneralSettings increaseInviteFriendShowCount];
         }
 
-        [self checkToShowEmailScreen];
+        [self showInviteFriendScreen];
+//        [self checkToShowEmailScreen];
     }
 
     [self createAnonymousUser];

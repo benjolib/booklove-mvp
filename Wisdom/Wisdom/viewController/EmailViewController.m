@@ -11,7 +11,7 @@
 #import "EmailTextfield.h"
 #import <Parse/Parse.h>
 
-@interface EmailViewController ()
+@interface EmailViewController () <UIAlertViewDelegate>
 @property (nonatomic) CGFloat emailFieldBottomConstraintDefaultValue;
 @end
 
@@ -34,21 +34,16 @@
                 if (succeeded) {
                     [self showThankYouScreen];
                 } else {
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                    [alertView show];
+                    [self presentAlertViewWithMessage:error.localizedDescription];
                 }
             }];
-        }
-        else
-        {
+        } else {
             // not valid
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The email address you entered is not valid." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self presentAlertViewWithMessage:@"The email address you entered is not valid."];
         }
     } else {
         // empty
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Email is empty" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        [self presentAlertViewWithMessage:@"Email is empty"];
     }
 }
 
@@ -58,9 +53,20 @@
     [self hideView];
 }
 
+- (void)presentAlertViewWithMessage:(NSString*)message
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
 - (void)showThankYouScreen
 {
     self.thankYouView.hidden = NO;
+    self.thankYouView.alpha = 1.0;
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self hideView];
@@ -78,6 +84,11 @@
     }];
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self addKeyboardObservers];
+}
+
 #pragma mark - textfield methods
 - (IBAction)textFieldDidChangeText:(UITextField*)textfield
 {
@@ -90,8 +101,14 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self submitButtonPressed:nil];
-    return NO;
+    [textField resignFirstResponder];
+    [self removeKeyboardObservers];
+    [self hideKeyboard];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self submitButtonPressed:nil];
+    });
+    return YES;
 }
 
 #pragma mark - view methods
@@ -111,13 +128,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
 }
 
+- (void)removeKeyboardObservers
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)keyboardWillAppear:(NSNotification*)notification
 {
     NSDictionary *info = [notification userInfo];
     CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-
     CGFloat keyboardHeight = keyboardSize.height;
-
     CGFloat emailFieldToBottomValue = CGRectGetHeight(self.view.frame) - CGRectGetMaxY(self.emailField.frame);
 
     if (self.emailFieldBottomConstraint.constant != self.emailFieldBottomConstraintDefaultValue) {
@@ -137,16 +157,19 @@
                                       [self.view layoutIfNeeded];
                                   }];
                               }
-                              completion:nil];
+                              completion:^(BOOL finished) {
+                                  if (CGRectIntersectsRect(self.emailField.frame, self.iconView.frame)) {
+                                      self.iconView.alpha = 0.0;
+                                  }
+                              }];
 }
 
 - (void)hideKeyboard
 {
     self.emailFieldBottomConstraint.constant = self.emailFieldBottomConstraintDefaultValue;
     self.titleLabel.alpha = 1.0;
-    self.descriptionLabel.alpha = 1.0;
-
-    [self.view layoutIfNeeded];
+    self.descriptionLabel.alpha = 0.5;
+    self.iconView.alpha = 1.0;
 }
 
 - (void)dealloc
