@@ -65,6 +65,8 @@ static NSString * const kAppLaunchDate = @"AppLaunchDate";
 + (BOOL)inviteFriendScreenNeedsToShow
 {
     if ([[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreenFirstCounter] >= 3 && [[NSUserDefaults standardUserDefaults] integerForKey:kInviteFriendScreenFirstCounter] < 4) {
+        [[NSUserDefaults standardUserDefaults] setInteger:4 forKey:kInviteFriendScreenFirstCounter];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         return YES;
     }
 
@@ -130,7 +132,7 @@ static NSString * const kAppLaunchDate = @"AppLaunchDate";
 
 + (BOOL)emailOverlayShouldBeShown
 {
-    if (![self emailOverlayWasCompleted] || [[NSUserDefaults standardUserDefaults] integerForKey:kEmailOverlayCounter] >= 4) {
+    if (![self emailOverlayWasCompleted] && [[NSUserDefaults standardUserDefaults] integerForKey:kEmailOverlayCounter] >= 4) {
         [self resetEmailCount];
         return YES;
     } else {
